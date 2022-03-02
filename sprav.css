@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overlock&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overlock&family=Passions+Conflict&family=Paytone+One&family=Russo+One&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 1360px;
+
+
+    background: url(woodback.jpg);
+
+    background: url("../images/woodback.png");
+    background-size: 1360px;
+    background-repeat: no-repeat;
+}
+
+.head {
+    position: relative;
+    width: 100%;
+    height: 87px;
+    left: 0px;
+    top: calc(50% - 87px/2 - 467.5px);
+    background: rgba(164, 128, 0, 0.55);
+    border: 3px solid #000000;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button1 {
+    width: 122px;
+    height: 33px;
+    left: 31px;
+    top: 27px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button2 {
+    width: 122px;
+    height: 33px;
+    left: 275px;
+    top: 27px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+
+}
+
+.button3 {
+    width: 122px;
+    height: 33px;
+    left: 397px;
+    top: 27px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+
+    color: #000000;
+}
+
+.head h1 {
+    width: 172px;
+    height: 63px;
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 67px;
+    color: #000000;
+
+}
+
+.leftrow {
+    position: fixed;
+    width: 204px;
+    height: 500px;
+    left: -180px;
+    top: 88px;
+
+    background: #E0B35F;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+}
+
+.leftrow:hover {
+    animation: animation1 1s;
+    /* animation-iteration-count: infinite; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes animation1 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(150px, 0px);
+    }
+}
+
+
+.button4 {
+    width: 130px;
+    height: 110px;
+    left: 33px;
+    top: 191px;
+    cursor: pointer;
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 65px;
+    background: none;
+    border: none;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.button4:hover {
+    background-color: rgb(212, 141, 10);
+}
+
+.button5 {
+    width: 139px;
+    height: 65px;
+    left: 24px;
+    top: 303px;
+    cursor: pointer;
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 65px;
+    background: none;
+    border: none;
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button5:hover {
+    background-color: rgb(212, 141, 10);
+}
+
+.button6 {
+    width: 141px;
+    height: 65px;
+    left: 27px;
+    top: 415px;
+    cursor: pointer;
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 65px;
+    background: none;
+    border: none;
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button6:hover {
+    background-color: rgb(212, 141, 10);
+}
+
+.button7 {
+    width: 140px;
+    height: 65px;
+    left: 31px;
+    top: 527px;
+    cursor: pointer;
+    font-family: Overlock;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 65px;
+    background: none;
+    border: none;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button7:hover {
+    background-color: rgb(212, 141, 10);
+}
+
+
+a {
+    color: inherit;
+}
+
+a:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.main {
+    position: absolute;
+    width: 1141px;
+    height: 500px;
+    left: 152px;
+    top: 147px;
+    font-size: 18px;
+    z-index: 1;
+    font-family: Russo One;
+}
+
+@media screen and (max-width:600px) {
+    body {
+        width: 100%;
+        background-repeat: inherit;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .head {
+        width: 100%;
+        
+    }
+
+    .button {
+        width: 100%;
+     
+
+    }
+    h1{
+        display: none;
+    }
+    .leftrow{
+        position: fixed;
+    width: 204px;
+    height: 500px;
+    left: -180px;
+    top: 88px;
+
+    background: #E0B35F;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+    }
+}

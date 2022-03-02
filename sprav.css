@@ -15,7 +15,7 @@ body {
 
     background: url(woodback.jpg);
 
-    background: url("../images/woodback.png");
+    background: url("/images/woodback.png");
     background-size: 1360px;
     background-repeat: no-repeat;
 }

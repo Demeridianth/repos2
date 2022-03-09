@@ -11,11 +11,7 @@
 
 body {
     width: 1360px;
-
-
-    
-
-    background: url("images/woodback.png");
+    background: url("woodback.png");
     background-size: 1360px;
     background-repeat: no-repeat;
 }

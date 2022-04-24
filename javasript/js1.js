@@ -29,7 +29,7 @@ let
 let arr2;
 
 // document.write(x,str,bool); //data to document
-// document.write(arr,obj1) //data to document
+document.write(arr,obj1) //data to document
 // document.write(arr1[1]);
 // document.write(obj1.age);
 // document.write(arr2);

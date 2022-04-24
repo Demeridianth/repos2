@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 250px;
+            height: 250px;
+            color:red;
+        }
+        .active{
+            background-color: red;
+            color:white;
+        }
+
+        .modal{
+            display: none;
+            position:absolute;
+            padding:45px;
+            width: 300px;
+            height: 300px;
+           top:50%;
+           left:50%;
+            transform: translate(-50%,-50%);
+            background-color: brown;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sample text</h1>
+        <button id="openModalbtn">Open modal</button>
+    </div>
+
+    <div class="modal">
+        <button id="closeModalbtn">X</button>
+        <h3>Modal Window</h3>
+        <p>This is modal</p>
+    </div>
+
+
+    <script>
+        let div = document.querySelector('div');
+
+        div.onclick = function(){
+            div.classList.add("active");
+            
+        }
+
+        div.ondblclick = function(){
+            
+            div.classList.remove("active");
+        }
+        div.onmouseover = function(){
+            div.classList.toggle("active");
+            if(div.classList.contains("active")){
+                console.log(true);
+            }
+            
+        }
+        let modal = document.querySelector(".modal")
+        document.querySelector("#openModalbtn").onclick = function(){
+            modal.style.display = "block";
+        }
+        document.querySelector("#closeModalbtn").onclick = function(){
+            modal.style.display = "none";
+        }
+
+
+// Кредитный калькулятор, получает данные из input и генерирует таблицу по платежам и дописывает эту таблицу в любой див DIV сделать модальное окно кредитного калькулятора
+    </script>
+</body>
+</html>

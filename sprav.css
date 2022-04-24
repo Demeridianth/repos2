@@ -104,6 +104,29 @@ body {
 
 }
 
+ .h1animation {
+animation: animation2 0.3s;
+animation-iteration-count: infinite;
+}
+
+@keyframes animation2 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(15px, 0px);
+    }
+    50% {
+        transform: translate(15px, -15px);
+    }
+    75% {
+        transform: translate(0px, -15px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
 .leftrow {
     position: fixed;
     width: 204px;
@@ -288,13 +311,13 @@ a:active {
     h1{
         display: none;
     }
+}
     .leftrow{
         position: fixed;
     width: 204px;
     height: 500px;
     left: -180px;
     top: 88px;
-
     background: #E0B35F;
     border: 3px solid #000000;
     border-radius: 15px;
@@ -304,4 +327,4 @@ a:active {
     align-items: center;
     z-index: 2;
     }
-}
+    

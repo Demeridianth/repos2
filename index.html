@@ -7,20 +7,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sprav.css">
     <title>Document</title>
+    <style>
+        .smlbtn {
+            background-color: transparent;
+            color: red;
+            font-family: Russo One;
+            font-size: 18px;
+        }
+
+        .modal1 {
+            display: none;
+            position: absolute;
+            padding: 45px;
+            width: 200px;
+            height: 250px;
+            top: 65%;
+            left: 85%;
+            transform: translate(-50%, -50%);
+            background-image: url(images/larrypage.png);
+
+        }
+
+        .modal3 {
+            display: none;
+            position: absolute;
+            padding: 45px;
+            width: 200px;
+            height: 250px;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(images/erisshmidt.jpg);
+
+        }
+
+        .modal2 {
+            display: none;
+            position: absolute;
+            padding: 45px;
+            width: 200px;
+            height: 250px;
+            top: 60%;
+            left: 16%;
+            transform: translate(-50%, -50%);
+            background-image: url(images/sergeibrin.jpg);
+        }
+
+     
+
+        
+        
+
+    </style>
 
 </head>
 
 <body>
 
     <div class="head">
-        <button class="button1">
+        <button class="button1" name="btn1">
             <a href="spravfin.html">Финансирование</a> </button>
-        <button class="button2">
+        <button class="button2" name="btn1">
             <a href="spravrost.html">Рост</a> </button>
-        <button class="button3">
-           <a href="spravprio.html">Приобретения</a> </button>
+        <button class="button3" name="btn1">
+            <a href="spravprio.html">Приобретения</a> </button>
         <h1>
-           <a href="index.html">Google</a> </h1>
+            <a href="index.html">Google</a> </h1>
     </div>
     <div class="leftrow">
         <button class="button4">
@@ -47,8 +99,10 @@
         </p>
 
         <p>
-            Компания была основана в начале сентября 1998-го года. Основали её разработчик Ларри Пейдж и учёный в сфере
-            вычислительных технологий Сергей Брин. Позже к ним присоединился Эрик Шмидт, который на сегодняшний день
+            Компания была основана в начале сентября 1998-го года. Основали её разработчик <button id="openmdl1"
+                class="smlbtn">Ларри Пейдж</button> и учёный в сфере
+            вычислительных технологий <button id="openmdl2" class="smlbtn">Сергей Брин.</button> Позже к ним
+            присоединился <button id="openmdl3" class="smlbtn">Эрик Шмидт,</button> который на сегодняшний день
             занимает высокую должность в компании.
         </p>
         <p>
@@ -88,7 +142,55 @@
             впечатление без делового костюма. Впрочем, работать в компании Гугл, наверное, мечта любого уважающего себя
             программиста.
         </p>
+
+        <div class="modal1">
+            <button id="closeModalbtn1">X</button>
+
+        </div>
+
+        <div class="modal3">
+            <button id="closeModalbtn3">X</button>
+
+        </div>
+
+        <div class="modal2">
+            <button id="closeModalbtn2">X</button>
+
+        </div>
+
     </div>
+
+
+    <script>
+        let h1 = document.querySelector("h1");
+        h1.onmouseover = function () {
+            h1.classList.toggle("h1animation");
+        }
+
+        let modal = document.querySelector(".modal1")
+        document.querySelector("#openmdl1").onclick = function () {
+            modal.style.display = "block";
+        }
+        document.querySelector("#closeModalbtn1").onclick = function () {
+            modal.style.display = "none";
+        }
+
+        let modal3 = document.querySelector(".modal3")
+        document.querySelector("#openmdl3").onclick = function () {
+            modal3.style.display = "block";
+        }
+        document.querySelector("#closeModalbtn3").onclick = function () {
+            modal3.style.display = "none";
+        }
+
+        let modal2 = document.querySelector(".modal2")
+        document.querySelector("#openmdl2").onclick = function () {
+            modal2.style.display = "block";
+        }
+        document.querySelector("#closeModalbtn2").onclick = function () {
+            modal2.style.display = "none";
+        }
+    </script>
 
 </body>
 

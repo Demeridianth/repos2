@@ -13,7 +13,7 @@ body {
     width: 1360px;
     background: url("woodback.png");
     background-size: 1360px;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
 }
 
 .head {
@@ -328,3 +328,28 @@ a:active {
     z-index: 2;
     }
     
+    .myBtn{
+        display: none; 
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ width: 40px;
+ height: 50px;
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 3px;
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgb(218, 94, 36);
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+    }
+
+    .arrow{
+       width: 35px;
+       height: auto;
+    }

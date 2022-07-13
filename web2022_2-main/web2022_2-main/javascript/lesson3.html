@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // do while
+        //let x = 0;
+        // do{
+        //     x++;
+        //     console.log(x);
+        // }
+        // while(x<20);
+        //     x = 20;
+        //     while(x>=0){
+        //         if(x % 5 == 0){
+        //             console.log(x);
+                     
+        //         }
+                
+        //         x--;
+        // }
+
+        // let y = 1;
+        // for(let x=20;x>0;x--){
+        //     y *= x;
+        //     console.log(y)  //x = x*x->x*=x
+        // }
+
+
+
+            let table = "";
+            table += "<table width=\"100%\" border=\"1\">";
+                for(let i=0;i<=5;i++){
+                    table+="<tr>";
+                        for(let j = 0;j<=3;j++){
+                            table+="<td>";
+                            table+=i;
+                            table+="</td>";    
+                        }
+                    table+="</tr>";
+                }
+            table += "</table>";
+          
+            let users = [
+               {
+                   name:"Alex",
+                   age:25,
+                   about:"text1",
+                   image:"file1.jpg"
+               },
+                
+                {
+                   name:"Andrey",
+                   age:37,
+                   about:"text2",
+                   image:"file2.jpg"
+               },
+                
+                {
+                   name:"Jevgeny",
+                   age:45,
+                   about:"text3",
+                   image:"file3.jpg"
+               },
+               {
+                   name:"Mihail",
+                   age:51,
+                   about:"text4",
+                   image:"file4.jpg"
+               }
+                ];
+
+            let cards = "";
+            for(let z = 0; z < users.length;z++){
+                cards +=`
+                    <div class="card">
+                        <h1>${users[z].name}</h1>
+                        <h2>Age: ${users[z].age}</h1>
+                        <p>${users[z].about}</p>
+                        <img src="../img/${users[z].image}" width="250px">
+                     </div>   
+                `
+            }
+
+            
+
+            //document.write(table);
+            document.write(cards);
+            // console.log(cards);
+
+    </script>
+</body>
+</html>

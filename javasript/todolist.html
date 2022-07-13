@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <input type="text" placeholder="задание" class="task">
+    <input type="button" value="Добавить" class="addTask">
+    <div class="tasks">
+
+    </div>
+
+    <script>
+        //переменные
+        let task = document.querySelector('.task');
+        let addBtn = document.querySelector('.addTask');
+        let tasksDiv = document.querySelector('.tasks');
+        let tasks = [];
+
+        //Функцилнал
+        function addNewTask(){
+               tasks.push(task.value);
+               renderTasks();
+               console.log(tasks); 
+        }
+
+        function renderTasks(){
+            tasksDiv.innerHTML = "";
+            tasks.forEach(function(item,index){
+                tasksDiv.innerHTML +=`
+                    <div class="task">
+                        <span class="taskText">${item}</span>
+                        <button data-numer = "${index}" class="removeTask" onclick="removeTask(${index})">Удалить</button>
+                `;
+            })
+        }
+
+        function removeTask(id){
+            tasks.splice(id,1);
+            renderTasks();
+            console.log(tasks); 
+        }
+
+        // renderTasks();
+
+        // События
+        addBtn.addEventListener("click",addNewTask);
+
+
+        // сделать программу дл похода в магазин (что купить)
+            // Наполение массива Объектами 
+            // цена за покупку и сумма должна высчитываться автоматически
+            // если куплено, перечеркивается
+            // кнопка которая очищает список
+    </script>
+
+</body>
+</html>

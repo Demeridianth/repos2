@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="userForm">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="email" name="email">
+        <input type="submit" value="Send Data">
+    </form>
+
+
+    <script>
+        form = document.querySelector('form');
+
+        form.onsubmit = (event)=>{
+            event.preventDefault();
+            formdata = new FormData(form);
+            formdata.append("title","testing user");
+            sendData('POST','https://jsonplaceholder.typicode.com/posts',formdata);
+        }
+
+
+        function sendData(type,url,formdata){
+        xhr = new XMLHttpRequest();
+                 
+        xhr.onreadystatechange = ()=>{
+            if(xhr.readyState == 4 && xhr.status == 200){
+                console.log(xhr.response);
+            }
+        }
+        xhr.open(type,url);
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(formdata);
+
+
+}
+
+    </script>
+</body>
+</html>

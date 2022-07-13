@@ -7,10 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sprav.css">
     <title>Document</title>
+    <style>
+        .scripto {
+            /* display: flex; */
+            position: absolute;
+            width: 80%;
+            height: 600px;
+            top: 500px;
+            left: 15%;
+            background-color: transparent;
+            /* border: solid 5px; */
+            border-color: black;
+            /* z-index: 2; */
+        }
+
+
+        .main {
+            height: 300px;
+        }
+
+        .pic1 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 400px;
+            left: 350px;
+        }
+
+        .pic2 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 400px;
+            left: 550px;
+        }
+
+        .pic3 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 50px;
+            left: 350px;
+        }
+
+        .pic4 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 50px;
+            left: 550px;
+            ;
+        }
+
+        .pic5 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 220px;
+            left: 170px;
+        }
+
+        .pic6 {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 220px;
+            left: 730px;
+        }
+    </style>
 
 </head>
 
-<body>
+<body class="bod">
 
     <div class="head">
         <button class="button1">
@@ -18,9 +86,9 @@
         <button class="button2">
             <a href="spravrost.html">Рост</a> </button>
         <button class="button3">
-           <a href="spravprio.html">Приобретения</a> </button>
+            <a href="spravprio.html">Приобретения</a> </button>
         <h1>
-           <a href="index.html">Google</a> </h1>
+            <a href="index.html">Google</a> </h1>
     </div>
     <div class="leftrow">
         <button class="button4">
@@ -32,10 +100,12 @@
             <a href="https://ru.wikipedia.org/wiki/Gmail">Gmail</a>
         </button>
         <button class="button7">
-            <a href="https://ru.wikipedia.org/wiki/Google_%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8">Google News</a>
+            <a href="spravgallery.html">GGallery</a>
         </button>
 
     </div>
+
+
 
     <div class="main">
         <p>
@@ -64,6 +134,130 @@
         </p>
     </div>
 
+    <button class="myBtn" title="go to top">
+        <img class="arrow" src="/images/arrow2.png" alt="">
+
+    </button>
+
+
+
+
+
+    <div class="scripto" name="scripto">
+
+        <img src="/images/gicon.png" class="pic1" alt="">
+        <img src="/images/gicon.png" class="pic2" alt="">
+        <img src="/images/gicon.png" class="pic3" alt="">
+        <img src="/images/gicon.png" class="pic4" alt="">
+        <img src="/images/gicon.png" class="pic5" alt="">
+        <img src="/images/gicon.png" class="pic6" alt="">
+
+
+
+    </div>
+
+
+
+    <script>
+        let bod = document.querySelector(".bod")
+        let pic1 = document.querySelector(".pic1")
+        let pic2 = document.querySelector(".pic2")
+        let pic3 = document.querySelector(".pic3")
+        let pic4 = document.querySelector(".pic4")
+        let pic5 = document.querySelector(".pic5")
+        let pic6 = document.querySelector(".pic6")
+
+
+
+
+
+
+        pic1.classList.add('active');
+        pic1.onmouseover = function () {
+            console.log();
+            pic1.classList.toggle('active');
+            if (pic1.classList.contains('active')) {
+                bod.style.background = "red";
+            } else {
+                bod.style.background = "";
+            }
+        }
+
+        pic2.classList.add('active');
+        pic2.onmouseover = function () {
+            console.log();
+            pic2.classList.toggle('active');
+            if (pic2.classList.contains('active')) {
+                bod.style.background = "green";
+            }
+            // else{
+            //     bod.style.background="";
+            // }
+        }
+
+
+        pic3.classList.add('active');
+        pic3.onmouseover = function () {
+            console.log();
+            pic3.classList.toggle('active');
+            if (pic3.classList.contains('active')) {
+                bod.style.background = "black";
+            } else {
+                bod.style.background = "";
+            }
+        }
+
+        pic4.classList.add('active');
+        pic4.onmouseover = function () {
+            console.log();
+            pic4.classList.toggle('active');
+            if (pic4.classList.contains('active')) {
+                bod.style.background = "yellow";
+            } else {
+                bod.style.background = "";
+            }
+        }
+
+
+        pic5.classList.add('active');
+        pic5.onmouseover = function () {
+            console.log();
+            pic5.classList.toggle('active');
+            if (pic5.classList.contains('active')) {
+                bod.style.background = "blue";
+            } else {
+                bod.style.background = "";
+            }
+        }
+
+
+
+        pic6.classList.add('active');
+        pic6.onmouseover = function () {
+            console.log();
+            pic6.classList.toggle('active');
+            if (pic6.classList.contains('active')) {
+                bod.style.background = "brown";
+            } else {
+                bod.style.background = "";
+            }
+        }
+
+
+        mybutton = document.querySelector(".myBtn")
+        window.onscroll = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        mybutton.onclick = ()=>{
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
 </body>
 
 </html>

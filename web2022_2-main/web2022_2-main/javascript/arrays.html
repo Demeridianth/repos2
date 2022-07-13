@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        arr.push("Bananas");  //Adds element
+        arr.push("Trees");
+        arr.unshift("Car","people"); //Adds to beginning
+
+        // arr.pop();
+        // arr.shift();
+        arr2 = arr.join("*");
+        arr3 = [3,6,11,1,33,5];
+        arr.sort();
+        arr3.sort(function(a,b){
+            return a-b 
+            //сортировка чисел
+         });
+       arr4 =  arr3.map(function(arrItem,index,array){
+            return arrItem*5;
+        })
+
+        arr5 = arr3.filter(function(arrItem,index,array){
+            return arrItem>10;
+        })
+
+        arr6 = arr.findIndex(function(arrItem,index,array){
+            return arrItem =="Car";
+        })
+
+        arr.splice(2,0,"Apple","Fruits");
+        arr7 = arr.slice();
+        console.log(arr7);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result{
+            background-color: yellow;
+            height:50px;
+            margin-top: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="digit dig1">
+    <select name="action" id="">
+        <option value="">---</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" class="digit dig2">
+    <input type="button" value="result">
+
+    <div class="result">
+
+    </div>
+
+    <script>
+        document.querySelector("input[value=\"result\"]").onclick = function(){
+                let number1 = +document.querySelector("input.dig1").value;
+                let number2 = +document.querySelector("input.dig2").value;
+
+                let action = document.querySelector("select").value;
+                let result;
+                if(number1 == "" || number2 == ""){
+                    document.querySelector("div.result").innerHTML = "не введены цифры";
+                    return;
+                }
+                switch(action){
+                    case "+": result=number1 + number2;break;
+                    case "-": result=number1 - number2;break;
+                    case "*": result=number1 * number2;break;
+                    case "/": result=number1 / number2;break;
+                    default: result="Не выбрано действие!";break;
+                }
+
+                document.querySelector("div.result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+    {
+        "user":"Alex",
+        "mail":"alex@inbox.lv",
+        "role":"admin"
+    },
+    {
+        "user":"Andrew",
+        "mail":"andrew@inbox.lv",
+        "role":"user"
+    },
+    {
+        "user":"Michael",
+        "mail":"michael@inbox.lv",
+        "role":"admin"
+    }
+]

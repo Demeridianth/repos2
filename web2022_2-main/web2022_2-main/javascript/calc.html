@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="screen" class="screen">
+    <br>
+    <input type="button" value="1" class="digit">
+    <input type="button" value="2" class="digit">
+    <input type="button" value="3" class="digit">
+    <br>
+    <input type="button" value="4" class="digit">
+    <input type="button" value="5" class="digit">
+    <input type="button" value="6" class="digit">
+    <br>
+    <input type="button" value="7" class="digit">
+    <input type="button" value="8" class="digit">
+    <input type="button" value="9" class="digit">
+    <br>
+    <input type="button" value="0" class="digit">
+
+    <input type="button" value="+" class="operator">
+    <input type="button" value="-" class="operator">
+    <input type="button" value="*" class="operator">
+    <input type="button" value="/" class="operator">
+    <input type="button" value="=" class="result">
+  
+    <script>
+        let screen = document.querySelector("input[name=\"screen\"]");
+        let digits = document.querySelectorAll("input.digit");
+        let operators = document.querySelectorAll("input.operator");
+        let number1="";
+        let number2 = "";
+        let operation = "";
+
+        for(let i=0;i<digits.length;i++){
+            digits[i].onclick = function(){
+                if(operation==""){
+                    number1 += digits[i].value;
+                    screen.value = number1;
+                }else{
+                    number2 += digits[i].value;
+                    screen.value = number2;
+
+                }
+                
+                console.log(number2);
+            }
+        }
+
+        for(let j=0;j<operators.length;j++){
+            operators[j].onclick = function(){
+
+                number1   = +screen.value; 
+                screen.value="";
+
+                if(operators[j].value=="+"){
+                    operation="+";
+                } 
+                if(operators[j].value=="-"){
+                    operation="-";
+                } 
+                if(operators[j].value=="*"){
+                    operation="*";
+                } 
+                if(operators[j].value=="/"){
+                    operation="/";
+                } 
+
+                
+                
+            }
+
+        }
+
+        document.querySelector("input.result").onclick = function(){
+            if(operation=="+"){
+                screen.value = +number1 + +number2;
+            }
+            if(operation=="-"){
+                screen.value = +number1 - +number2;
+            }
+            if(operation=="*"){
+                screen.value = +number1 * +number2;
+            }
+            if(operation=="/"){
+                screen.value = +number1 / +number2;
+            }
+            //console.log(number1,+number2);
+            
+        }
+
+
+       
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

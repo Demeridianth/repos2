@@ -7,6 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sprav.css">
     <title>Document</title>
+    <style>
+        .frm {
+            position: absolute;
+            display: flex;
+            width: 900px;
+            height: 400px;
+            /* border: solid 5px; */
+            top: 700px;
+            right: 10%;
+        }
+
+        .sign {
+            display: flex;
+            width: 200px;
+            height: 200px;
+        }
+
+        .chck {
+            font-family: fantasy;
+
+        }
+
+        .br {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            width: 600px;
+        }
+
+        .error {
+            display: flex;
+            float: right;
+
+            width: 300px;
+            height: 300px;
+            /* border: solid; */
+        }
+
+        
+    </style>
 
 </head>
 
@@ -18,9 +57,9 @@
         <button class="button2">
             <a href="spravrost.html">Рост</a> </button>
         <button class="button3">
-           <a href="spravprio.html">Приобретения</a> </button>
+            <a href="spravprio.html">Приобретения</a> </button>
         <h1>
-           <a href="index.html">Google</a> </h1>
+            <a href="index.html">Google</a> </h1>
     </div>
     <div class="leftrow">
         <button class="button4">
@@ -32,7 +71,7 @@
             <a href="https://ru.wikipedia.org/wiki/Gmail">Gmail</a>
         </button>
         <button class="button7">
-            <a href="https://ru.wikipedia.org/wiki/Google_%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8">Google News</a>
+            <a href="spravgallery.html">GGallery</a>
         </button>
 
     </div>
@@ -68,6 +107,155 @@
             12 февраля 2014 года капитализация компании достигла 400 миллиардов долларов.
         </p>
     </div>
+
+    <button class="myBtn" title="go to top"> 
+        <img class="arrow" src="/images/arrow2.png" alt="">
+
+    </button>
+
+
+    <div class="frm">
+
+        <img class="sign" src="/images/sign.png" alt="">
+
+        <form action="action="mailto:serginjj@gmail.com method="post">
+            <div class="chck">
+                <label for="">CheckTOstart:</label>
+                <input type="checkbox" name="" id="">
+            </div>
+            <br>
+            <div class="br">
+                <label for=>Login:</label>
+                <br>
+                <input class="inpt" type="text" name="login" disabled>
+                <br>
+                <br>
+                <br>
+                <label for=>Password:</label>
+                <br>
+                <input type="password" name="pass" disabled>
+                <br>
+                <br>
+                <br>
+                <label for=>Email:</label>
+                <br>
+                <input type="text" name="email" disabled>
+                <br>
+                <br>
+                <br>
+                <label for=>Message:</label>
+                <br>
+                <input type="text" name="message" value="optional" disabled>
+            </div>
+            <div>
+                <br>
+                <input type="submit" value="send">
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        checkbox = document.querySelector('input[type="checkbox"]');
+        loginField = document.querySelector('input[name="login"]');
+        passField = document.querySelector('input[name="pass"]');
+        emailField = document.querySelector('input[name="email"]')
+        messageField = document.querySelector('input[name="message"]')
+        checkbox.onchange = () => {
+
+            if (checkbox.checked == false) {
+                loginField.disabled = true;
+                passField.disabled = true;
+                emailField.disabled = true;
+                messageField.disabled = true;
+            } else {
+                loginField.disabled = false;
+                passField.disabled = false;
+                emailField.disabled = false;
+                messageField.disabled = false;
+            }
+        }
+
+
+
+
+
+        let form = document.querySelector('form');
+        activeError = false;
+        form.onsubmit = (event) => {
+
+            event.preventDefault();
+            console.log(loginField);
+
+            let error = `
+            <span class="error">
+                
+                <img class="error" src="/images/error.png" alt="">
+            </span>    
+        `;
+
+            if (loginField.value.length < 3) {
+                if (activeError == false) {
+                    loginField.insertAdjacentHTML('afterend', error);
+                    activeError = true;
+                }
+
+            } else if (passField.value.length < 5) {
+                if (activeError == false) {
+                    passField.insertAdjacentHTML('afterend', error);
+                    activeError = true;
+                }
+            } else if (passField.value.length < 5) {
+                if (activeError == false) {
+                    passField.insertAdjacentHTML('afterend', error);
+                    activeError = true;
+                }
+
+
+
+
+            } else {
+                if (activeError) {
+                    document.querySelector('span.error').remove();
+                    activeError = false;
+                    form.submit();
+                }
+
+            }
+        }
+
+        mybutton = document.querySelector(".myBtn")
+        window.onscroll = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        mybutton.onclick = ()=>{
+            document.documentElement.scrollTop = 0;
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+
 
 </body>
 

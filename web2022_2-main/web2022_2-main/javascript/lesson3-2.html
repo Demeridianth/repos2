@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading1">hello!!!</h1>
+    <p></p>
+    <input type="text" name="int1">
+    <input type="text" name="int2">
+    <select name="action" id="">
+        <option value="">---</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        
+
+    </select>
+    <button>Посчитать</button>
+
+    <div class="result" style="border: 3px solid red">
+
+    </div>
+
+
+    <script>
+        // 
+
+        let h1 = document.getElementById("heading1");
+        let paragraph = document.querySelector("p");
+        let input = document.querySelector("input");
+        let btn = document.querySelector("button");
+
+        h1.style.backgroundColor = "black";
+        h1.style.color = "white";
+        h1.innerText = "I am Javascript!!!";
+        paragraph.innerText = h1.innerText;
+        // input.value = h1.innerText;
+
+
+        //Events - События 
+
+        h1.onclick = function(){
+            h1.style.color = "red";
+        }
+
+        btn.onclick = function(){
+            // let inpText = input.value;
+            // h1.innerText = inpText;
+            // paragraph.innerText = h1.innerText;
+            // 
+
+            let int1 = +document.querySelector("input[name='int1']").value;
+            let int2 = +document.querySelector("input[name='int2']").value;
+            document.querySelector("div.result").innerHTML = `
+                <h1>Результат сложения ${int1} и ${int2} = ${int1 + int2}</h1>
+            `;
+
+
+        }
+
+        //сделать калькулятор 4 действия (из выпадающего списка) с проверкой (самих цифр и выбором действия)
+        
+
+        
+        console.log(h1);
+    </script>
+</body>
+</html>

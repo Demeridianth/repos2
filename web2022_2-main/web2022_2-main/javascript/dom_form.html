@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="">
+        <div>
+            <label for="">Checkbox:</label>
+            <input type="checkbox" name="" id="">
+        </div> 
+        <div>  
+            <input type="text" name="login" disabled>
+            <input type="text" name="pass" disabled>
+        </div> 
+        <div>
+            <br>
+            <input type="submit" value="send">
+        </div>
+    </form>
+
+
+    <script>
+        checkbox = document.querySelector('input[type="checkbox"]');
+        loginField = document.querySelector('input[name="login"]');
+        passField = document.querySelector('input[name="pass"]');
+        checkbox.onchange = ()=>{
+            
+            if(checkbox.checked==false){
+                loginField.disabled=true;
+                passField.disabled = true;
+            }else{
+                loginField.disabled=false;
+                passField.disabled = false;
+            }
+        }
+
+
+
+
+
+        let form = document.querySelector('form');
+        activeError = false;
+        form.onsubmit = (event)=>{
+            
+            event.preventDefault();
+            console.log(loginField);
+            
+            let error = `
+                <span class="error">
+                    Проверьте данные
+                </span>    
+            `;
+
+            if(loginField.value.length < 3){
+                if(activeError==false){
+                    loginField.insertAdjacentHTML('afterend', error);
+                    activeError=true;
+                } 
+
+            }
+            else if(passField.value.length < 5){
+                if(activeError==false){
+                    passField.insertAdjacentHTML('afterend', error);
+                    activeError=true;
+                }    
+            }
+            else{
+                if(activeError){
+                    document.querySelector('span.error').remove();
+                    activeError=false;
+                    form.submit();
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

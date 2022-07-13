@@ -9,7 +9,7 @@
 <body>
     <script>
         let number1 = 10;
-        console.log(number1<0)
+        // console.log(number1<0);
         if(number1<0){
             //true
             // alert("ok");
@@ -17,12 +17,12 @@
             //false
             // alert("not ok");
         }
-        let age = prompt("Your age?")
-        if (age>=18 || confirm("agree???")){
-            document.write("ok")
-        }else{
-            document.write("not agreed")
-            // if (age>=18 && confirm("agree???")
+        // let age = prompt("Your age?");
+
+        // if (age>=18 || confirm("agree???")){
+        //     document.write("ok")
+        // }else{
+        //     document.write("not agreed");
         // }
 
         // if(age>=18){
@@ -42,21 +42,21 @@
 
         // document.write(number<10 ? "0"+number:number);//Ternary
 
-        //switch case - для перебора значений
-            // let day;
-        // switch (number){
-            // case 1: day="Monday";break;
-            // case 2: day="Tuesday";break;
-            // case 3: day="Wednesday";break;
-            // case 4: day="Thursday";break;
-            // case 5: day="Friday";break;
+        //switch case  - для перебора значений
+            let day;
+            switch (number){
+                case 1: day="Понедельник";break;
+                case 2: day="Вторник";break;
+                case 3: day="Среда";break;
+                case 4: day="Четверг";break;
+                case 5: day="Пятница";break;
+            }
+            document.write(day);
 
-        }
-        // document.write(day);
+            // "10.04.2022"  //10 апреля 2022 года
+            // регулярное выражение подсчитать количество слов в тексте
+            // Дополнить калькуляторы IF
 
-            // "10.04.2022" //10 april 2002 year
-            // регулярные выражения - подсчитать кол во слов в тектсе //
-            // calculator if //
     </script>
 </body>
 </html>

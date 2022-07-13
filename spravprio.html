@@ -32,7 +32,7 @@
             <a href="https://ru.wikipedia.org/wiki/Gmail">Gmail</a>
         </button>
         <button class="button7">
-            <a href="https://ru.wikipedia.org/wiki/Google_%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8">Google News</a>
+            <a href="spravgallery.html">GGallery</a>
         </button>
 
     </div>
@@ -85,6 +85,30 @@
         </p>
 
     </div>
+
+    <button class="myBtn" title="go to top"> 
+        <img class="arrow" src="/images/arrow2.png" alt="">
+
+    </button>
+
+
+
+    <script>
+
+mybutton = document.querySelector(".myBtn")
+        window.onscroll = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        mybutton.onclick = ()=>{
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
 
 </body>
 

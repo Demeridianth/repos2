@@ -10,9 +10,9 @@
 }
 
 body {
-    width: 1360px;
+    width: auto;
     background: url("woodback.png");
-    background-size: 1360px;
+    background-size: auto;
     background-repeat: repeat-y;
 }
 

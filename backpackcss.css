@@ -2,10 +2,10 @@
 
 body {
     position: relative;
-width: 1728px;
-height: 1117px;
+    width: 1728px;
+    height: 1117px;
 
-background: linear-gradient(112.29deg, #39393A 20.81%, #161618 100%);
+    background: linear-gradient(112.29deg, #39393A 20.81%, #161618 100%);
 }
 
 .line {
@@ -16,75 +16,104 @@ background: linear-gradient(112.29deg, #39393A 20.81%, #161618 100%);
     top: -0.01px;
 
     border: 1px solid #707070;
-    /* transform: rotate(90deg); */
+
 
 }
 
-.Home{
+.Home {
     position: absolute;
-width: 61px;
-height: 32px;
-left: 902px;
-top: 62px;
+    width: 61px;
+    height: 32px;
+    left: 902px;
+    top: 62px;
 
-font-family: 'Be Vietnam Pro';
-font-style: normal;
-font-weight: 700;
-font-size: 22px;
-line-height: 32px;
+    font-family: 'Be Vietnam Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
 
-color: #FFFFFf;
+    color: #FFFFFf;
 }
-.Products{position: absolute;
+
+.Products {
+    position: absolute;
     width: 94px;
     height: 32px;
     left: 1041px;
     top: 62px;
-    
+
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
     line-height: 32px;
-    
-    color: #FFFFFF;}
-.About{position: absolute;
+
+    color: #FFFFFF;
+}
+
+.About {
+    position: absolute;
     width: 64px;
     height: 32px;
     left: 1208px;
     top: 62px;
-    
+
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
     line-height: 32px;
-    
-    color: #FFFFFF;}
-.Location{position: absolute;
+
+    color: #FFFFFF;
+}
+
+.Location {
+    position: absolute;
     width: 93px;
     height: 32px;
     left: 1333px;
     top: 62px;
-    
+
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
     line-height: 32px;
-    
+
     color: #FFFFFF;
-    }
-.Cart{position: absolute;
+}
+
+.Cart {
+    position: absolute;
     width: 47px;
     height: 32px;
     left: 1487px;
     top: 62px;
-    
+
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
     line-height: 32px;
+
+    color: #FFFFFF;
+}
+
+.h1 {
+    position: absolute;
+    width: 364px;
+    height: 158px;
+    left: 1041px;
+    top: 247px;
     
-    color: #FFFFFF;}
+    font-family: 'Be Vietnam';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 103.6%;
+    /* or 79px */
+    
+    
+    color: #FFFFFF;
+}

@@ -1,0 +1,3 @@
+wifi 2,4 Ghz:  tplnsss - Ab9922296
+
+wifi 5 Ghz: TP-Link_7B85_5G - 18028478

@@ -1,0 +1,9 @@
+volos - 900
+fikus - 350
+prorok - 150
+mama - 40
+tjoma - 20
+otec - 80
+laura - 30
+kikinj sr. - 200
+fat - 100

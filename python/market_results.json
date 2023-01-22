@@ -1,0 +1,6 @@
+{"Amazon": 
+    {"Smartphones": {"iPhone 13": 700, "iPhone 13 Pro": 1000, "iPhone 13 Pro Max": 1300},
+    "Gaming Consoles": {"Xbox Series S": 400, "XBox Series X": 700, "Sony Playstation 5": 800}},
+"Best Buy":
+    {"Smartphones": {"iPhone 13": 700, "iPhone 14": 900, "iPhone 14 Pro": 1100},
+    "Gaming Consoles": {"Sony Playstation 5": 850, "Nintendo Switch OLED": 380}}}

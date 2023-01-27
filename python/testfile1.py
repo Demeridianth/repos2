@@ -1,41 +1,93 @@
-import json
-marketplaces_data = [
-    {
-        'name': 'Amazon',
-        'products': [
-            {'name': 'iPhone 13', 'category': 'Smartphones', 'price': 700},
-            {'name': 'iPhone 13 Pro', 'category': 'Smartphones', 'price': 1000},
-            {'name': 'iPhone 13 Pro Max', 'category': 'Smartphones', 'price': 1300},
-            {'name': 'Xbox Series S', 'category': 'Gaming Consoles', 'price': 400},
-            {'name': 'XBox Series X', 'category': 'Gaming Consoles', 'price': 700},
-            {'name': 'Sony Playstation 5', 'category': 'Gaming Consoles', 'price': 800},
-        ]
-    },
-
-    {
-        'name': 'Best Buy',
-        'products': [
-            {'name': 'iPhone 13', 'category': 'Smartphones', 'price': 700},
-            {'name': 'iPhone 14', 'category': 'Smartphones', 'price': 900},
-            {'name': 'iPhone 14 Pro', 'category': 'Smartphones', 'price': 1100},
-            {'name': 'Sony Playstation 5', 'category': 'Gaming Consoles', 'price': 850},
-            {'name': 'Nintendo Switch OLED', 'category': 'Gaming Consoles', 'price': 380},
-        ]
-    }
-]
 
 
-marketplaces_file = open('marketplaces.json', 'w')
-generate_json = json.dumps(marketplaces_data)
-marketplaces_file.write(generate_json)
-marketplaces_file.close
 
-marketplaces_file = open('marketplaces.json', 'r')
-read_file = marketplaces_file.read()
-marketplaces_file.close
 
-into_python = json.loads(read_file)
-print(into_python)
+# def foo(d):
+#     my_dict = {}
+#     for key, value in d.items():
+#         my_dict[value] = key
+#     return my_dict    
+
+# c = {'c': 3, 'd': 4, 'z': 5}    
+# d = {'a': 1, 'b': 2}
+# print(foo(c))
+
+# def foo(l):
+#     a = str(l)
+#     b = a.replace('[', '').replace(']', '').split(', ')
+ 
+#     c = []
+#     for i in b:
+#         if i != '':
+#             c.append(int(i))
+#     return c
+    
+
+
+# l = [['1', '2'], [], ['6', '7', '8']]
+
+# print(foo(l))
+
+
+
+# def foo(l):
+#     my_list = []
+#     for i in l:
+#         for a in i:
+#             my_list.append(a)
+#     return my_list
+
+# l = [[1, 4, 6], [], ['2', '6']]
+# print(foo(l))
+
+
+# def foo(n1, n2):
+#     result = {}
+#     index_to_key = {}
+
+#     for index, key in enumerate(n1):
+#         index_to_key[index] = key
+
+#     for index, value in enumerate(n2):
+#         key = index_to_key[index]
+#         result[key] = value 
+
+#     return result
+
+
+# def foo(keys, values):
+#     result = {}
+#     for i in range(len(keys)):
+#         key = keys[i]
+#         value = values[i]
+#         result[key] = value
+        
+#     return result
+
+
+
+
+# n1 = [1, 2, 3]
+# n2 = ['a', 'b', 'c']
+
+# print(foo(n1, n2))
+
+
+def foo(numbers1, numbers2):
+    result = []
+    for i in numbers1:
+        if i in numbers2:
+            result.append(i)
+    return result
+
+numbers1 = [1, 2, 3]
+numbers2 = ['a,', 2, 'c']
+
+print(foo(numbers1, numbers2))
+
+
+
+
 
 
 

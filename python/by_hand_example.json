@@ -4,7 +4,7 @@
       "last-name": "Smith",
       "emails": [
         {"email":  "alex.smith@company.local", "type": "work"},
-        {"wmail":  "funny-bunny@gmail.local", "type":  "personal"}
+        {"email":  "funny-bunny@gmail.local", "type":  "personal"}
       ]
     }
 ]

@@ -11,27 +11,35 @@ contacts = [
 
 
 file = open('by_hand.json', 'w')
-lines = []
-for alt in contacts:
-    first_name = alt['first_name']
-    last_name = alt['last_name']
-    line = f'[\n"first-name": "{first_name}",\n"last-name": "{last_name}",\n'
-    
-    file.write(line)
+file.write('[')
 
-    for email in alt['emails']:
-        lines.append(email)
-        # line1 = f'{email}'
-        line1 = f'"emails": [\n        {lines[0]},\n        {email}\n]'
+first_name = f'"first-name"'
+f_name = f'"Alex"'
+last_name = f'"last-name"'
+l_name = f'"Smith"'
+emails = f'"emails"'
 
-    file.write(line1)
+email_alex = f'"email"'
+eml_alex = f'"alex.smith@company.local"'
+alex_type = f'"type"'
+alex_work = f'"work"'
+Alex_Smith = {email_alex: eml_alex, alex_type: alex_work}
 
-  
-   
+email_bunny = f'"email"'
+eml_bunny = f'"funny-bunny@gmail.local"'
+bunny_type = f'"type"'
+bunny_personal = f'"personal"'
+Funny_Bunny = {email_bunny: eml_bunny, bunny_type: bunny_personal}
 
-    
+inside_emails = [Alex_Smith, Funny_Bunny]
 
-       
+overall_dict = {first_name: f_name, last_name: l_name, emails: inside_emails}
+
+overall = f'{overall_dict}'
+overall = overall.replace("'", '')
+
+file.write(overall)
+file.write(']')
 
 file.close()
 

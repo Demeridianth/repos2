@@ -55,20 +55,21 @@ generate_json = json.dumps(results)
 market.write(generate_json)
 market.close()
 
-# market = open('market.json', 'r')
-# market_data =  market.read()
-# market.close()
+market = open('market_results.json', 'r')
+market_data =  market.read()
+market.close()
 
-# read_json = json.loads(market_data)
+read_json = json.loads(market_data)
+print(read_json)
 
 
-for result in results:
-    print(result)
+# for result in results:
+#     print(result)
 
-    for category_name in results[result]:
-        print(f'   {category_name}')
-        for index, item_price in enumerate(results[result][category_name], start=1):
-            print(f'        {index}.{item_price}: {results[result][category_name][item_price]}')
+#     for category_name in results[result]:
+#         print(f'   {category_name}')
+#         for index, item_price in enumerate(results[result][category_name], start=1):
+#             print(f'        {index}.{item_price}: {results[result][category_name][item_price]}')
 
 
 

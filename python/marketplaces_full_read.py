@@ -25,6 +25,7 @@ marketplaces_data = [
 
 #results[store][category][name][price]
 
+#write
 
 marketplaces = open('marketplaces.txt', 'w')
 for data in marketplaces_data:
@@ -52,7 +53,7 @@ for line in lines:
     into_list = line.split(':')
     into_dict = {'name': into_list[0], 'category': into_list[1], 'price': int(into_list[2])}
     products1.append(into_dict)
-
+print(products1)
 
 marketplaces.close()
 

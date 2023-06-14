@@ -1,4 +1,5 @@
-
+from typing import Any
+import random
 # class Orange:
 #     def __init__(self, weight, color, mold):
 #         self.color = color
@@ -773,7 +774,10 @@
 
 
 
-# class MatchInfo:
+
+
+
+# class SportMatchInfo:
 #     def __init__(self) -> None:
 #         self.score = {'home team': 0, 'guest team': 0, 'score': [0, 0]}
 
@@ -795,85 +799,190 @@
 #     def team_scores(self, team):
 #         self.__setitem__(team)
 
-# game = MatchInfo()
+# game = SportMatchInfo()
 
 
 
 
-class Iterator:
-    def __init__(self, item) -> None:
-        self.item = item
-        self.position = - 1
+# class Iterator:
+#     def __init__(self, item) -> None:
+#         self.item = item
+#         self.position = - 1
 
-    def __next__(self):
-        self.position += 1
-        if self.position < len(self.item):
-            return self.item[self.position]
-        else:
-            raise StopIteration
+#     def __next__(self):
+#         self.position += 1
+#         if self.position < len(self.item):
+#             return self.item[self.position]
+#         else:
+#             raise StopIteration
 
-class IntTheBox:
-    def __init__(self, name) -> None:
-        self.container = {'name': name, 'item_count': 0, 'items': []}
+# class InTheBox:
+#     def __init__(self, name) -> None:
+#         self.container = {'name': name, 'item count': 0, 'items': []}
 
-    def __getitem__(self, key):
-        return self.container[key]
-    
-    def __setitem__(self, key, new_item):
-        if key == 'item_count' and new_item != None:
-            self.container[key] += 1
-
-        elif key == 'items':
-            self.container['items'].append(new_item)
-
-    def show_item_count(self):
-        return self.__getitem__('item_count')
-    
-    def show_items(self):
-        return self.__getitem__('items')
-    
-    def add_item(self, item):
-        self.__setitem__('item_count', item)
-        self.__setitem__('items', item)
-
-    def __iter__(self):
-        return Iterator(self)
-
-box = IntTheBox('box')
-
-
-
-
-
-
-class BankRecord:
-    def __init__(self, name) -> None:
-        self.record = {'name': name, 'balance': 100, 'transaction': [100]}
-
-    def __getitem__(self, key):
-        return self.record[key]
-    
-    def __setitem__(self, key, newvalue):
-        if key == 'balance' and newvalue != None:
-            self.record[key] += newvalue
+#     def __getitem__(self, key):
+#         return self.container[key]
         
-        elif key == 'transaction' and newvalue != None:
-            self.record[key].append(newvalue)
+#     def __setitem__(self, new_item):
+#         self.container['items'].append(new_item)
+#         self.container['item count'] += 1
 
-    def getBalance(self):
-        return self.__getitem__('balance')
+#     def show_items(self):
+#         return self.__getitem__('items')
     
-    def updateBalance(self, new_transaction):
-        self.__setitem__('balance', new_transaction)
-        self.__setitem__('transaction', new_transaction)
+#     def show_item_count(self):
+#         return self.__getitem__('item count')
+    
+#     def add_item(self, item):
+#           self.__setitem__(item)
 
-    def getTransaction(self):
-        return self.__getitem__('transaction')
+#     def __iter__(self):
+#         return Iterator(self)
+
+# boxxx = InTheBox('box')
+
+
+
+
+
+
+# class BankRecord:
+#     def __init__(self, name) -> None:
+#         self.record = {'name': name, 'balance': 100, 'transaction': [100]}
+
+#     def __getitem__(self, key):
+#         return self.record[key]
     
-    def numTransactions(self):
-        return len(self.record['transaction'])
+#     def __setitem__(self, key, newvalue):
+#         if key == 'balance' and newvalue != None:
+#             self.record[key] += newvalue
+        
+#         elif key == 'transaction' and newvalue != None:
+#             self.record[key].append(newvalue)
+
+#     def getBalance(self):
+#         return self.__getitem__('balance')
     
-joe = BankRecord('Joe')
+#     def updateBalance(self, new_transaction):
+#         self.__setitem__('balance', new_transaction)
+#         self.__setitem__('transaction', new_transaction)
+
+#     def getTransaction(self):
+#         return self.__getitem__('transaction')
+    
+#     def numTransactions(self):
+#         return len(self.record['transaction'])
+    
+# joe = BankRecord('Joe')
+
+
+
+
+
+
+
+# class Iterator:
+#     def __init__(self, item_to_iterate: 'TableContents'):
+#         self.item_to_iterate = item_to_iterate
+#         self.position = - 1
+
+#     def __next__(self):
+#         self.position += 1
+#         if self.position < len(self.item_to_iterate):
+#             return self.item_to_iterate[self.position]
+#         else:
+#             raise StopIteration
+
+
+# class TableContents:
+#     def __init__(self, name, color) -> None:
+#         self.name = name
+#         self.color = color
+#         self.contents = ['phone', 'knife', 'perfume', 'PS4']
+
+#     def __iter__(self):
+#         return Iterator(self)
+    
+#     def __getitem__(self, index):
+#         return self.contents[index]
+    
+#     def __setitem__(self, item):
+#         self.contents.append(item)
+
+#     def __len__(self):
+#         return len(self.contents)
+    
+#     def __str__(self):
+#         return str(self.contents)
+    
+#     def __repr__(self) -> str:
+#         return f'the contents are {self.contents}'
+    
+#     def __contains__(self, value):
+#         return value in self.contents
+    
+
+# class BoxOnTheTable(TableContents):
+#     def __init__(self, name, color) -> None:
+#         super().__init__(name, color)
+#         self.box_contents = []
+
+#     def __setitem__(self, item):
+#         self.box_contents.append(item)
+
+#     def add_from_the_table(self, item):
+#         if item in self.contents:
+#             self.__setitem__(item)
+
+#     def __repr__(self) -> str:
+#         return f'the contents are {self.box_contents}'
+    
+    
+# table = TableContents('table', 'black')
+
+# box = BoxOnTheTable('box', 'brown')
+
+
+class Container:
+    def __init__(self, x, y) -> None:
+        self.x = x
+        self.y = y
+
+    def __setitem__(self, key, value):
+        self.items[key] = value
+
+    def __getitem__(self, key):
+        return self.items[key]
+    
+    def __str__(self):
+        return f'{self.x}, {self.y}'
+    
+    # def __repr__(self) -> str:
+    #     return f'{self.items}'
+    
+    def __add__(self, other):
+        sum_x = self.x + other.x
+        sum_y = self.y + other.y
+        return Container(sum_x, sum_y)
+    
+    def __mul__(self, number):
+        return self.x * number, self.y * number
+    
+    def __rmul__(self, number):
+        return self * number
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    
+
+
+    
+
+
+
+box = Container(2, 4)
+box_1 = Container(2, 4)
+
 
 
 

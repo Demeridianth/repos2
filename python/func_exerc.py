@@ -1,6 +1,7 @@
 from typing import Callable
 from datetime import datetime
 
+
 # Функция должна принимать любой dict и возвращать dict,
     # в котором ключи и значения поменялись местами. 
 
@@ -62,7 +63,7 @@ from datetime import datetime
 #1
 
 # def foo(n1, n2):
-#     result = {}
+#     lst = {}
 #     index_to_key = {}
 
 #     for index, key in enumerate(n1):
@@ -70,32 +71,32 @@ from datetime import datetime
 
 #     for index, value in enumerate(n2):
 #         key = index_to_key[index]
-#         result[key] = value 
+#         lst[key] = value 
 
-#     return result
+#     return lst
 
 
 
 #2
 
 # def foo(keys, values):
-#     result = {}
+#     lst = {}
 #     for i in range(len(keys)):
 #         key = keys[i]
 #         value = values[i]
-#         result[key] = value
+#         lst[key] = value
         
-#     return result
+#     return lst
 
 
 #3 shortest
 
 # def combine(list1, list2):
-#     result = {}
+#     lst = {}
 
 #     for i in range(len(list1)):
-#             result[list1[i]] = list2[i]
-#     return result
+#             lst[list1[i]] = list2[i]
+#     return lst
 
 # n1 = [1, 2, 3]
 # n2 = ['a', 'b', 'c']
@@ -109,11 +110,11 @@ from datetime import datetime
 #1
 
 # def foo(numbers1, numbers2):
-#     result = []
+#     lst = []
 #     for i in numbers1:
 #         if i in numbers2:
-#             result.append(i)
-#     return result
+#             lst.append(i)
+#     return lst
 
 # numbers1 = [1, 2, 3]
 # numbers2 = [2, 5, 'c']
@@ -123,12 +124,12 @@ from datetime import datetime
 # 2
 
 # def foo(numbers1, numbers2):
-#     result = []
+#     lst = []
 #     for i in numbers1:
 #         for a in numbers2:
 #             if i == a:
-#                 result.append(i)
-#     return result
+#                 lst.append(i)
+#     return lst
 
 # numbers1 = [1, 2, 3]
 # numbers2 = [2, 5, 'c']
@@ -191,7 +192,7 @@ from datetime import datetime
 #     alph = 'abcdefghijklmnopqrstuvwxyz'
     
 #     encrypt = {}
-#     result = []
+#     lst = []
  
 #     for i in range(len(alph)):
 #         key = alph[i]
@@ -200,17 +201,17 @@ from datetime import datetime
    
 #     for i in message:
 #         if i not in alph:
-#             result.append(i) 
+#             lst.append(i) 
 #         else:
-#             result.append(encrypt[i])
+#             lst.append(encrypt[i])
         
-#     return ''.join(result)
+#     return ''.join(lst)
 
 
 # def decrypt_message(encrypted_message, secret_key):
 #     alph = 'abcdefghijklmnopqrstuvwxyz'
 #     decrypt = {}
-    # result = []
+    # lst = []
 
     # for i in range(len(secret_key)):
     #     key = secret_key[i]
@@ -219,10 +220,10 @@ from datetime import datetime
 
 #     for i in encrypted_message:
 #         if i not in secret_key:
-#             result.append(i)
+#             lst.append(i)
 #         else:
-#             result.append(decrypt[i])
-#     return ''.join(result)
+#             lst.append(decrypt[i])
+#     return ''.join(lst)
 
 # secret_key = "rmneabghxjcdfiopktulqwzysv"
 # message = '1, 2, 3, 4'
@@ -307,12 +308,12 @@ from datetime import datetime
 #2
 
 # def first_last(str1, str2):
-#     result = []
+#     lst = []
 
 #     for i in range(len(str1)):
-#         result.append(str1[i])
-#         result.append(str2[ - 1 - i])
-#     return ''.join(result)
+#         lst.append(str1[i])
+#         lst.append(str2[ - 1 - i])
+#     return ''.join(lst)
 
 # print(by_numbers('12', '34'))
 # print(by_numbers('12', '34'))
@@ -525,13 +526,13 @@ from datetime import datetime
     # [1, 2]
 
 # def pairs_to_n(numbers, n):
-#     result = []
+#     lst = []
 #     for i in range(len(numbers)):
 #         for z in range(i + 1, len(numbers)):
             
 #             if numbers[i] + numbers[z] == n:
-#                 result.append((numbers[i], numbers[z]))
-#     return result
+#                 lst.append((numbers[i], numbers[z]))
+#     return lst
 
 # assert pairs_to_n([50, 50, 20, 20], 100) == [(50, 50)]  
 
@@ -556,8 +557,8 @@ from datetime import datetime
 # def most_common_number(numbers):
 
 #     n1 = {}
-    # result_number = 0
-    # result_index = []
+    # lst_number = 0
+    # lst_index = []
 
     # for i in numbers:
     #     if i not in n1:
@@ -567,20 +568,20 @@ from datetime import datetime
     # for i in n1:
     #     for z in n1:
     #         if n1[i] > n1[z]:
-    #             if n1[i] > result_number:
-    #                 result_number = i
+    #             if n1[i] > lst_number:
+    #                 lst_number = i
     
     # for index, number in enumerate(numbers):
-    #     if number == result_number:
-    #         result_index.append(index)
+    #     if number == lst_number:
+    #         lst_index.append(index)
 
     # for i in range(len(numbers)):
-    #     if numbers[i] == result_number:
-    #         result_index.append(i)
+    #     if numbers[i] == lst_number:
+    #         lst_index.append(i)
 
-    # result = (result_number, result_index)
+    # lst = (lst_number, lst_index)
               
-    # return result
+    # return lst
 
 
 
@@ -589,7 +590,7 @@ from datetime import datetime
     # number_count = {}
     # most_frequent_number = None
     # most_frequent_number_count = None
-    # result_index = []
+    # lst_index = []
 
 
     # for n in numbers:
@@ -607,11 +608,11 @@ from datetime import datetime
 
     # for i in range(len(numbers)):
     #     if numbers[i] == most_frequent_number:
-    #         result_index.append(i)
+    #         lst_index.append(i)
 
-    # result = (most_frequent_number, result_index)
+    # lst = (most_frequent_number, lst_index)
 
-    # return result
+    # return lst
 
 
 
@@ -620,7 +621,7 @@ from datetime import datetime
     # number_counts = {}
     # most_frequent_number = None
     # most_frequent_number_count = 0
-    # result_index = []
+    # lst_index = []
 
     # for n in numbers:
     #     if n not in number_counts:
@@ -633,11 +634,11 @@ from datetime import datetime
 
     # for i in range(len(numbers)):
     #     if numbers[i] == most_frequent_number:
-    #         result_index.append(i)
+    #         lst_index.append(i)
     
-    # result = (most_frequent_number, result_index)
+    # lst = (most_frequent_number, lst_index)
 
-    # return result
+    # return lst
 
 
 #4 (shortest)
@@ -646,7 +647,7 @@ from datetime import datetime
     # most_common_number = 0
     # most_common_number_count = 0
     # most_common = {}
-    # index_result = []
+    # index_lst = []
 
     # for n in numbers:
     #     if n not in most_common:
@@ -660,11 +661,11 @@ from datetime import datetime
 
     # for n in range(len(numbers)):
     #     if numbers[n] == most_common_number:
-    #         index_result.append(n)
+    #         index_lst.append(n)
 
-    # result = (most_common_number, index_result)
+    # lst = (most_common_number, index_lst)
 
-    # return result
+    # return lst
 
 
 
@@ -797,13 +798,13 @@ from datetime import datetime
 
 
 # def mutate_numbers(numbers, modifier_func):
-#     result = []
+#     lst = []
 
 #     for n in numbers:
         
-#         result.append(modifier_func(n))
+#         lst.append(modifier_func(n))
     
-#     return result
+#     return lst
 
 
 # assert mutate_numbers([], increment) == []
@@ -837,9 +838,9 @@ from datetime import datetime
 # - Для списка  `numbers = [1]` будет просто возвращен его единственный элемент. 
 # - Для любого списка длиннее одного элемента `numbers = [1, 2, 3, 4]
 #            + Возьмем первые его два элемента и применим к ним функцию 
-#                reducer_func. `result = reducer_func(numbers[0], numbers[1])`
-#            + Если третьего элемента нет, вернем этот `result`.
-#            + Если третий элемент есть, то `result = reducer_func(result, numbers[2])
+#                reducer_func. `lst = reducer_func(numbers[0], numbers[1])`
+#            + Если третьего элемента нет, вернем этот `lst`.
+#            + Если третий элемент есть, то `lst = reducer_func(lst, numbers[2])
 #            + и так далее
     
 
@@ -850,12 +851,12 @@ from datetime import datetime
 #     return a * b
 
 # def reduce_numbers(numbers, reduce_func):
-#     result = numbers[0]   
+#     lst = numbers[0]   
 
 #     for i in range(1, len(numbers)):
-#         result = reduce_func(result, numbers[i])
+#         lst = reduce_func(lst, numbers[i])
 
-#     return result
+#     return lst
 
 # print(reduce_numbers([1, 2, 3, 4], add))
 
@@ -880,108 +881,6 @@ from datetime import datetime
 
 
 
-    
-
-#factorial
-
-# def factorial_using_a_loop(n):
-#     result = 1
-#     for n in range(1, n + 1):
-#         result *= n
-
-#     return result
-
-# print(factorial_using_a_loop(5))
-
-
-# RECURSION factorial
-
-# def factorial_using_recursion(n):
-#     if n <= 1:
-#         return 1
-    
-#     return n * factorial_using_recursion(n - 1)
-
-# print(factorial_using_recursion(5))
-
-
-
-
-#######################################
-
-
-
-
-#decorator
-
-
-#1
-# def my_func():
-#     print('this is inside')
-
-# def decorator(func):
-#     def wrapper():
-#         print('before wrap')
-#         func()
-#         print('after wrap')
-#     return wrapper
-
-# my_func = decorator(my_func)
-
-# print(my_func())
-
-
-#2
-
-# def decorator(func):
-#     def wrapper():
-#         print('before wrap')
-#         func()
-#         print('after wrap')
-#     return wrapper
-
-# @decorator
-# def my_func():
-#     print('some other message')
-
-
-
-                
-#3 datetime
-        
-
-# def not_during_the_night(func):
-#     def wrapper():
-#         if 7 <= datetime.now().hour < 22:
-#             func()
-#         else:
-#             pass 
-#     return wrapper
-
-
-# @not_during_the_night
-# def my_func():
-#     print('only during day time')
-
-
-
-#4 return wrapped function twice
-
-# def do_it_twice(func):
-#     def wrapper():
-#         func()
-#         func()
-#     return wrapper
-
-# @do_it_twice
-# def my_func():
-#     print('text twice')
-
-# print(my_func())
-
-
-
-
 
 # У вас есть список, содержащий кортежи из двух элементов. Первый элемент - имя человека, второй - его возраст. Напишите функцию group_by_age(), которая принимает на вход список и возвращает словарь, где ключами являются значения возраста, а значениями списки имен людей с этим возрастом.
 
@@ -989,25 +888,25 @@ from datetime import datetime
 
 # people = [("Alice", 25), ("Bob", 30), ("Charlie", 25), ("Dave", 35)]
 
-# result = group_by_age(people)
+# lst = group_by_age(people)
 
 # Результат: {'25': ['Alice', 'Charlie'], '30': ['Bob'], '35': ['Dave']}
 
 
 # def group_by_age(list1):
-#     result = {}
+#     lst = {}
 
 #     for name, age in list1:
-#         if age in result:
-#             result[age].append(name)
+#         if age in lst:
+#             lst[age].append(name)
 #         else:
-#             result[age] = [name]
+#             lst[age] = [name]
 
         
     
 
 
-#     return result   
+#     return lst   
 
 # print(group_by_age([("Alice", 25), ("Bob", 30), ("Charlie", 25), ("Dave", 35)]))
 
@@ -1034,21 +933,165 @@ from datetime import datetime
 
 
 
+# ДОБАВИТЬ В КОНЕЦ СПИСКА
+
+# На вход функции sort_zeros() поступает список состоящий из целых чисел. Данная функция должна вернуть этот список, отсортированный таким образом, чтобы все нули были в конце списка, а порядок остальных чисел остался бы без изменений.
+
+
+# def soft_zeros(lst):
+#     lst = []
+#     for n in lst:
+#         if n != 0:
+#             lst.append(n)
+#     for i in range(len(lst) -  len(lst)):
+#         lst.append(0)
+#     return lst
+
+# print(soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]))
+
+
+#sort_seros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]) --> [10, 3, 4, 5, 6, 7, 8, 0, 0, 0, 0]
+
+
+
+
+#SORTED
+
+
+# reverse
+# lst = [4, 2, 8]
+# sorted_lst = sorted(lst, reverse=True)
+# print(sorted_lst)
+
+
+
+# with key
+# def take_second(x):
+#     return x[1]
+
+# my_list = [(2, 2), (3, 4), (4, 1), (1, 3)]
+# sort_my_list = sorted(my_list, key=take_second)
+# print(sort_my_list)
+
+
+
+
+#with 2 keys
+# students_info = [
+#     ('Alice', 50, 18),
+#     ('Jimmy', 76, 19),
+#     ('Mark', 76, 18),
+#     ('Elena', 43, 20),
+#     ('Paul', 68, 20)
+# ]
+
+# def sorter(data):
+#     marks = 100 - data[1]
+#     age = data[2]
+#     return marks, age
+
+# lst = sorted(students_info, key=sorter)
+# print(lst)
+
+
+
+# credit_score_balance =  [
+#     ('Jerry', 80, 1000),
+#     ('Mike', 55, 2000),
+#     ('Pamela', 60, 2000),
+#     ('Luis', 90, 15500)
+# ]
+
+# def sorter(data):
+#     credit_score = 100 - data[1]
+#     ballance =  data[2]
+#     return credit_score, ballance
+
+# sorted_data = sorted(credit_score_balance, key=sorter, reverse=True)
+# print(sorted_data)
+
+
+
+
+# def is_anagram(a, b):
+#     if sorted(a) == sorted(b):
+#         return True
+#     else:
+#         return False
+ 
+# def is_anagram(a, b):
+#     if sorted(a) != sorted(b):
+#         return False
+#     return True
+
+# print(is_anagram('thing', 'night'))
+
+
+# def bigger_num(number):
+#     num_str = str(number)
+#     big_num = int(''.join(sorted(num_str, reverse=True)))
+#     print(type(big_num))
+#     return big_num
+    
+# print(bigger_num(2071))
+
+
+
+# Описание
+
+# Напишите функцию, которая путём перестановок цифр в числе возвращает наибольшее возможное число.
+
+# Примеры
+
+# biggerNum(2017) # Должно вернуть 7210
+
+# biggerNum(12345) # Должно вернуть 54321
+
+
+# def bigger_num(number):
+#     iter_number = str(number)
+#     lst =int(''.join(sorted(iter_number, reverse=True)))
+#     return lst
+
+# def bigger_num(number):
+#     num = str(number)
+#     result = ''
+#     lst = [i for i in num]
+#     for n in range(len(lst)):
+#         result += (max(lst))
+#         lst.remove(max(lst))
+#     return result
+
+
+# print(bigger_num(2017))
+
+
+# lst = [1, 2, 3, 4, 5]
+# max_lst = min(lst)
+# print(max_lst)
 
 
 
 
 
+# def check_if_the_sintax_is_right(text: str) -> bool:
+#     lst = []
+#     for k in text:
+#         if k == '(':
+#             lst.append(k)
+#         elif k == ')' and len(lst) == 0:
+#             return False
+#         elif k == ')':
+#             lst.pop()
+#     return lst == []
+
+# assert check_if_the_sintax_is_right('(())') == True
+# assert check_if_the_sintax_is_right('())))') == False
+# assert check_if_the_sintax_is_right('(()') == True
 
 
-
-
-
-
-
-
-
-
+            
+            
 
 
 

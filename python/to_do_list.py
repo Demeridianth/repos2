@@ -1,5 +1,5 @@
 import json
-def help():
+def help(to_do):
     print('help text')
 
 def add_task(to_do_tasks):
@@ -28,20 +28,29 @@ def replace_task_status(to_do_tasks):
     new_status = input('choose a new status name: ')
     to_do_tasks[which_task - 1]['status'] = new_status
 
-def write_to_json(to_do_lists):
-    write = input('give your file a name')
-    write_to_drive = open(write, 'w')
-    generate_json = json.dumps(to_do_lists)
-    write_to_drive.write(generate_json)
-    write_to_drive.close()
 
-def read_from_json(to_do_lists):
-    read = input('select a file to read from')
-    read_from_drive = open(read, 'r')
-    read_list =  read_from_drive.read()
-    read_json = json.loads(read_list)
-    read_from_drive.close()
-    return read_json
+def save_to_disk(name):
+    name =  input('give your file a name: ')
+    write_to_json(name)
+
+def write_to_json(name):
+    with open(f'{name}.json', 'w') as write_to_drive:
+        generated_json = json.dumps(tasks)
+        write_to_drive.write(generated_json)
+        write_to_drive.close()
+
+
+def read_from_disk(read):
+    read = input('select a file to read from: ')
+    read_from_json(read)
+
+def read_from_json(read):
+    with open(read, 'r') as read_from_drive:
+        read_list =  read_from_drive.read()
+        read_json = json.loads(read_list)
+        read_from_drive.close()
+        print(read_json)
+
 
 def get_user_input(message, converter=str):
     user_input = converter(input(message))
@@ -73,15 +82,15 @@ def get_user_input(message, converter=str):
         
 commands = {
     'help': help,
-    'exit': exit,
+    'exit': quit,
     'quit': exit,
     'add': add_task,
     'list': list_tasks,
     'delete': delete_task,
     'replace name': replace_task_name,
     'replace status': replace_task_status,
-    'write': write_to_json,
-    'read': read_from_json
+    'read': read_from_disk,
+    'save': save_to_disk
 }
 
 tasks = []

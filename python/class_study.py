@@ -130,39 +130,39 @@
 
 
 
-class NumbersIter:
-    def __init__(self, instance) -> None:
-        self.instance = instance
-        self.position = - 1
+# class NumbersIter:
+#     def __init__(self, instance) -> None:
+#         self.instance = instance
+#         self.position = - 1
 
-    def __next__(self):
-        self.position += 1
-        if self.position < len(self.instance):
-            return self.instance[self.position]
-        else:
-            raise StopIteration
+#     def __next__(self):
+#         self.position += 1
+#         if self.position < len(self.instance):
+#             return self.instance[self.position]
+#         else:
+#             raise StopIteration
 
-class Numbers:
-    def __init__(self) -> None:
-        self._data = [1, 2, 3, 4]
+# class Numbers:
+#     def __init__(self) -> None:
+#         self._data = [1, 2, 3, 4]
 
-    def __len__(self):
-        return len(self._data)
+#     def __len__(self):
+#         return len(self._data)
     
-    def __getitem__(self, index):
-        return self._data[index]
+#     def __getitem__(self, index):
+#         return self._data[index]
     
-    def __setitem__(self, index, value):
-        self._data[index] = value
+#     def __setitem__(self, index, value):
+#         self._data[index] = value
 
-    def __str__(self):
-        return str(self._data)
+#     def __str__(self):
+#         return str(self._data)
     
-    def __repr__(self):
-        return self._data
+#     def __repr__(self):
+#         return self._data
     
-    def __iter__(self):
-        return NumbersIter(self)
+#     def __iter__(self):
+#         return NumbersIter(self)
 
 
 

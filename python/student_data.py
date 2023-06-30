@@ -1,4 +1,5 @@
 import json
+import os
 
 
 class Student:
@@ -10,8 +11,7 @@ class Student:
     def __repr__(self):
         return f'{self.name}, {self.birthday}, {self.credit_points}'
     
-    def convert_to_dict(self):
-        return {'name': self.name, 'birthday': self.birthday, 'credit points': self.credit_points}
+  
     
 
 class Data:
@@ -39,7 +39,7 @@ class Data:
             credit_points = data['credit points']
             print(f'{index}. {name}; {birthday}, {credit_points}')
 
-    def update_student_data(self):
+    def edit_student_data(self):
         data_number = self._get_user_input('choose students number: ', int)
         data_type = self._get_user_input('choose what data would you like to change: ')
         if data_type == 'name':
@@ -57,16 +57,17 @@ class Data:
         with open('student_data.json', 'w') as write_to_drive:
             generated_json = json.dumps(self.data)
             write_to_drive.write(generated_json)
-            write_to_drive.close
-    
+            
     def read_from_disk(self):
         with open('student_data.json', 'r') as read_from_drive:
             read_data = read_from_drive.read()
             read_json = json.loads(read_data)
             for d in read_json:
                 self.data.append(d)
-            read_from_drive.close
 
+    def get_help(self):
+        print("list of commands:\n 'add' - add new student's data\n display - display all students data\n change - edit students data\n delete - delete a spicific student's data\n q - leave the programm\n help - display all commands")
+            
     def _get_user_input(self, message, converter=str):
         user_input = converter(input(message))
         return user_input
@@ -74,29 +75,22 @@ class Data:
     def __repr__(self):
         return f'{self.data}'
     
-    def __str__(self):
-        return str(self.data)
-
-    def __getitem__(self, key):
-        return self.data[key]
-
-    def __len__(self):
-        return len(self.data)
-    
-    def __iter__(self):
-        return DataIterator(self)
+ 
 
     def choose_command(self):
+        
         while True:
             user_input = self._get_user_input('choose a command: ')
             if user_input == 'add':
                 self.add_data()
             elif user_input == 'display':
                 self.display_student_data()
-            elif user_input == 'change':
-                self.update_student_data()
+            elif user_input == 'edit':
+                self.edit_student_data()
             elif user_input == 'delete':
                 self.delete_data()
+            elif user_input == 'help':
+                self.get_help()
             elif user_input == 'q':
                 break
             else:
@@ -109,7 +103,7 @@ class DataIterator:
 
     def __next__(self):
         self.position += 1
-        if len(self.position) < len(self.data_instance):
+        if self.position < len(self.data_instance):
             return self.data_instance[self.position]
         else:
             raise StopIteration

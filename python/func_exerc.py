@@ -13,7 +13,7 @@ from datetime import datetime
 
 # c = {'c': 3, 'd': 4, 'z': 5}    
 # d = {'a': 1, 'b': 2}
-# print(foo(c))
+# assert foo(c))
 
 
 
@@ -35,7 +35,7 @@ from datetime import datetime
     
 # l = [['1', '2'], [], ['6', '7', '8']]
 
-# print(foo(l))
+# assert foo(l))
 
 
 # def foo(l):
@@ -46,7 +46,7 @@ from datetime import datetime
 #     return my_list
 
 # l = [[1, 4, 6], [], ['2', '6']]
-# print(foo(l))
+# assert foo(l))
 
 
 
@@ -101,7 +101,7 @@ from datetime import datetime
 # n1 = [1, 2, 3]
 # n2 = ['a', 'b', 'c']
 
-# print(foo(n1, n2))
+# assert foo(n1, n2))
 
 
 
@@ -119,7 +119,7 @@ from datetime import datetime
 # numbers1 = [1, 2, 3]
 # numbers2 = [2, 5, 'c']
 
-# print(foo(numbers1, numbers2))
+# assert foo(numbers1, numbers2))
 
 # 2
 
@@ -134,7 +134,7 @@ from datetime import datetime
 # numbers1 = [1, 2, 3]
 # numbers2 = [2, 5, 'c']
 
-# print(foo(numbers1, numbers2))
+# assert foo(numbers1, numbers2))
 
 
 
@@ -162,7 +162,7 @@ from datetime import datetime
 # b = []
 # c = [1, 2, 8]
 
-# print(contains(a, b))
+# assert contains(a, b))
 
 
 
@@ -228,9 +228,9 @@ from datetime import datetime
 # secret_key = "rmneabghxjcdfiopktulqwzysv"
 # message = '1, 2, 3, 4'
 # a = encrypt_message(message, secret_key)
-# print(a)
+# assert a)
 # b = decrypt_message(a, secret_key)
-# print(b)
+# assert b)
 
 
 
@@ -280,7 +280,7 @@ from datetime import datetime
 #         numbers.append(str2[i])
 #     return ''.join(numbers)
 
-# print(by_numbers('1', '2'))
+# assert by_numbers('1', '2'))
 
 
 
@@ -315,12 +315,12 @@ from datetime import datetime
 #         lst.append(str2[ - 1 - i])
 #     return ''.join(lst)
 
-# print(by_numbers('12', '34'))
-# print(by_numbers('12', '34'))
-# print(by_numbers('12', '34'))
-# print(by_numbers('12', '34'))
-# print(by_numbers('12', '34'))
-# print(by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
+# assert by_numbers('12', '34'))
 
 
 
@@ -352,7 +352,7 @@ from datetime import datetime
 #     return True
 
 
-# print(all_even([2, 4]))
+# assert all_even([2, 4]))
 
 
 
@@ -396,14 +396,14 @@ from datetime import datetime
 #     return True
 
 
-# print(is_palindrome(''))
-# print(is_palindrome('a'))
-# print(is_palindrome('aa'))
-# print(is_palindrome('ab'))
-# print(is_palindrome('aba'))
-# print(is_palindrome('abb'))
-# print(is_palindrome('abab'))
-# print(is_palindrome('abba'))
+# assert is_palindrome(''))
+# assert is_palindrome('a'))
+# assert is_palindrome('aa'))
+# assert is_palindrome('ab'))
+# assert is_palindrome('aba'))
+# assert is_palindrome('abb'))
+# assert is_palindrome('abab'))
+# assert is_palindrome('abba'))
 
 
    
@@ -434,7 +434,7 @@ from datetime import datetime
 
 
 # text = 'abz1zba'
-# print(if_palindrome(text))
+# assert if_palindrome(text))
 
 
 
@@ -515,7 +515,7 @@ from datetime import datetime
 #     return True
 
 
-# print(if_anagram('baab', 'bbaa'))
+# assert if_anagram('baab', 'bbaa'))
 
 
 # def pairs_to_n(numbers: list[int], n: int) -> list[tuple[int, int]]:
@@ -670,12 +670,12 @@ from datetime import datetime
 
 
 
-# print(most_common_number([1, 2, 3, 3, 3]))
-# print(most_common_number([1, 2, 2, 2, 3, 4]))
-# print(most_common_number([1, 1, 1, 1, 1, 4, 5]))
-# print(most_common_number([]))
-# print(most_common_number([1, 2, 3, 4, 5]))
-# print(most_common_number([1, 2, 2, 3, 3, 4, 5]))
+# assert most_common_number([1, 2, 3, 3, 3]))
+# assert most_common_number([1, 2, 2, 2, 3, 4]))
+# assert most_common_number([1, 1, 1, 1, 1, 4, 5]))
+# assert most_common_number([]))
+# assert most_common_number([1, 2, 3, 4, 5]))
+# assert most_common_number([1, 2, 2, 3, 3, 4, 5]))
 
 
 
@@ -736,7 +736,7 @@ from datetime import datetime
 
 # def print_greeting(name, create_greeting_text):
 #     greeting_text = create_greeting_text(name)
-#     print(greeting_text)
+#     assert greeting_text)
     
 # def say_hi(name):
 #     return f' Hi {name}'
@@ -769,7 +769,7 @@ from datetime import datetime
 # def print_by_one(numbers, number_filter):
 #     for i in numbers:
 #         if number_filter(i):
-#             print(i)
+#             assert i)
 
 # print_by_one([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], is_odd)
 # print_by_one([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], is_even)
@@ -858,7 +858,7 @@ from datetime import datetime
 
 #     return lst
 
-# print(reduce_numbers([1, 2, 3, 4], add))
+# assert reduce_numbers([1, 2, 3, 4], add))
 
 
 
@@ -908,7 +908,7 @@ from datetime import datetime
 
 #     return lst   
 
-# print(group_by_age([("Alice", 25), ("Bob", 30), ("Charlie", 25), ("Dave", 35)]))
+# assert group_by_age([("Alice", 25), ("Bob", 30), ("Charlie", 25), ("Dave", 35)]))
 
 
 
@@ -947,7 +947,7 @@ from datetime import datetime
 #         lst.append(0)
 #     return lst
 
-# print(soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]))
+# assert soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]))
 
 
 #sort_seros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]) --> [10, 3, 4, 5, 6, 7, 8, 0, 0, 0, 0]
@@ -961,7 +961,7 @@ from datetime import datetime
 # reverse
 # lst = [4, 2, 8]
 # sorted_lst = sorted(lst, reverse=True)
-# print(sorted_lst)
+# assert sorted_lst)
 
 
 
@@ -971,7 +971,7 @@ from datetime import datetime
 
 # my_list = [(2, 2), (3, 4), (4, 1), (1, 3)]
 # sort_my_list = sorted(my_list, key=take_second)
-# print(sort_my_list)
+# assert sort_my_list)
 
 
 
@@ -991,7 +991,7 @@ from datetime import datetime
 #     return marks, age
 
 # lst = sorted(students_info, key=sorter)
-# print(lst)
+# assert lst)
 
 
 
@@ -1008,7 +1008,7 @@ from datetime import datetime
 #     return credit_score, ballance
 
 # sorted_data = sorted(credit_score_balance, key=sorter, reverse=True)
-# print(sorted_data)
+# assert sorted_data)
 
 
 
@@ -1024,16 +1024,16 @@ from datetime import datetime
 #         return False
 #     return True
 
-# print(is_anagram('thing', 'night'))
+# assert is_anagram('thing', 'night'))
 
 
 # def bigger_num(number):
 #     num_str = str(number)
 #     big_num = int(''.join(sorted(num_str, reverse=True)))
-#     print(type(big_num))
+#     assert type(big_num))
 #     return big_num
     
-# print(bigger_num(2071))
+# assert bigger_num(2071))
 
 
 
@@ -1063,12 +1063,12 @@ from datetime import datetime
 #     return result
 
 
-# print(bigger_num(2017))
+# assert bigger_num(2017))
 
 
 # lst = [1, 2, 3, 4, 5]
 # max_lst = min(lst)
-# print(max_lst)
+# assert max_lst)
 
 
 
@@ -1094,9 +1094,45 @@ from datetime import datetime
             
 
 
+# Напишите функцию searchInsert(), которая на вход принимает отсортированный по возрастанию массив чисел и некоторое число. Необходимо найти индекс элемента массива, который равен этому числу. Если такого числа в массиве нет, то нужно вернуть индекс массива, куда это число следует вставить.
+
+# Примеры работы данной функции:
+
+# searchInsert([1,3,5,6], 5) --> 2
+# searchInsert([1,3,5,6], 2) --> 1
+
+### without built-in functions ###
+
+# def search_insert(lst: list, n: int) -> int:
+#     for i in range(len(lst)):
+#        if n not in lst:
+           
+        # # elif len(lst) > n:
+        #     return len(lst) + 1
+
+            
+       
+        
+# with index() and sorted()
+
+def search_insert(lst: list, n: int) -> int:
+    if n not in lst:
+       lst.append(n)
+       return sorted(lst).index(n)
+    else: 
+        return lst.index(n)
+
+# assert search_insert([1,3,5,6], 5) == 2
+# assert search_insert([1,3,5,6], 2) == 1
+# assert search_insert([1,3,5,6], 3) == 1
+# assert search_insert([1,3,5,6], 4) == 2
+# assert search_insert([1,3,5,6], 7) == 4
+# assert search_insert([1,3,5,6], 0) == 0
 
 
-    
+
+
+
 
 
 

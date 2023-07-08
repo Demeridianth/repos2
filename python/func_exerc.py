@@ -1115,12 +1115,12 @@ from datetime import datetime
         
 # with index() and sorted()
 
-def search_insert(lst: list, n: int) -> int:
-    if n not in lst:
-       lst.append(n)
-       return sorted(lst).index(n)
-    else: 
-        return lst.index(n)
+# def search_insert(lst: list, n: int) -> int:
+#     if n not in lst:
+#        lst.append(n)
+#        return sorted(lst).index(n)
+#     else: 
+#         return lst.index(n)
 
 # assert search_insert([1,3,5,6], 5) == 2
 # assert search_insert([1,3,5,6], 2) == 1
@@ -1131,6 +1131,15 @@ def search_insert(lst: list, n: int) -> int:
 
 
 
+
+# def fun():
+#     a = input('text: ')
+#     b = input('text: ')
+#     c = input('text: ')
+#     return (a, b, c)
+
+# let_a, let_b, let_c = fun()
+# print(let_a, let_b, let_c)
 
 
 

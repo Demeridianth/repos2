@@ -943,45 +943,52 @@ import random
 # box = BoxOnTheTable('box', 'brown')
 
 
-class Container:
-    def __init__(self, x, y) -> None:
-        self.x = x
-        self.y = y
+# class Container:
+#     def __init__(self, x, y) -> None:
+#         self.x = x
+#         self.y = y
 
-    def __setitem__(self, key, value):
-        self.items[key] = value
+#     def __setitem__(self, key, value):
+#         self.items[key] = value
 
-    def __getitem__(self, key):
-        return self.items[key]
+#     def __getitem__(self, key):
+#         return self.items[key]
     
-    def __str__(self):
-        return f'{self.x}, {self.y}'
+#     def __str__(self):
+#         return f'{self.x}, {self.y}'
     
-    # def __repr__(self) -> str:
-    #     return f'{self.items}'
+#     # def __repr__(self) -> str:
+#     #     return f'{self.items}'
     
-    def __add__(self, other):
-        sum_x = self.x + other.x
-        sum_y = self.y + other.y
-        return Container(sum_x, sum_y)
+#     def __add__(self, other):
+#         sum_x = self.x + other.x
+#         sum_y = self.y + other.y
+#         return Container(sum_x, sum_y)
     
-    def __mul__(self, number):
-        return self.x * number, self.y * number
+#     def __mul__(self, number):
+#         return self.x * number, self.y * number
     
-    def __rmul__(self, number):
-        return self * number
+#     def __rmul__(self, number):
+#         return self * number
     
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-    
-
-
+#     def __eq__(self, other):
+#         return self.x == other.x and self.y == other.y
     
 
 
 
-box = Container(2, 4)
-box_1 = Container(2, 4)
+def fun():
+    a = input('text: ')
+    b = input('text: ')
+    c = input('text: ')
+    return (a, b, c)
+
+let_a, let_b, let_c = fun()
+print(let_a, let_b, let_c)
+    
+
+
+
 
 
 

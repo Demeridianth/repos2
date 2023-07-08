@@ -66,12 +66,12 @@ class JsonFileStudentsRepository:
         student_records.append(new_student_record)
         self._write_student_records_to_file(student_records)
 
-    def _write_student_records_to_file(self, student_records: list[dict]) -> None:
+    def _write_student_records_to_file(self, student_records):
         """Записать на диск набор записей (словарей нужного формата)."""
         with open(self.filename, 'w') as data_file:
             data_file.write(json.dumps(student_records))
 
-    def _read_records_from_file(self) -> list[dict]:
+    def _read_records_from_file(self):
         """Прочесть с диска набор записей (словарей нужного формата)."""
         # Если файла еще нет, надо его создать и сохранить в него пустой список студентов"""
         if not os.path.exists(self.filename):
@@ -90,12 +90,12 @@ class JsonFileStudentsRepository:
             data = data_file.read()
         return json.loads(data)
 
-    def _parse_student_records_from_file(self, student_records: list[dict]) -> list[Student]:
+    def _parse_student_records_from_file(self, student_records):
         """Сконвертировать набор записей (словарей нужного формата) в набор объектов Student."""
         result = []
         for record in student_records:
-            student = Student(first_name=record['first_name'], last_name=record['last_name'], age=record['age'])
-            result.append(student)
+            # student = Student(name=record['name'], last_name=record['last_name'], age=record['age'])
+            result.append(record)
         return result
         
     def _conver_student_to_dict(self, student: Student) -> dict:
@@ -114,15 +114,19 @@ class RussianConsoleUI:
         return RussianConsoleUI._get_user_input('enter a command: ')
     
     @staticmethod
-    def get_student_data() -> tuple(str, str, int):
+    def get_student_data() -> tuple:
         first_name = RussianConsoleUI._get_user_input('Введите имя студнта: ')
         last_name = RussianConsoleUI._get_user_input('Введите фамилию студента: ')
         age = RussianConsoleUI._get_user_input('Введите возраст студента: ', converter_func=int)
         return (first_name, last_name, age)
 
     @staticmethod
-    def list_students(students: list[Student]) -> None:
-        print(students)
+    def list_students(students) -> None:
+        for index, student in enumerate(students, start=1):
+           name = student['name']
+           last_name = student['last_name']
+           age = student['age']
+           print(f'{index}. {name}, {last_name}, {age}')
 
     @staticmethod
     def _get_user_input(prompt_text: str, converter_func = str):
@@ -152,7 +156,7 @@ if __name__ == '__main__':
 
     ui_functions.list_available_actions()
     while True:
-        ui_functions.list_available_actions()
+        
         selected_action = ui_functions.get_action()
         
 
@@ -163,7 +167,7 @@ if __name__ == '__main__':
             ui_functions.list_students(students)
         elif selected_action == 'add':
             first_name, last_name, age = ui_functions.get_student_data()
-            new_student = Student(first_name=first_name, last_name=last_name, age=age)
+            new_student = Student(first_name, last_name=last_name, age=age)
             students_repository.add_student(new_student)
         elif selected_action == 'quit':
             break

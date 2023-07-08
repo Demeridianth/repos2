@@ -37,7 +37,7 @@ class Card:
 class Deck:
     def __init__(self) -> None:
         self.cards = []
-        for i in range(2, len(CARD_VALUES)):
+        for i in range(len(CARD_VALUES)):
             for j in range(len(CARD_SUITS)):
                 self.cards.append(Card(i, j))
         shuffle(self.cards)

@@ -54,9 +54,39 @@ class ConsoleUI:
     @staticmethod
     def _get_user_input(message, converter=str) -> str:
         return converter(input(message))
+    
+    @staticmethod
+    def _get_students_number() -> int:
+        number = ConsoleUI._get_user_input('enter students number: ', int)
+        return number
+
+    @staticmethod
+    def _get_data_type() -> str:
+        data_type = ConsoleUI._get_user_input('choose what data would you like to change: ')
+        return data_type
+    
+    @staticmethod
+    def _get_new_name() -> str:
+        new_name = ConsoleUI._get_user_input('choose a new name: ')
+        return new_name
+
+    @staticmethod
+    def _get_new_date() -> str:
+        new_date = ConsoleUI._get_user_input('choose new date: ')
+        return new_date
+
+    @staticmethod
+    def _get_new_points() -> int:
+        new_credit_score = ConsoleUI._get_user_input('update credit points: ', int)
+        return new_credit_score
+    
+    @staticmethod
+    def list_all_actions():
+        print(f'"add", "list", "delete", "edit", "help"')
 
 
-class JsonFileRepository:
+
+class JsonFileRepositoryActions:
     def __init__(self, filename) -> None:
         self.filename = filename
 
@@ -76,10 +106,11 @@ class JsonFileRepository:
             self.write_to_json_file([])
 
 
+
 if __name__ == '__main__':
     ui_functions = ConsoleUI()
     students_data = InMemoryStudentsData()
-    students_repository = JsonFileRepository('student_data.json')
+    students_repository = JsonFileRepositoryActions('student_data.json')
 
     all_students = students_repository.read_from_json_file()
     try:
@@ -89,28 +120,45 @@ if __name__ == '__main__':
         pass
 
     while True:
-       
         selected_action =  ui_functions._get_action()
+
         if selected_action == 'add':
             name, birthday, credit_points =  ui_functions._get_student_data()
             new_student = Student(name=name, birthday=birthday, credit_points=credit_points)
             student = new_student.convert_to_dict()
             students_data.add_student(student)
             students_repository.write_to_json_file(students_data.get_all_students())
+
         elif selected_action == 'list':
             students = students_data.get_all_students()
             ui_functions._list_students(students)
+
         elif selected_action =='delete':
             students = students_data.get_all_students()
-            
+            number = ui_functions._get_students_number()
+            students.pop(number - 1)
+            students_repository.write_to_json_file(students_data.get_all_students())
+
         elif selected_action == 'edit':
-            ...
-        elif selected_action == 'delete':
-            ...
+            students = students_data.get_all_students()
+            student = ui_functions._get_students_number()
+            data_type = ui_functions._get_data_type()
+            if data_type == 'name':
+                new_name = ConsoleUI._get_new_name()
+                students[student - 1]['name'] = new_name
+                students_repository.write_to_json_file(students_data.get_all_students())
+            elif data_type == 'birthday':
+                new_birthday = ConsoleUI._get_new_date()
+                students[student - 1]['birthday'] = new_birthday
+                students_repository.write_to_json_file(students_data.get_all_students())
+            elif data_type == 'credit points':
+                updated_credit_score = ConsoleUI._get_new_points()
+                students[student - 1]['credit points'] = updated_credit_score
+                students_repository.write_to_json_file(students_data.get_all_students())
         elif selected_action == 'help':
-            ...
+                ConsoleUI.list_all_actions()
         elif selected_action == 'q':
-            break
+                break
         else:
             print('unknown command')
             

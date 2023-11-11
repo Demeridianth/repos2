@@ -9,6 +9,43 @@ class Node:
             self.traverse_in_order(root.left)
             print(root.data)
             self.traverse_in_order(root.right)
+
+    def insert(self, data):
+        if self.data:
+            if data < self.data:
+                if self.left is None:
+                    self.left = Node(data)
+                else:
+                    self.left.insert(data)
+            elif data > self.data:
+                if self.right is None:
+                    self.right = Node(data)
+                else:
+                    self.right.insert(data)
+        else:
+            self.data = data
+
+    def print_tree(self):
+        if self.left:
+            self.left.print_tree()
+        print(self.data)
+        if self.right:
+            self.right.print_tree()
+
+
+    def search(self, data):
+        if data == self.data:
+            return f'{data} is found in tree' 
+        elif data < self.data:
+            if self.left:
+                return self.left.search(data)
+            else:
+                return f'{data} is not found in tree'
+        else:
+            if self.right:
+                return self.right.search(data)
+            else:
+                return f'{data} is not found in tree
             
 
 root = Node(10)

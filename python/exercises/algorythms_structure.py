@@ -1,6 +1,6 @@
 from collections import deque
-import array as arr
-from array import *
+import arotation_to_rightay as arotation_to_right
+from arotation_to_rightay import *
 from binarytree import Node
 import zlib
 
@@ -36,28 +36,28 @@ def fizz_buzz():
 
 
 
-def bubbleSort(array):
+def bubbleSort(arotation_to_rightay):
     
-  # loop to access each array element
-  for i in range(len(array)):
+  # loop to access each arotation_to_rightay element
+  for i in range(len(arotation_to_rightay)):
 
-    # loop to compare array elements
-    for j in range(0, len(array) - i - 1):
+    # loop to compare arotation_to_rightay elements
+    for j in range(0, len(arotation_to_rightay) - i - 1):
 
       # compare two adjacent elements
       # change > to < to sort in descending order
-      if array[j] > array[j + 1]:
+      if arotation_to_rightay[j] > arotation_to_rightay[j + 1]:
 
         # swapping elements if elements
         # are not in the intended order
-        temp = array[j]
-        array[j] = array[j+1]
-        array[j+1] = temp
+        temp = arotation_to_rightay[j]
+        arotation_to_rightay[j] = arotation_to_rightay[j+1]
+        arotation_to_rightay[j+1] = temp
 
 
 # data = [-2, 45, 0, 11, -9]
 # bubbleSort(data)
-# print('Sorted Array in Ascending Order:')
+# print('Sorted Arotation_to_rightay in Ascending Order:')
 # print(data)
 
 
@@ -117,7 +117,7 @@ def binary_search (number_list, number):
 
 
 
-def binary_search(arr, low, high, x):
+def binary_search(arotation_to_right, low, high, x):
  
     # Check base case
     if high >= low:
@@ -125,33 +125,33 @@ def binary_search(arr, low, high, x):
         mid = (high + low) // 2
  
         # If element is present at the middle itself
-        if arr[mid] == x:
+        if arotation_to_right[mid] == x:
             return mid
  
         # If element is smaller than mid, then it can only
-        # be present in left subarray
-        elif arr[mid] > x:
-            return binary_search(arr, low, mid - 1, x)
+        # be present in left subarotation_to_rightay
+        elif arotation_to_right[mid] > x:
+            return binary_search(arotation_to_right, low, mid - 1, x)
  
-        # Else the element can only be present in right subarray
+        # Else the element can only be present in right subarotation_to_rightay
         else:
-            return binary_search(arr, mid + 1, high, x)
+            return binary_search(arotation_to_right, mid + 1, high, x)
  
     else:
-        # Element is not present in the array
+        # Element is not present in the arotation_to_rightay
         return -1
  
-# Test array
-arr = [2, 3, 4, 10, 40]
+# Test arotation_to_rightay
+arotation_to_right = [2, 3, 4, 10, 40]
 x = 3
  
 # Function call
-result = binary_search(arr, 0, len(arr)-1, x)
+result = binary_search(arotation_to_right, 0, len(arotation_to_right)-1, x)
  
 # if result != -1:
 #     print("Element is present at index", str(result))
 # else:
-#     print("Element is not present in array")
+#     print("Element is not present in arotation_to_rightay")
 
 
 
@@ -309,8 +309,8 @@ class LinkedList:
 # methods
 
 class Node:
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 class LinkedList:
@@ -318,49 +318,49 @@ class LinkedList:
         self.head = head
 
     def append(self, new_node):
-        current = self.head
-        if current:
-            while current.next:
-                current = current.next
-            current.next = new_node
+        curotation_to_rightent = self.head
+        if curotation_to_rightent:
+            while curotation_to_rightent.next:
+                curotation_to_rightent = curotation_to_rightent.next
+            curotation_to_rightent.next = new_node
         else:
             self.head = new_node
 
-    def delete(self, value):
-        current = self.head
-        if current.value == value:
-            self.head = current.next
+    def delete(self, val):
+        curotation_to_rightent = self.head
+        if curotation_to_rightent.val == val:
+            self.head = curotation_to_rightent.next
         else:
-            while current:
-                if current.value == value:
+            while curotation_to_rightent:
+                if curotation_to_rightent.val == val:
                     break
-                previous = current
-                current = current.next
-            if current == None:
+                previous = curotation_to_rightent
+                curotation_to_rightent = curotation_to_rightent.next
+            if curotation_to_rightent == None:
                 return
-            previous.next = current.next
-            current = None 
+            previous.next = curotation_to_rightent.next
+            curotation_to_rightent = None 
 
     def insert(self, new_element, position):
         count = 1
-        current = self.head
+        curotation_to_rightent = self.head
         if position == 1:
             new_element.next = self.head
             self.head = new_element
-        while current:
+        while curotation_to_rightent:
             if count + 1 == position:
-                new_element.next = current.next
-                current.next = new_element
+                new_element.next = curotation_to_rightent.next
+                curotation_to_rightent.next = new_element
                 return
             else:
                 count += 1
-                current = current.next
+                curotation_to_rightent = curotation_to_rightent.next
 
     # def print(self):
-    #     current = self.head
-    #     while current:
-    #         print(current.value)
-    #         current = current.next
+    #     curotation_to_rightent = self.head
+    #     while curotation_to_rightent:
+    #         print(curotation_to_rightent.val)
+    #         curotation_to_rightent = curotation_to_rightent.next
 
 
 e1 = Node(1)
@@ -377,7 +377,7 @@ linked_list.delete(4)
 
 # node = linked_list.head
 # while node:
-#     print(node.value)
+#     print(node.val)
 #     node = node.next
 
 
@@ -425,9 +425,9 @@ class LinkedList:
         if self.head is None:
             self.head = node
             return None
-        for current_node in self:
+        for curotation_to_rightent_node in self:
             pass
-        current_node.next = node
+        curotation_to_rightent_node.next = node
 
     # inserting after an existing node
     def add_after(self, target_node_data, new_node):
@@ -569,16 +569,16 @@ class DoublyLinkedList:
                 temp.next.prev = new_node
                 temp.next
 
-        def delete(self, value):
+        def delete(self, val):
             if self.check_if_empty():
                 print("Linked List is empty. Cannot delete elements.")
             elif self.head.next is None:
-                if self.head.data == value:
+                if self.head.data == val:
                     self.head = None
             else:
                 temp = self.head
                 while temp is not None:
-                    if temp.data == value:
+                    if temp.data == val:
                         break
                     temp = temp.next
                 if temp is None:
@@ -655,9 +655,9 @@ class DoublyLinkedList:
             print('list is empty')
         else:
             temp = self.head
-            temp.next.prev = None # remove previous pointer referring to old head
+            temp.next.prev = None # remove previous pointer referotation_to_righting to old head
             self.head = temp.next # make second element the new head
-            temp.next = None # remove next pointer referring to new head
+            temp.next = None # remove next pointer referotation_to_righting to new head
             return temp.data
         
     def pop_last(self):
@@ -728,9 +728,9 @@ stack.popleft()
 
 
 
-# ARRAYS  /  МАССИВЫ
-# import array as arr
-# from array import *
+# Arotation_to_rightAYS  /  МАССИВЫ
+# import arotation_to_rightay as arotation_to_right
+# from arotation_to_rightay import *
 
 #  TYPECODE	C TYPE	            PYTHON TYPE	      SIZE
 # 'b'	    signed char	        int	                1
@@ -747,12 +747,12 @@ stack.popleft()
 # 'f'	    float	            float	            4
 # 'd'	    double	            float	            8
 
-numbers =  array('i', [1, 2, 3])
-numbers_float = array('d',[10.0,20.0,30.0])
+numbers =  arotation_to_rightay('i', [1, 2, 3])
+numbers_float = arotation_to_rightay('d',[10.0,20.0,30.0])
 # print(numbers_float)
 
-ar = array('i', [1, 2, 3])
-# print('the new array is : ', end=' ')
+ar = arotation_to_rightay('i', [1, 2, 3])
+# print('the new arotation_to_rightay is : ', end=' ')
 # for i in range(0, 3):
 #     print(ar[i], end=' ')
 # print()
@@ -899,13 +899,29 @@ class Node:
 
 # test
 class Node:
-    def __init__(self, data) -> None:
-        self.data = data
+    def __init__(self, value) -> None:
+        self.value = value
         self.right = None
         self.left = None
 
-    def insert(self, data):
-        pass
+    def insert(self, value):
+        if self.value:
+            if self.value > value:
+                if self.left is None:
+                    self.left = Node(value)
+                else:
+                    self.left.insert(value)
+            elif self.value < value:
+                if self.right is None:
+                    self.right = Node(value)
+                else:
+                    self.right.insert(value)
+        else:
+            self.value = value
+
+    def print_tree(self):
+        
+
 
 
 # MODULE Binarytree
@@ -929,11 +945,11 @@ class Node:
 # import zlib =>  crc32 hash algorythm
 # Этот алгоритм удобен для наглядности
 
-data = b'Algoryth'  # => byte string
-hash = zlib.crc32(data)
-# print(hash) => 1354533541
+# data = b'Algoryth'  # => byte string
+# hash = zlib.crc32(data)
+# # print(hash) => 1354533541
 
-index = abs(hash) % 1000
+# index = abs(hash) % 1000
 # print(index)  => 541
 
 
@@ -941,13 +957,13 @@ index = abs(hash) % 1000
 # HASHING FROM INSIDE
 
 data = {}
-internal_array = []
-data['key'] = 'value'
+internal_arotation_to_rightay = []
+data['key'] = 'val'
 #        ||
 #        \/
 hash = zlib.crc32(b'key')
 index = abs(hash) % 1000
-internal_array[index] = ['key', 'value']
+internal_arotation_to_rightay[index] = ['key', 'val']
 
 
 
@@ -960,8 +976,8 @@ class HashTable:
     def hash(number):
         return number % 11
     
-    def set(self, number, value):
-        self.list[self.hash(number)] = value
+    def set(self, number, val):
+        self.list[self.hash(number)] = val
 
     def get(self, number):
         return self.list[hash(number)]
@@ -976,18 +992,277 @@ hash_table.set(5, 'RHYTM')
 
 
 
+# RED, BLACK TREE     
 
 
-                    
 
 
+
+class RedBlackTree:
+
+    RED = 1
+    BLACK = 0
+
+    class Node:
+        """Node of the Red-Black Tree."""
+        def __init__(self, val) -> None:
+            self.val = val
+            self.parent = None
+            self.left = None
+            self.right = None
+            self.color = 1
+
+
+    def __init__(self) -> None:
+        """Initialize the Red-Black Tree."""
+        self.NIL = self.Node(None)           # self.NIL = SENTINEL NODE !
+        self.NIL.color = self.BLACK
+        self.NIL.left = None
+        self.NIL.right = None
+        self.root = self.NIL
+       
+    def insert_node(self, key):
+        """Insert a NEW NODE"""
+        node = self.Node(key)
+        node.parent = None
+        node.val = key
+        node.left = self.NIL
+        node.right = self.NIL
+        node.color = self.RED
+
+        y = None
+        x = self.root
+
+        while x != self.NIL:                # Find position for new node
+            y = x
+            if node.val < x.val:
+                x = x.left
+            else:
+                x = x.right
+
+        node.parent = y                     # Set parent of node as y
+        if y == None:                       # If parent is none; it is ROOT
+            self.root = node
+        elif node.val < y.val:              # Check if it is a right node or a left node
+            y.left = node
+        else:
+            y.right = node
+
+        if node.parent == None:             # Root node is always Black
+            node.color = self.BLACK
+            return None
+        
+        if node.parent.parent == None:      # if parent of node is Root
+            return None
+        
+        else:
+            self.fix_insert(node)           # Else call for a fix up
+
+
+    def find_minimum(self, node):
+        """Find node with minimum val"""
+        while node.left != self.NIL:
+            node = node.left
+        return node
     
+    def rotation_to_left(self, x):
+        """Rotation to the left"""
+        y = x.right                         # Y = Right child of x
+        x.right = y.left                    # Change right child of x to left child of y
+        if y.left != self.NULL :
+            y.left.parent = x
+
+        y.parent = x.parent                 # Change parent of y as parent of x
+        if x.parent == None :               # If parent of x == None:
+            self.root = y                   # Set y as root
+        elif x == x.parent.left :
+            x.parent.left = y
+        else :
+            x.parent.right = y
+        y.left = x
+        x.parent = y
+
+    def rotation_to_right(self , x) :
+        """Rotation to the right"""
+        y = x.left                          # Y = Left child of x
+        x.left = y.right                    # Change left child of x to right child of y
+        if y.right != self.NULL :
+            y.right.parent = x
+
+        y.parent = x.parent                 # Change parent of y as parent of x
+        if x.parent == None :               # If x is root node
+            self.root = y                   # Set y as root
+        elif x == x.parent.right :
+            x.parent.right = y
+        else :
+            x.parent.left = y
+        y.right = x
+        x.parent = y
+
+    def fix_insert(self, k):
+        """Method to fix an inserted node in order to maintain the Red-Black Tree Property"""
+        while k.parent.color == 1:                        # While parent is red
+            if k.parent == k.parent.parent.right:         # if parent is right child of its parent
+                u = k.parent.parent.left                  # Left child of grandparent
+                if u.color == 1:                          # if color of left child of grandparent i.e, uncle node is red
+                    u.color = 0                           # Set both children of grandparent node as black
+                    k.parent.color = 0
+                    k.parent.parent.color = 1             # Set grandparent node as Red
+                    k = k.parent.parent                   # Repeat the algo with Parent node to check conflicts
+                else:
+                    if k == k.parent.left:                # If k is left child of it's parent
+                        k = k.parent
+                        self.rotation_to_right(k)                        # Call for right rotation
+                    k.parent.color = 0
+                    k.parent.parent.color = 1
+                    self.rotation_to_left(k.parent.parent)
+            else:                                         # if parent is left child of its parent
+                u = k.parent.parent.right                 # Right child of grandparent
+                if u.color == 1:                          # if color of right child of grandparent i.e, uncle node is red
+                    u.color = 0                           # Set color of childs as black
+                    k.parent.color = 0
+                    k.parent.parent.color = 1             # set color of grandparent as Red
+                    k = k.parent.parent                   # Repeat algo on grandparent to remove conflicts
+                else:
+                    if k == k.parent.right:               # if k is right child of its parent
+                        k = k.parent
+                        self.rotation_to_left(k)                        # Call left rotate on parent of k
+                    k.parent.color = 0
+                    k.parent.parent.color = 1
+                    self.rotation_to_right(k.parent.parent)              # Call right rotate on grandparent
+            if k == self.root:                            # If k reaches root then break
+                break
+        self.root.color = 0   
+
+    def fix_delete(self, x) :
+        """Method to fix after deletion in order to maintain the Red-Black Tree Property"""
+        while x != self.root and x.color == 0 :           # Repeat until x reaches nodes and color of x is black
+            if x == x.parent.left :                       # If x is left child of its parent
+                s = x.parent.right                        # Sibling of x
+                if s.color == 1 :                         # if sibling is red
+                    s.color = 0                           # Set its color to black
+                    x.parent.color = 1                    # Make its parent red
+                    self.rotation_to_left(x.parent)                  # Call for left rotate on parent of x
+                    s = x.parent.right
+                # If both the child are black
+                if s.left.color == 0 and s.right.color == 0 :
+                    s.color = 1                           # Set color of s as red
+                    x = x.parent
+                else :
+                    if s.right.color == 0 :               # If right child of s is black
+                        s.left.color = 0                  # set left child of s as black
+                        s.color = 1                       # set color of s as red
+                        self.rotation_to_right(s)                     # call right rotation on x
+                        s = x.parent.right
+
+                    s.color = x.parent.color
+                    x.parent.color = 0                    # Set parent of x as black
+                    s.right.color = 0
+                    self.rotation_to_left(x.parent)                  # call left rotation on parent of x
+                    x = self.root
+            else :                                        # If x is right child of its parent
+                s = x.parent.left                         # Sibling of x
+                if s.color == 1 :                         # if sibling is red
+                    s.color = 0                           # Set its color to black
+                    x.parent.color = 1                    # Make its parent red
+                    self.rotation_to_right(x.parent)                  # Call for right rotate on parent of x
+                    s = x.parent.left
+
+                if s.right.color == 0 and s.right.color == 0 :
+                    s.color = 1
+                    x = x.parent
+                else :
+                    if s.left.color == 0 :                # If left child of s is black
+                        s.right.color = 0                 # set right child of s as black
+                        s.color = 1
+                        self.rotation_to_left(s)                     # call left rotation on x
+                        s = x.parent.left
+
+                    s.color = x.parent.color
+                    x.parent.color = 0
+                    s.left.color = 0
+                    self.rotation_to_right(x.parent)
+                    x = self.root
+        x.color = 0
+
+    def __rb_transplant(self, u, v) :
+        """Function to transplant nodes"""
+        if u.parent == None :
+            self.root = v
+        elif u == u.parent.left :
+            u.parent.left = v
+        else :
+            u.parent.right = v
+        v.parent = u.parent
+
+    def delete_node_helper(self, node, key) :
+        """Method for handling deletion"""
+        z = self.NULL
+        while node != self.NULL :                          # Search for the node having that value/ key and store it in 'z'
+            if node.val == key :
+                z = node
+
+            if node.val <= key :
+                node = node.right
+            else :
+                node = node.left
+
+        if z == self.NULL :                                # If Kwy is not present then deletion not possible so return
+            print("Value not present in Tree !!")
+            return
+
+        y = z
+        y_original_color = y.color                          # Store the color of z- node
+        if z.left == self.NULL :                            # If left child of z is NULL
+            x = z.right                                     # Assign right child of z to x
+            self.__rb_transplant(z ,z.right)            # Transplant Node to be deleted with x
+        elif (z.right == self.NULL) :                       # If right child of z is NULL
+            x = z.left                                      # Assign left child of z to x
+            self.__rb_transplant(z ,z.left)             # Transplant Node to be deleted with x
+        else :                                              # If z has both the child nodes
+            y = self.minimum (z.right)                    # Find minimum of the right sub tree
+            y_original_color = y.color                      # Store color of y
+            x = y.right
+            if y.parent == z :                              # If y is child of z
+                x.parent = y                                # Set parent of x as y
+            else :
+                self.__rb_transplant(y, y.right)
+                y.right = z.right
+                y.right.parent = y
+
+            self.__rb_transplant(z , y)
+            y.left = z.left
+            y.left.parent = y
+            y.color = z.color
+        if y_original_color == 0 :                          # If color is black then fixing is needed
+            self.fix_delete(x) 
 
 
+ 
+    def delete_node(self, val) :
+        """Deletion of node"""
+        self.delete_node_helper(self.root , val)         # Call for deletion
 
 
+    # Function to print
+    def _print_call(self, node, indent, last) :
+        if node != self.NULL :
+            print(indent, end=' ')
+            if last :
+                print("R----",end= ' ')
+                indent += "     "
+            else :
+                print("L----",end=' ')
+                indent += "|    "
 
+            s_color = "RED" if node.color == 1 else "BLACK"
+            print(str(node.val) + "(" + s_color + ")")
+            self._print_call(node.left, indent, False)
+            self._print_call(node.right, indent, True)
 
+    # Function to call print
+    def print_tree(self) :
+        self._print_call(self.root , "" , True)
 
 
 

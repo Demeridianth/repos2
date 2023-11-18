@@ -416,7 +416,7 @@ from datetime import datetime
 #         if i >= len(text1[- 1 - i]):
 #             break 
 
-#         if text[i] != text[- 1 - i]:
+#         if text1[i] != text1[- 1 - i]:
 #             return False
 #     return True
 

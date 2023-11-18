@@ -9,7 +9,7 @@ contacts = [
     }   
 ]
 
-
+# 3
 file = open('by_hand.json', 'w')
 file.write('[')
 

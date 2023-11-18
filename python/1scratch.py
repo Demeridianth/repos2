@@ -1,8 +1,12 @@
-def does_contain(lst_a: list, lst_b: list) -> bool:
-    for n in lst_b:
-        if n not in lst_a:
+def is_palindrome(text1):
+    for i in range(len(text1)):
+        if i >= len(text1[- 1 - i]):
+            break 
+        if text1[i] != text1[- 1 - i]:
             return False
-        return True
-    
+    return True
 
-assert does_contain([1, 2, 3, 4, 5, 6], [3, 2, 6]) == True
+print(is_palindrome('bo'))
+
+
+

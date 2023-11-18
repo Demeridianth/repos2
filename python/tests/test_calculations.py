@@ -44,3 +44,20 @@ if __name__ == '__main__':
 
                 # python -m unittest -v tests.test.TestCalculations.test_diff  - RUN ONE METHOD IN ONE FILE
                  
+
+
+
+
+# import unittest
+
+
+# class TryTesting(unittest.TestCase):
+#     def test_always_passes(self):
+#         self.assertTrue(True)
+
+#     def test_always_fails(self):
+#         self.assertTrue(False)
+
+
+# if __name__ == '__main__':
+#     unittest.main()

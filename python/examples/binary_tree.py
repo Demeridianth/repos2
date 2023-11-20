@@ -45,7 +45,7 @@ class Node:
             if self.right:
                 return self.right.search(data)
             else:
-                return f'{data} is not found in tree
+                return f'{data} is not found in tree'
             
 
 root = Node(10)

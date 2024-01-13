@@ -27,7 +27,7 @@ def countdown(user_time):
         time.sleep(1)
         user_time -= 1
         if user_time == 0:
-            stop_timer = 0
+            pass
         
 
 player1_name = input('enter name: ')
@@ -36,9 +36,11 @@ player1 = Player(player1_name)
 player2 = Player(player2_name)
 roll_again = 'y'
 
-def new_thread():
-    thread = Thread(target=countdown, args=(10,)).start()
-    return thread
+
+# function creating threads
+# def new_thread():
+#     thread = Thread(target=countdown, args=(10,)).start()
+#     return thread
 
 
 if __name__ == '__main__':
@@ -50,10 +52,13 @@ if __name__ == '__main__':
 
         print(f'Hurry up {player1_name}')
         done = False
-        new_thread()
-        
+        stop_time = False
+        thread = Thread(target=countdown, args=(10,))
+        thread.start()
         input('press enter to stop\n')
         done = True
+        thread.join()
+
         
         player1_roll = roll_dice()
         player1.add_points(player1_roll)
@@ -65,9 +70,11 @@ if __name__ == '__main__':
 
         print(f'Hurry up {player2_name}')
         done = False
-        new_thread()
+        thread = Thread(target=countdown, args=(10,))
+        thread.start()
         input('press enter to stop\n')
         done = True
+        thread.join()
         player2_roll = roll_dice()
         player2.add_points(player2_roll)
         print(f'{player2.name} has {player2.score}')

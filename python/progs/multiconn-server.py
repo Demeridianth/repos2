@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# 127.0.0.1 65421 2 - for client
+
 import sys
 import socket
 import selectors

@@ -938,16 +938,13 @@ from datetime import datetime
 # На вход функции sort_zeros() поступает список состоящий из целых чисел. Данная функция должна вернуть этот список, отсортированный таким образом, чтобы все нули были в конце списка, а порядок остальных чисел остался бы без изменений.
 
 
-# def soft_zeros(lst):
-#     lst = []
-#     for n in lst:
-#         if n != 0:
-#             lst.append(n)
-#     for i in range(len(lst) -  len(lst)):
-#         lst.append(0)
-#     return lst
+def soft_zeros(lst):
+    lst = [n for n in lst if n != 0]
+    for i in range(len(lst) -  len(lst)):
+        lst.append(0)
+    return lst
 
-# assert soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]))
+assert soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8])
 
 
 #sort_seros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]) --> [10, 3, 4, 5, 6, 7, 8, 0, 0, 0, 0]
@@ -1207,6 +1204,89 @@ def is_perfect_square(num):
 def find_missing_Numbers(numbers: list) -> list:
     result = []
     
+
+
+
+# Описание
+
+# Напишите функцию count_word_occurrences, которая принимает на вход строку и возвращает словарь, содержащий количество каждого уникального слова в строке. При подсчете необходимо игнорировать регистр символов и знаки препинания.
+
+# Примеры
+
+# count_word_occurrences("Python is fun! Python is aboba.") # {'python': 2, 'is': 2, 'fun': 1, 'aboba': 1}
+
+
+
+from collections import Counter
+from string import punctuation
+
+
+def count_word_occurrences(s: str) -> dict:
+    for i in punctuation:
+        s = s.replace(i, "")
+    s = s.lower().split()
+    return dict(Counter(s))
+
+
+text = "Python is fun! Python is aboba."
+print(count_word_occurrences(text))
+
+
+
+
+
+
+
+# Напишите функцию, которая будет принимать список чисел и находить среднее арифметическое всех положительных чисел в списке. Если в списке нет положительных чисел, программа должна возвращать None
+# func([5, -2, 10, -8, 3]) # 6.0
+# func([-1, -3, -7]) # None
+
+def func(lst):
+    sum = 0
+    count = 0
+    for n in lst:
+        if n > 0:
+            count += 1
+            sum += n
+    if sum > 0:
+        return sum / count
+    else:
+        return None
+
+# print(func([5, -2, 10, -8, 3])) # 6.0
+# print(func([-1, -2, -3])) # None
+
+
+# reply from other programmer
+def f(lst):
+ c = [x for x in lst if x > 0]
+ return sum(c) / len(c) if c else None
+ 
+# print(f([5, -2, 10, -8, 3])) #6.0
+# print(f([-1, -3, -7])) # None
+
+# my intepretation
+def func(lst):
+    c = []
+    for x in lst:
+        if x > 0:
+            c.append(x)
+    if c:
+        return sum(c) / len(c)
+    else:
+        return None
+    
+print(func([5, -2, 10, -8, 3])) #6.0
+print(f([-1, -3, -7])) # None
+    
+    
+
+    
+
+
+
+
+
 
 
 

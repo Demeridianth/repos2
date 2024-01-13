@@ -2,6 +2,7 @@ import socket
 import datetime
 
 
+# клиент на дэсктопе
 
 # echo-server.py
 # вернёт то что получит на клиент

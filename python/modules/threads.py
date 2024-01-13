@@ -14,29 +14,28 @@ from time import sleep, perf_counter
 
 
 """ task in one second """
-def task():
-    print('Start task...')
-    sleep(1)
-    print('done')
+# def task():
+#     print('Start task...')
+#     sleep(1)
+#     print('done')
 
-start_time = perf_counter()
+# start_time = perf_counter()
 
-# creating 2 new threads
-thread1 = Thread(target=task)
-thread2 = Thread(target=task)
+# # creating 2 new threads
+# thread1 = Thread(target=task)
+# thread2 = Thread(target=task)
 
-# start threads
-thread1.start()
-thread2.start()
+# # start threads
+# thread1.start()
+# thread2.start()
 
-# wait for the threads to complete
-thread1.join()
-thread2.join()
+# # wait for the threads to complete
+# thread1.join()
+# thread2.join()
 
-end_time = perf_counter()
+# end_time = perf_counter()
 
-print(f'it took {end_time- start_time: 0.2f} second(s) to complete')
-
+# print(f'it took {end_time- start_time: 0.2f} second(s) to complete')
 
 
 
@@ -64,15 +63,15 @@ print(f'it took {end_time- start_time: 0.2f} second(s) to complete')
 
 
 
-
-"""string replacement without threads"""
+""" more practical example """
+""" string replacement without threads """
 # def replace(filename, string, new_string):
 #     print(f'Processing the file {filename}')
 #     # get the contents of the file
 #     with open(filename, 'r') as f:
 #         content = f.read()
 
-#     # replace the substr with a new substr
+#     # replace str with a new str
 #     content = content.replace(string, new_string)
 
 #     # write data to file
@@ -128,8 +127,8 @@ print(f'it took {end_time- start_time: 0.2f} second(s) to complete')
 #         'temp/test7.txt',
 #         'temp/test8.txt',
 #         'temp/test9.txt',
-#         'temp/test10.txt',
-#     ]
+        # 'temp/test10.txt',
+    # ]
 
 #     # creating threads
 #     threads = [Thread(target=replace, args=(filename, 'ids', 'id')) for filename in filenames]

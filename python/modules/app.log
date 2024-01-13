@@ -1,0 +1,4 @@
+root - WARNING - This will be logged to a file
+root - WARNING - Admin logged out
+__main__ - WARNING - This is a warning
+__main__ - ERROR - This is an error

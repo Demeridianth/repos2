@@ -2,7 +2,7 @@
 
 # def factorial_using_a_loop(n):
 #     result = 1
-#     for n in range(1, n + 1):
+#     for i in range(1, n + 1):
 #         result *= n
 
 #     return result

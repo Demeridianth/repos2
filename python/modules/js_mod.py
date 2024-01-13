@@ -1,6 +1,7 @@
 import json
 import requests
 
+# simple serialization example
 
 # data = {
 #     'president': {
@@ -16,6 +17,9 @@ import requests
 #     data =  json.load(read_file)
 
 # print(data)
+
+
+# DUMPS writes it to native Python string object: IF YOU NEED TO USE IT LATER IN THE PROGRAMM!
 
 # json_string = json.dumps(data, indent=4)
 
@@ -34,11 +38,11 @@ import requests
 # https://jsonplaceholder.typicode.com/
 
 
-response = requests.get("https://jsonplaceholder.typicode.com/todos")
+response = requests.get("https://jsonplaceholder.typicode.com/todos")  #  STILL NEED TO LEARN REQUESTS !
 todos = json.loads(response.text)
 
 
-# uderId to number of complete TODOs for that user
+# userId to number of complete TODOs for that user
 todos_by_user = {}
 
 # complete TODOs for each user
@@ -52,7 +56,7 @@ for todo in todos:
 
 
 # Sorted list of (userId, num_complete) pairs.
-top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)    # DONT KNOW HOW EXACTLY THIS WORKs :D
+top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)    # DONT KNOW HOW EXACTLY THIS WORKs :D LAMBDA !!!
 
 
 # Get the maximum number of complete TODOs.
@@ -140,7 +144,7 @@ def encode_complex(z):
         raise TypeError(f"Object of type '{type_name}' is not JSON serializable")
 
 
-# The other common approach is to subclass the standard JSONEncoder and override its default() method:
+# The other common approach is to take JSONEncoder and override its default() method:
 
 class ComplexEncoder(json.JSONEncoder):
     def default(self, z):
@@ -150,9 +154,12 @@ class ComplexEncoder(json.JSONEncoder):
             return super().default(z)
         
 
+
+#  USING CLS PARAMETER
 # >>> json.dumps(2 + 5j, cls=ComplexEncoder)
 # '[2.0, 5.0]'
 
+# OR CREATING AN OBJECT
 # >>> encoder = ComplexEncoder()
 # >>> encoder.encode(3 + 6j)
 # '[3.0, 6.0]'
@@ -162,11 +169,13 @@ class ComplexEncoder(json.JSONEncoder):
 
 """Decoding Custom Types"""
 
-# will return just a list...
+# This is what happens when you try encoding a complex number with the ComplexEncoder and then decoding the result:
 
 # >>> complex_json = json.dumps(4 + 17j, cls=ComplexEncoder)
 # >>> json.loads(complex_json)
-# [4.0, 17.0]
+# [4.0, 17.0]  RETURNS A LIST, BECAUSE ITS MISSING THE METADATA
+
+
 
 
 # FILE complex_data.json:
@@ -191,5 +200,3 @@ with open('complex_data.json') as complex_data:
 print(type(z))
 print(z)
 
-# <class 'complex'>
-# (3+8j)

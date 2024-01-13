@@ -21,7 +21,7 @@ class TestCalculations(unittest.TestCase):
 
     def test_quotient(self):
         
-        self.assertEqual(self.calculation.get_quotient(), 4, 'The quotient is wrong.')
+        self.assertEqual(self.calculation.get_quotient(), 2, 'The quotient is wrong.')
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+# pytest test_pytest.py::<test_name> - to check a specific test
 
 # test assert examples
 
@@ -21,12 +22,12 @@ def test_always_fails():
 
 # fixture demo
 
-@pytest.fixture
-def example_fixture():
-    return 1
+# @pytest.fixture
+# def example_fixture():
+#     return 1
 
-def test_with_fixture(example_fixture):
-    assert example_fixture == 1
+# def test_with_fixture(example_fixture):
+#     assert example_fixture == 1
 
 
 

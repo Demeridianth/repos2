@@ -1,25 +1,10 @@
 import json
+import os
 
 
-# Design and produce a Java program that simulates a staff access system.  You are required to implement and demonstrate an understanding of the following Java constructs within your program:
+""" Program that simulates a staff access system; 
+An admin will be able to manage other users including updating, deleting or creating new users.  A normal user will only be able to view or update their own details."""
 
-
-# Classes
-# Methods
-# Constructors
-# Decision making
-# collections
-# Iteration
-# Error handling
-
-# he following assumptions are to be taken into consideration when developing the program:
-
-# Each member of staff has a username and a password.
-# Your program will contain a few users for testing.
-# Users will have either an admin or user account.  An admin will be able to manage other users including updating, deleting or creating new users.  A normal user will only be able to view or update their own details.
-# Your program will run as a console application.
-# Your program should consist of a few classes.
-# The Main class should remain free from unnecessary code.
 
 class StaffMember:
     def __init__(self, name, password, account_type):
@@ -34,7 +19,6 @@ class StaffMember:
         return {'name': self.name, 'password': self.password, 'account type': self.account_type}
 
 
-# MAIN
 class Staff: 
     def __init__(self):
         self.staff_members = []
@@ -68,14 +52,13 @@ class ConsoleInterface:
         new_member = StaffMember(name = name, password = password, account_type = account_type)
         staff.staff_members.append(StaffMember.convert_to_dict(new_member))
 
-
     @staticmethod
     def display_staff(members):
-        for index, member in enumerate(members, start=1):
+        for member in sorted(members, key=lambda x: x['name']):
             name = member['name']
             password = member['password']
             account_type = member['account type']
-            print(f'{index}. {name}, {password}, {account_type}')
+            print(f'{name}, {password}, {account_type}')
 
     @staticmethod
     def display_specific_user_details():
@@ -91,6 +74,8 @@ class JsonRepository:
             data.write(json.dumps(staff_data))
 
     def read_from_file(self):
+        if not os.path.exists(self.filename):
+            self.write_to_file([])
         with open(self.filename, 'r') as data:
             loaded_data = json.loads(data.read())
             return loaded_data
@@ -101,13 +86,15 @@ if __name__ == '__main__':
     json_file = JsonRepository('staff_members.json')
     staff = Staff()
 
+# trying to read from the JSON file that is empty
     try:
         all_staff =  json_file.read_from_file()
         for member in all_staff:
             staff.staff_members.append(member)
-    except json.decoder.JSONDecodeError:           # trying to read from the JSON file that is empty 
+    except json.decoder.JSONDecodeError:            
         pass
         
+ 
 
     while True:
         
@@ -189,11 +176,14 @@ if __name__ == '__main__':
                             break
             
 
-
-                    
+            
 
 
                 
 
 
             
+
+
+
+

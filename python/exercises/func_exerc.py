@@ -17,10 +17,6 @@ from datetime import datetime
 
 
 
-
-
-
-
   # Функция должна принимать список списков и объединять их в один
 
 # def foo(l):
@@ -938,13 +934,13 @@ from datetime import datetime
 # На вход функции sort_zeros() поступает список состоящий из целых чисел. Данная функция должна вернуть этот список, отсортированный таким образом, чтобы все нули были в конце списка, а порядок остальных чисел остался бы без изменений.
 
 
-def soft_zeros(lst):
-    lst = [n for n in lst if n != 0]
-    for i in range(len(lst) -  len(lst)):
-        lst.append(0)
-    return lst
+# def soft_zeros(lst):
+#     lst = [n for n in lst if n != 0]
+#     for i in range(len(lst) -  len(lst)):
+#         lst.append(0)
+#     return lst
 
-assert soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8])
+# assert soft_zeros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8])
 
 
 #sort_seros([10, 0, 3, 0, 4, 0, 0, 5, 6, 7, 8]) --> [10, 3, 4, 5, 6, 7, 8, 0, 0, 0, 0]
@@ -1157,20 +1153,20 @@ def is_perfect_square(n):
 
 ######
 
-def is_perfect_square(num):
-    if num < 1:
-        return False
-    left, right = 1, num
-    while left <= right:
-        mid = left + (right - left) // 2
-        square = mid * mid
-        if square == num:
-            return True
-        elif square < num:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return False
+# def is_perfect_square(num):
+#     if num < 1:
+#         return False
+#     left, right = 1, num
+#     while left <= right:
+#         mid = left + (right - left) // 2
+#         square = mid * mid
+#         if square == num:
+#             return True
+#         elif square < num:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return False
 
 # print(is_perfect_square(36))
 
@@ -1194,16 +1190,26 @@ def is_perfect_square(num):
 
 
 
-# Напишите функцию findMissedNumbers(), на вход которой подается список длинной n, состоящий из целых чисел в диапазоне от 1 до n. Данная функция должна вернуть список всех чисел, которые отсутствуют во входящем списке, но входят в диапазон от 1 до n.
+# Напишите функцию find_missing_numbers(), на вход которой подается список длинной n, состоящий из целых чисел в диапазоне от 1 до n. Данная функция должна вернуть список всех чисел, которые отсутствуют во входящем списке, но входят в диапазон от 1 до длинны n.
 
 # Пример работы данной функции:
 
 # findMissedNumbers([4,3,2,7,8,2,3,1]) --> [5, 6]
 # findMissedNumbers([1, 1, 1]) --> [2, 3]
 
-def find_missing_Numbers(numbers: list) -> list:
-    result = []
-    
+# 1
+# def find_missing_numbers(numbers: list) -> list:
+#     return [n for n in range(1, len(numbers)) + 1 if n not in numbers]
+
+# # 2
+# def find_missing_numbers(numbers):
+#     return list(set(range(1, len(numbers) + 1)) - set(numbers))
+
+
+# assert find_missing_numbers([4,3,2,7,8,2,3,1]) == [5, 6]
+# assert find_missing_numbers([1, 1, 1]) == [2, 3]
+
+
 
 
 
@@ -1214,22 +1220,22 @@ def find_missing_Numbers(numbers: list) -> list:
 # Примеры
 
 # count_word_occurrences("Python is fun! Python is aboba.") # {'python': 2, 'is': 2, 'fun': 1, 'aboba': 1}
-
-
-
 from collections import Counter
 from string import punctuation
 
 
-def count_word_occurrences(s: str) -> dict:
-    for i in punctuation:
-        s = s.replace(i, "")
-    s = s.lower().split()
-    return dict(Counter(s))
 
 
-text = "Python is fun! Python is aboba."
-print(count_word_occurrences(text))
+
+# def count_word_occurrences(s: str) -> dict:
+#     for i in punctuation:
+#         s = s.replace(i, "")
+#     s = s.lower().split()
+#     return dict(Counter(s))
+
+
+# text = "Python is fun! Python is aboba."
+# print(count_word_occurrences(text))
 
 
 
@@ -1241,53 +1247,68 @@ print(count_word_occurrences(text))
 # func([5, -2, 10, -8, 3]) # 6.0
 # func([-1, -3, -7]) # None
 
-def func(lst):
-    sum = 0
-    count = 0
-    for n in lst:
-        if n > 0:
-            count += 1
-            sum += n
-    if sum > 0:
-        return sum / count
-    else:
-        return None
+# def func(lst):
+#     sum = 0
+#     count = 0
+#     for n in lst:
+#         if n > 0:
+#             count += 1
+#             sum += n
+#     if sum > 0:
+#         return sum / count
+#     else:
+#         return None
 
 # print(func([5, -2, 10, -8, 3])) # 6.0
 # print(func([-1, -2, -3])) # None
 
 
 # reply from other programmer
-def f(lst):
- c = [x for x in lst if x > 0]
- return sum(c) / len(c) if c else None
+# def f(lst):
+#  c = [x for x in lst if x > 0]
+#  return sum(c) / len(c) if c else None
  
 # print(f([5, -2, 10, -8, 3])) #6.0
 # print(f([-1, -3, -7])) # None
 
 # my intepretation
-def func(lst):
-    c = []
-    for x in lst:
-        if x > 0:
-            c.append(x)
-    if c:
-        return sum(c) / len(c)
-    else:
-        return None
+# def func(lst):
+#     c = []
+#     for x in lst:
+#         if x > 0:
+#             c.append(x)
+#     if c:
+#         return sum(c) / len(c)
+#     else:
+#         return None
     
-print(func([5, -2, 10, -8, 3])) #6.0
-print(f([-1, -3, -7])) # None
+# print(func([5, -2, 10, -8, 3])) #6.0
+# print(f([-1, -3, -7])) # None
     
-    
-
     
 
+    
+# Даны 2 числа n, m, количество городов и количество дорог соответственно. В следующих m строках даются пути из одного города в другой. Нужно определить сколькими способами можно попасть из города 1 в город N. (Дороги имеют одностороннее движение, то есть если из первого города можно попасть во второй город, то это не значит, что можно попасть из второго в первый)
+
+# 3 3
+
+# 1 2
+# 2 3
+# 1 3
+# # 2
 
 
 
 
 
+# Oписание
+
+# Напишите функцию find_average, которая будет принимать список чисел и возвращать среднее значение всех элементов списка.
+
+# Примечание: Убедитесь, что функция корректно обрабатывает случай пустого списка, чтобы избежать деления на ноль.
+
+# Примеры
+# find_average([5, 10, 15, 20]) # 12.5
 
 
 

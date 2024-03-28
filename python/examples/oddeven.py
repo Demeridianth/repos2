@@ -4,4 +4,6 @@ def f(x):
     else:
         print('odd')    
 
-f(4) 
+
+def odd(x):
+    return x % 2 and 'odd' or 'even'

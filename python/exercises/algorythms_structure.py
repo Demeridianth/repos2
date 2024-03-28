@@ -728,9 +728,8 @@ stack.popleft()
 
 
 
-# Arotation_to_rightAYS  /  МАССИВЫ
-# import arotation_to_rightay as arotation_to_right
-# from arotation_to_rightay import *
+# ARRAYS  /  МАССИВЫ
+from array import array
 
 #  TYPECODE	C TYPE	            PYTHON TYPE	      SIZE
 # 'b'	    signed char	        int	                1
@@ -747,11 +746,11 @@ stack.popleft()
 # 'f'	    float	            float	            4
 # 'd'	    double	            float	            8
 
-numbers =  arotation_to_rightay('i', [1, 2, 3])
-numbers_float = arotation_to_rightay('d',[10.0,20.0,30.0])
+numbers =  array('i', [1, 2, 3])
+numbers_float = array('d',[10.0,20.0,30.0])
 # print(numbers_float)
 
-ar = arotation_to_rightay('i', [1, 2, 3])
+ar = array('i', [1, 2, 3])
 # print('the new arotation_to_rightay is : ', end=' ')
 # for i in range(0, 3):
 #     print(ar[i], end=' ')

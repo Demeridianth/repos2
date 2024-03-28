@@ -2,6 +2,11 @@ import random
 import os
 import time
 from threading import Thread
+import pyinputplus
+
+
+""" 2 players roll the dice, whoever gets to 30 points first WINS... Also if a player doesnt roll in 10 seconds he loses"""
+"""in order to roll press R and then ENTER, in order to start another round press Y"""
 
 
 class Player:
@@ -45,25 +50,25 @@ roll_again = 'y'
 
 if __name__ == '__main__':
     while roll_again.lower() == 'yes' or roll_again.lower() == 'y':
+        # clear terminal on each iteration
         os.system('cls' if os.name == 'nt' else 'clear')
 
-
+        
         """ Player 1 """
 
         print(f'Hurry up {player1_name}')
         done = False
-        stop_time = False
         thread = Thread(target=countdown, args=(10,))
         thread.start()
-        input('press enter to stop\n')
+        inp = pyinputplus.inputStr(prompt = "press R and ENTER to roll:  \n", default = 'you_were_too_slow', timeout = 10)
+        if inp == 'you_were_too_slow':
+            print(f'you_were_too_slow! {player2_name} has WON')
+            break
         done = True
         thread.join()
-
-        
         player1_roll = roll_dice()
         player1.add_points(player1_roll)
         print(f'{player1.name} has {player1.score}')
-
 
 
         """ Player 2 """
@@ -72,12 +77,18 @@ if __name__ == '__main__':
         done = False
         thread = Thread(target=countdown, args=(10,))
         thread.start()
-        input('press enter to stop\n')
+        inp = pyinputplus.inputStr(prompt = "press R and ENTER to roll:  \n", default = 'you_were_too_slow', timeout = 10)
+        if inp == 'you_were_too_slow':
+            print(f'you_were_too_slow! {player1_name} has WON')
+            break
         done = True
         thread.join()
         player2_roll = roll_dice()
         player2.add_points(player2_roll)
         print(f'{player2.name} has {player2.score}')
+
+
+        """ Victory conditions """
 
         if player1.score >= 30:
             print(f'game over: {player1_name} has won')

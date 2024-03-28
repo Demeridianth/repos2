@@ -167,7 +167,17 @@ print(timeit.timeit(get_prices_with_loop, number=100))
 
 
 
+# Conditional expressions (sometimes called a “ternary operator”)
 
+def my_func(a, b):
+    return a if (a > b) else b
+# This is the same as:
+
+def my_func(a, b):
+    if a > b:
+        return a
+    else:
+        return b
 
 
 

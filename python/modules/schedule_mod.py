@@ -12,3 +12,5 @@ schedule.every().wednesday.at('12:15').do(job)
 if __name__ == '__main__':
     while True:
         schedule.run_pending()
+
+# lol

@@ -31,4 +31,8 @@ def switch():
 
 
 if __name__ == '__main__':
-    run_time(in_cube_even, [n for n in range(100)])
+    run_time(in_cube_even, [n for n in range(10000)])
+
+
+# t0 = perf_counter(); in_cube_even([n for n in range(100)]);  t1 = perf_counter()
+# print(f'function took {t0 - t1} to complete')

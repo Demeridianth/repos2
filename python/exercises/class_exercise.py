@@ -699,9 +699,9 @@ import random
 #     def __setitem__(self, index: int, value):
 #         self._data[index] = value
 
-#     def __iter__(self):
-#         print('inside iter')
-#         return NumbersIterator(self)
+    # def __iter__(self):
+    #     print('inside iter')
+    #     return NumbersIterator(self)
 
 #     def __contains__(self, value):
 #         print('inside contains')

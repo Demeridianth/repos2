@@ -1,14 +1,10 @@
-import sys
+nums = {1: 'a', 2: 'b'}
 
 
-numbers = [n for n in range(1, 1000000)]
-nums = list(range(1, 1000000))
-gen_nums = list(n for n in range(1, 1000000))
+def sum_range(start, end):
+    if start > end:
+        start, end = end, start
+    print(sum(range(start, end + 1)))
 
 
-print(sys.getsizeof(numbers))
-print(sys.getsizeof(nums))
-print(sys.getsizeof(gen_nums))
-
-
-
+sum_range(10, 1)

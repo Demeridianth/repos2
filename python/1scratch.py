@@ -105,8 +105,7 @@ from collections import OrderedDict
 book2 = OrderedDict(api=2, type='book', title='Python in a Nutshell', authors='Martelli Ravenscroft Holden'.split())
 # >>> ['Martelli', 'Ravenscroft', 'Holden']
 
-# mapping patterns succeed on partial matches. In
-# the doctests, the b1 and b2 subjects include a 'title' key that does not appear in any
+# mapping patterns succeed on partial matches. In the doctests, the b1 and b2 subjects include a 'title' key that does not appear in any
 # 'book' pattern, yet they match.
 
 
@@ -145,8 +144,8 @@ with open(sys.argv[1], encoding='utf-8') as fp:
             occurrences.append(location)
             index[word] = occurrences 
 
-for word in sorted(index, key=str.upper):
-    print(word, index[word])
+# for word in sorted(index, key=str.upper):
+#     print(word, index[word])
 
 
 #better version with dict.setdefault()
@@ -162,8 +161,8 @@ with open(sys.argv[1], encoding='utf-8') as fp:
 
 
 # display in alphabetical order
-for word in sorted(index, key=str.upper):
-    print(word, index[word])
+# for word in sorted(index, key=str.upper):
+#     print(word, index[word])
 
 
 
@@ -177,4 +176,56 @@ for word in sorted(index, key=str.upper):
 
 
 
-# 120
+""" defaultdict: Another Take on Missing Keys """
+import collections
+
+index = collections.defaultdict(list)
+with open(sys.argv[1], encoding='utf-8') as fp:
+ for line_no, line in enumerate(fp, 1):
+    for match in WORD_RE.finditer(line):
+        word = match.group()
+        column_no = match.start() + 1
+        location = (line_no, column_no)
+        index[word].append(location)
+
+
+# display in alphabetical order
+# for word in sorted(index, key=str.upper):
+#     print(word, index[word])
+
+
+
+""" The __missing__ Method """
+
+# When searching for a nonstring key, StrKeyDict0 converts it to str when it is not found
+class StrKeyDict0(dict):
+   
+    def __missing__(self, key):
+        if isinstance(key, str):
+            raise KeyError(key)
+        return self[str(key)]
+    
+    def get(self, key, default=None):
+       try:
+          return self[key]
+       except KeyError:
+          return default
+       
+    def __contains__(self, key):
+       return key in self.keys() or str(key) in self.keys()
+    
+
+
+d = StrKeyDict0([('2', 'two'), ('4', 'four')])
+
+# >>> d['2']
+# 'two'
+# >>> d[4]
+# 'four'
+# >>> d[1] 
+   
+
+# 125
+      
+
+

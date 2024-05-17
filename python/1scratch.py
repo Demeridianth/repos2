@@ -131,18 +131,18 @@ import sys
 
 WORD_RE = re.compile(r'\w+')
 
-index = {}
-with open(sys.argv[1], encoding='utf-8') as fp:
-    # sys.argv[] takes a text file as an argument in command line: "python3 1scratch.py zen.txt"
-    for line_no, line in enumerate(fp, 1):
-        for match in WORD_RE.finditer(line):
-            word = match.group()
-            column_no = match.start() + 1
-            location = (line_no, column_no)
-            # this is ugly; coded like this to make a point
-            occurrences = index.get(word, [])
-            occurrences.append(location)
-            index[word] = occurrences 
+# index = {}
+# with open(sys.argv[1], encoding='utf-8') as fp:
+#     # sys.argv[] takes a text file as an argument in command line: "python3 1scratch.py zen.txt"
+#     for line_no, line in enumerate(fp, 1):
+#         for match in WORD_RE.finditer(line):
+#             word = match.group()
+#             column_no = match.start() + 1
+#             location = (line_no, column_no)
+#             # this is ugly; coded like this to make a point
+#             occurrences = index.get(word, [])
+#             occurrences.append(location)
+#             index[word] = occurrences 
 
 # for word in sorted(index, key=str.upper):
 #     print(word, index[word])
@@ -150,14 +150,14 @@ with open(sys.argv[1], encoding='utf-8') as fp:
 
 #better version with dict.setdefault()
 
-index = {}
-with open(sys.argv[1], encoding='utf-8') as fp:
- for line_no, line in enumerate(fp, 1):
-    for match in WORD_RE.finditer(line):
-        word = match.group()
-        column_no = match.start() + 1
-        location = (line_no, column_no)
-        index.setdefault(word, []).append(location)
+# index = {}
+# with open(sys.argv[1], encoding='utf-8') as fp:
+#  for line_no, line in enumerate(fp, 1):
+#     for match in WORD_RE.finditer(line):
+#         word = match.group()
+#         column_no = match.start() + 1
+#         location = (line_no, column_no)
+#         index.setdefault(word, []).append(location)
 
 
 # display in alphabetical order
@@ -179,14 +179,14 @@ with open(sys.argv[1], encoding='utf-8') as fp:
 """ defaultdict: Another Take on Missing Keys """
 import collections
 
-index = collections.defaultdict(list)
-with open(sys.argv[1], encoding='utf-8') as fp:
- for line_no, line in enumerate(fp, 1):
-    for match in WORD_RE.finditer(line):
-        word = match.group()
-        column_no = match.start() + 1
-        location = (line_no, column_no)
-        index[word].append(location)
+# index = collections.defaultdict(list)
+# with open(sys.argv[1], encoding='utf-8') as fp:
+#  for line_no, line in enumerate(fp, 1):
+#     for match in WORD_RE.finditer(line):
+#         word = match.group()
+#         column_no = match.start() + 1
+#         location = (line_no, column_no)
+#         index[word].append(location)
 
 
 # display in alphabetical order
@@ -225,7 +225,91 @@ d = StrKeyDict0([('2', 'two'), ('4', 'four')])
 # >>> d[1] 
    
 
-# 125
+
+""" collections.ChainMap """ 
+
+
+d1 = dict(a=1, b=3)
+d2 = dict(a=2, b=4, c=6)
+from collections import ChainMap
+chain = ChainMap(d1, d2)
+# >>> chain['a']
+# 1
+# >>> chain['c']
+# 6
+
+# Updates or insertions to a ChainMap only affect the first input mapping. Con‐
+# tinuing from the previous example:
+
+chain['c'] = -1
+# >>> d1
+# {'a': 1, 'b': 3, 'c': -1}
+# >>> d2
+# {'a': 2, 'b': 4, 'c': 6}
+
+
+
+"""collections.Counter"""
+
+
+ct = collections.Counter('abracadabra')
+ct
+# >>> Counter({'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1})
+ct.update('aaaaazzz')
+ct
+# Counter({'a': 10, 'z': 3, 'b': 2, 'r': 2, 'c': 1, 'd': 1})
+# >>> ct.most_common(3)
+# [('a', 10), ('z', 3), ('b', 2)]
+
+
+
+""" immutable dict """
+
+
+from types import MappingProxyType
+
+
+d = {1: 'A'}
+d_proxy = MappingProxyType(d)
+d_proxy
+# >>> mappingproxy({1: 'A'})
+d_proxy[1]
+#  >>> 'A'
+# >>> d_proxy[2]
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# KeyError: 2
+
+d[2] = 'B'
+d_proxy
+# >>> mappingproxy({1: 'A', 2: 'B'})
+d_proxy[2]
+# >>> 'B'
+
+
+
+""" Dictionary Views """
+
+
+d = dict(a=10, b=20, c=30)
+values = d.values()
+values
+# >>> dict_values([10, 20, 30])
+len(values)
+# >>> 3
+list(values)
+# >>> [10, 20, 30]
+reversed(values)
+# >>> <dict_reversevalueiterator object at 0x10e9e7310>
+values[0]
+# Traceback (most recent call last):
+#  File "<stdin>", line 1, in <module>
+# TypeError: 'dict_values' object is not subscriptable
+
+
+# 133
+
+
       
 
 

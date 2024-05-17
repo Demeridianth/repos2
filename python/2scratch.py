@@ -1,10 +1,8 @@
-nums = {1: 'a', 2: 'b'}
+from pyspark.sql import SparkSession
 
 
-def sum_range(start, end):
-    if start > end:
-        start, end = end, start
-    print(sum(range(start, end + 1)))
+spark = SparkSession.builder.appName('RDD example').getOrCreate()
 
+df = spark.sparkContext.parallelize([1, 2, 3, 'a b c'], [4, 5, 6, 'd e f'], [7, 8, 9, 'g h i']).toDF(['col1', 'col2', 'col3', 'col4'])
 
-sum_range(10, 1)
+df.show()

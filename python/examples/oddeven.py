@@ -7,3 +7,7 @@ def f(x):
 
 def odd(x):
     return x % 2 and 'odd' or 'even'
+
+
+
+print('the sum of all even numbers:', sum(number for number in range(2, 101, 2)))

@@ -1,8 +1,3 @@
-import sys
+a = lambda x, y: x + y
 
-nums = list(n for n in range(1, 20))
-
-nams = [n for n in range(1, 20)]
-
-
-
+print((lambda x, y: x + y)(4, 5))

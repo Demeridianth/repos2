@@ -13,11 +13,9 @@ class RatingsBreakdown(MRJob):
         yield movieID, 1
 
     def reducer_count_ratings(self, key, values):
-        yield sum(values), key
+        yield  key, sum(values)
 
-    def reducer_sorted_ratings(self, count, movies):
-        for c in sorted(count):
-            yield c, movies
+    
 
 
 

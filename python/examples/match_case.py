@@ -33,50 +33,10 @@ dial_sorted = {code: country.upper() for country, code in sorted(country_dial.it
 
 
 
-"""Unpacking Mappings"""
-
-
-def dump(**kwargs):
-    return kwargs
-
-dump(**{'x': 1}, y=2, **{'z': 3})
-# {'x': 1, 'y': 2, 'z': 3}
-# we can apply ** to more than one argument in a function call. This works when
-# keys are all strings and unique across all arguments (because duplicate keyword argu‐
-# ments are forbidden)
-
-{'a': 0, **{'x': 1}, 'y': 2, **{'z': 3, 'x': 4}}
-# {'a': 0, 'x': 4, 'y': 2, 'z': 3}
-# duplicate keys are allowed. Later occurrences overwrite previous ones—
-# see the value mapped to x in the example.
 
 
 
-""" Merging mappins with | """
 
-
-d1 = {'a': 1, 'b': 3}
-d2 = {'a': 2, 'b': 4, 'c': 6}
-d1 | d2
-# {'a': 2, 'b': 4, 'c': 6}
-
-
-# we apply merge (|) and update (|=) to dicts
-dict1 = {"a": 0, "b": 1, "c": 2}
-dict2 = {"c": 20, "d": 30}
-
-# Merge, | 
-dict1 | dict2
-{"a": 0, "b": 1, "c": 20, "d": 30}
-# >>> d1 
-# {"a": 0, "b": 1, "c": 2}
-# dict1 UNCHANGED!!!
-
-# Update, |=
-d1 |= d2
-# >>> d1 
-# {"a": 0, "b": 1, "c": 20, "d": 30}
-# dict1 REASSIGNED!!!
 
 
 
@@ -119,3 +79,74 @@ match food:
         print(f'Ice cream details: {details}')
 
 # >>> Ice cream details: {'flavor': 'vanilla', 'cost': 199}
+
+
+
+"""Match/Case""" """Pattern Matching with Sequences"""
+
+
+# imaginary robot
+# def handle_command(self, message):
+#  match message:
+#     case ['BEEPER', frequency, times]:
+#         self.beep(times, frequency)
+#     case ['NECK', angle]:
+#         self.rotate_neck(angle)
+#     case ['LED', ident, intensity]:
+#         self.leds[ident].set_brightness(ident, intensity)
+#     case ['LED', ident, red, green, blue]:
+#         self.leds[ident].set_color(ident, red, green, blue)
+#     case _:
+#         raise InvalidCommand(message)
+
+
+# Destructuring nested tuples
+metro_areas = [
+ ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)),
+ ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889)),
+ ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
+ ('New York-Newark', 'US', 20.104, (40.808611, -74.020386)),
+ ('São Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
+]
+
+
+def main():
+    print(f'{"":15} | {"lattitude":>9} | {"longtitude":>9}')
+    for record in metro_areas:
+        match record:
+            case [name, _, _, (lat, lon)] if lon <= 0:
+                print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
+
+
+for record in metro_areas:
+    match record:
+        case (name, _, _, (lat, lon)):
+            print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
+
+
+
+# bind any part of a pattern with a variable using the as keyword
+# match random:
+#     case [name, _, _, (lat, lon) as coord]:
+
+# Variable Set Value
+# name 'Shanghai'
+# lat 31.1
+# lon 121.3
+# coord (31.1, 121.3)
+
+
+# check for type by make patterns more specific by adding type information
+# case [str(name), _, _, (float(lat), float(lon))]:d
+
+
+
+
+records = [{'id_number': '3', 'genre': 'novel', 'title': 'War and Peace', 'author': 'Tolstoy'}, 
+           {'id_number': '2', 'genre': 'novel', 'title': 'Crime and Punishment', 'author': 'Dostoyevsky'}]
+
+book = str(input('Your book name?: '))
+for record in records:
+    match record:
+        case {'title': title} if title == book:
+            print(f"title: {title} | {record}")

@@ -94,7 +94,7 @@ class JsonFileStudentsRepository:
         """Сконвертировать набор записей (словарей нужного формата) в набор объектов Student."""
         result = []
         for record in student_records:
-            # student = Student(name=record['name'], last_name=record['last_name'], age=record['age'])
+            student = Student(name=record['name'], last_name=record['last_name'], age=record['age'])
             result.append(record)
         return result
         

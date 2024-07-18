@@ -27,7 +27,7 @@ people = spark.read.format("csv")\
 people.printSchema()
 
 # withColumn adds new column 'inser_ts' and using current timestamp func
-output = people.select(people.userID, people.item, people.name, people.size, people.location ,people.height, people.width)\
+output = people.select(people.userID, people.item, people.name, people.size, people.location , people.height, people.width)\
          .withColumn('insert_ts', func.current_timestamp())\
          .orderBy(people.userID).cache()
 # cache stores the dataframe in memory
@@ -40,5 +40,6 @@ spark.sql("select userID, name from peoples where size > 2 order by userID").sho
 
 output.write\
 .format("json").mode("overwrite")\
-.option("path", "hdfs:///user/maria_dev/spark/job_output/")\
+.option("path", "hdfs:///user/maria_dev/spark/items_output/")\
+.partitionBy("userID")\
 .save()

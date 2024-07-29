@@ -1,8 +1,11 @@
-from pyspark.sql import SparkSession
+import mimesis
+from mimesis import Person
+from mimesis.locales import Locale
+from mimesis.enums import Gender
 
 
-spark = SparkSession.builder.appName('RDD example').getOrCreate()
+person = Person(Locale.EN)
 
-df = spark.sparkContext.parallelize([1, 2, 3, 'a b c'], [4, 5, 6, 'd e f'], [7, 8, 9, 'g h i']).toDF(['col1', 'col2', 'col3', 'col4'])
+female = person.full_name(gender=Gender.FEMALE)
+male = person.full_name(gender=Gender.MALE)
 
-df.show()

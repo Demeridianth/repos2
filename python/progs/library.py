@@ -3,7 +3,7 @@ import json
 import os
 
 
-"""library program"""
+"""library"""
 
 # match/case implemantation (maybe for 'search' command)
 # use dict.get() on 'edit' or elsewhere
@@ -11,8 +11,11 @@ import os
 # use os.path or pathlib for something = in command 'about' print a text with info about library
 # maybe a download command, requests module
 # classes must be separated
-# add book id_number automatic the next number after the largest existing or a random but not existing
+# add book id_number automatic the next number after the largest existing or a random but not existing - ADD !!!
+# add date and time - when the record was created  !!!
 # annotations to everything
+
+# user/admin access !!!
 
 
 
@@ -23,6 +26,9 @@ Record = collections.namedtuple('Record', ['id_number', 'genre', 'title', 'autho
 class InMemoryLibraryRecords:
     def __init__(self):
         self.records = []
+
+    def id_count(self):
+        self.last_id = 0
 
     def get_records(self):
         return self.records
@@ -78,6 +84,7 @@ class ConsoleUI:
         for record in sorted(records, key=lambda x: x['author']):
             print(f'{record["title"]}, {record["author"]}, {record["genre"]}, {record["id_number"]}')
 
+    # pattern matching
     @staticmethod
     def search_library(records, author_name):
         for record in records:

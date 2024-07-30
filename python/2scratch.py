@@ -1,11 +1,8 @@
-import mimesis
-from mimesis import Person
-from mimesis.locales import Locale
-from mimesis.enums import Gender
+a = 10 if 0 else 5
 
 
-person = Person(Locale.EN)
 
-female = person.full_name(gender=Gender.FEMALE)
-male = person.full_name(gender=Gender.MALE)
+
+
+
 

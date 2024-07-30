@@ -79,3 +79,17 @@ for codec in ['latin_1', 'utf_8', 'utf_16']:
 # UTF-8, a variable-width character encoding capable of encoding all 1,107,616 valid character code points in Unicode using one to four one-byte (8-bit) units.
 
 
+
+from unicodedata import name
+
+
+# >>> name('a')
+# 'LATIN SMALL LETTER A'
+# >>> name('ā')
+# 'LATIN SMALL LETTER A WITH MACRON'
+# >>> name('ж')
+# 'CYRILLIC SMALL LETTER ZHE'
+# >>>
+
+
+# 181

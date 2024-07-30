@@ -37,7 +37,9 @@ def test_always_fails():
 # (TDD = test driven development)
 
 
-# The data represents a list of people, each with a given name, family name, and job title. The function should output a list of strings that include each person’s full name (their given_name followed by their family_name), a colon, and their title:
+# The data represents a list of people, each with a given name, family name, 
+# and job title. The function should output a list of strings that 
+# include each person’s full name (their given_name followed by their family_name), a colon, and their title:
 
 
 # format_data.py

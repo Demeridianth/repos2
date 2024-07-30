@@ -5,13 +5,13 @@ import os
 
 """library"""
 
-# match/case implemantation (maybe for 'search' command)
+# match/case implemantation (maybe for 'search' command)  DONE  !!!
 # use dict.get() on 'edit' or elsewhere
 # maybe use dict.setdefault.append on 'add' or 'edit'
 # use os.path or pathlib for something = in command 'about' print a text with info about library
 # maybe a download command, requests module
-# classes must be separated
-# add book id_number automatic the next number after the largest existing or a random but not existing - ADD !!!
+# classes must be separated    DONE !!!
+# add book id_number automatic the next number after the largest existing or a random but not existing - ADD !!!   DONE!!
 # add date and time - when the record was created  !!!
 # annotations to everything
 
@@ -27,9 +27,6 @@ class InMemoryLibraryRecords:
     def __init__(self):
         self.records = []
 
-    def id_count(self):
-        self.last_id = 0
-
     def get_records(self):
         return self.records
 
@@ -38,17 +35,17 @@ class InMemoryLibraryRecords:
     
 
 class InJsonFileLibraryRecords:
-    def __init__(self, file_name):
-        self.file_name = file_name
+    def __init__(self, records):
+        self.records = records
 
     def write_to_json_file(self, records):
-        with open(self.file_name, 'w') as file:
+        with open(self.records, 'w') as file:
             file.write(json.dumps(records))
 
     def read_from_json_file(self):
-        if not os.path.exists(self.file_name):
+        if not os.path.exists(self.records):
             self.write_to_json_file([])
-        with open(self.file_name, 'r') as file:
+        with open(self.records, 'r') as file:
             return json.loads(file.read())
 
     # method not yet needed
@@ -64,16 +61,15 @@ class ConsoleUI:
     
     @staticmethod
     def get_record_data():
-        id_number = ConsoleUI.get_user_input('enter id_number for the record: ')
         genre = ConsoleUI.get_user_input('enter genre for the record: ')
         title = ConsoleUI.get_user_input('enter title for the record: ')
         author = ConsoleUI.get_user_input('enter author for the record: ')
-        return (id_number, genre, title, author)
+        return (genre, title, author)
     
-    @staticmethod
-    def new_record():
-        id_number, genre, title, author = ConsoleUI.get_record_data()
-        return ConsoleUI.convert_to_dict(Record(id_number=id_number, genre=genre, title=title, author=author))
+    # @staticmethod
+    # def new_record():
+    #     id_number, genre, title, author = ConsoleUI.get_record_data()
+    #     return ConsoleUI.convert_to_dict(Record(id_number=id_number, genre=genre, title=title, author=author))
         
     @staticmethod
     def _convert_to_dict(record: Record):
@@ -92,6 +88,15 @@ class ConsoleUI:
                 case {'author': author, 'title': title, **details} if author == author_name:
                     print(f'{title} | {details}')
 
+    # for auto ID implementation for each record
+    @staticmethod
+    def parse_max_id_number(records):
+        id_numbers =  [record['id_number'] for record in records]
+        if not id_numbers:
+            id_numbers.append(0)
+        return max(id_numbers) + 1
+
+
 
 
 if __name__ == '__main__':
@@ -107,17 +112,20 @@ if __name__ == '__main__':
     except json.decoder.JSONDecodeError:            
         pass
 
-    
+
+
     # business logic
     while True:
-        chosen_action = console.get_user_input('choose a command: ')
+        chosen_action = console.get_user_input('\nchoose a command: ')
 
         if chosen_action == 'list':
             console.list_all_records(records_data.records)
 
         elif chosen_action == 'add':
-            new_record = console.new_record()
-            records_data.records.append(new_record)
+            id_number = console.parse_max_id_number(records_data.records)
+            genre, title, author = ConsoleUI.get_record_data()
+            converted_record = ConsoleUI._convert_to_dict(Record(id_number=int(id_number), genre=genre, title=title, author=author))
+            records_data.records.append(converted_record)
             json_file.write_to_json_file(records_data.records)
 
         elif chosen_action == 'edit':
@@ -132,7 +140,7 @@ if __name__ == '__main__':
 
         elif chosen_action == 'delete':
             records = records_data.get_records()
-            chosen_record = console.get_user_input('choose record id number: ')
+            chosen_record = int(console.get_user_input('choose record id number: '))
             for record in records:
                 if chosen_record == record['id_number']:
                     records.remove(record)

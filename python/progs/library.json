@@ -1,1 +1,1 @@
-[{"id_number": "3", "genre": "novel", "title": "War and Peace", "author": "Tolstoy"}, {"id_number": "2", "genre": "novel", "title": "Crime and Punishment", "author": "DOstoyevsky"}]
+[{"id_number": 1, "genre": "Novel", "title": "War and Peace", "author": "L. Tolstoy"}, {"id_number": 2, "genre": "Novel", "title": "Crime and Punishment", "author": "F. Dostoyevsky"}]

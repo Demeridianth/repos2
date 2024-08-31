@@ -1,1 +1,5 @@
-{"python.defaultInterpreterPath": "C:/Users/sergi/anaconda3/python.exe"}
+{
+    "python.defaultInterpreterPath": "C:/Users/sergi/anaconda3/python.exe",
+    "terminal.integrated.cwd": "",
+    "editor.wordWrap": "on"
+}

@@ -1,1 +1,37 @@
-[{"id_number": 1, "genre": "Novel", "title": "War and Peace", "author": "L. Tolstoy"}, {"id_number": 2, "genre": "Novel", "title": "Crime and Punishment", "author": "F. Dostoyevsky"}, {"id_number": 3, "genre": "novel", "title": "Lord of the Rings", "author": "J.J. Tolkien"}]
+[
+    {
+        "id_number": 1,
+        "genre": "Novel",
+        "title": "War and Peace",
+        "author": "L. Tolstoy",
+        "date_time": "Wed Sep  4 09:42:42 2024"
+    },
+    {
+        "id_number": 2,
+        "genre": "Novel",
+        "title": "Crime and Punishment",
+        "author": "F. Dostoyevsky",
+        "date_time": "Wed Sep  4 09:42:42 2024"
+    },
+    {
+        "id_number": 3,
+        "genre": "Novel",
+        "title": "Lord of the Rings",
+        "author": "J.R.R Tolkien",
+        "date_time": "Wed Sep  4 09:42:42 2024"
+    },
+    {
+        "id_number": 4,
+        "genre": "Novel",
+        "title": "The Song of Ice and Fire",
+        "author": "G.R.R Martin",
+        "date_time": "Wed Sep  4 09:42:42 2024"
+    },
+    {
+        "id_number": 5,
+        "genre": "story",
+        "title": "Vinnie the Pooh",
+        "author": "A. A. Milne",
+        "date_time": "Wed Sep  4 09:42:42 2024"
+    }
+]

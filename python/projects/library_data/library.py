@@ -1,9 +1,11 @@
-from collections import namedtuple
+from typing import NamedTuple
 import json
 import os
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
+import locale
 
 
 """library database"""
@@ -16,17 +18,16 @@ from bs4 import BeautifulSoup
 # web sraping
 
 
-# use dict.get() on 'edit' or elsewhere
+
 # maybe use dict.setdefault.append on 'add' or 'edit'
 
-# add date and time - when the record was created  !!! - video idently.io
 # annotations to everything
 
 # user/admin access !!!
 
 
 
-Record = namedtuple('Record', 'id_number genre title author')
+Record = NamedTuple('Record', id_number=int, genre=str, title=str, author=str, date_time=str)
 
 
 class InMemoryLibraryRecords:
@@ -70,11 +71,15 @@ class ConsoleUI:
     @staticmethod
     def convert_to_dict(record: Record):
         return record._asdict()
-    
+
     @staticmethod
     def list_all_records(records):
+    # Print the column headers
+        print(f'{"Title":30} {"Author":20} {"Genre":15} {"ID Number":10} {"Date and Time"}')
+        print('-' * 90)  
+    # Print each record
         for record in sorted(records, key=lambda x: x['author']):
-            print(f'{record["title"]}, {record["author"]}, {record["genre"]}, {record["id_number"]}')
+            print(f'{record["title"]:30} {record["author"]:20} {record["genre"]:15} {record["id_number"]:<10} {record["date_time"]}')
 
     # pattern matching | search library record by author name
     @staticmethod
@@ -111,6 +116,18 @@ class ConsoleUI:
         soup = BeautifulSoup(response.text, 'html.parser')
         paragraphs = soup.find_all('p')
         return paragraphs[1].get_text()
+    
+    @staticmethod
+    def get_datetime():
+        user_locale = locale.getlocale()
+        try:
+            locale.setlocale(locale.LC_TIME, user_locale)
+        except locale.Error:
+            print(f'Locale {user_locale} is not supported on your system. Falling back to "C" locale')
+            locale.setlocale(locale.LC_TIME, 'C')
+        today = datetime.now()
+        return f'{today:%c}'
+
 
 
 
@@ -136,20 +153,21 @@ if __name__ == '__main__':
             console.list_all_records(records_data.records)
 
         elif chosen_action == 'add':
+            date_time = console.get_datetime()
             id_number = console.parse_max_id_number(records_data.records)
             genre, title, author = ConsoleUI.get_record_data()
-            converted_record = ConsoleUI.convert_to_dict(Record(id_number=int(id_number), genre=genre, title=title, author=author))
+            converted_record = ConsoleUI.convert_to_dict(Record(id_number=int(id_number), genre=genre, title=title, author=author, date_time=date_time))
             records_data.records.append(converted_record)
             json_file.write_to_json_file(records_data.records)
 
         elif chosen_action == 'edit':
             records = records_data.get_records()
-            chosen_record = console.get_user_input('choose record id number: ')
+            chosen_record = int(input('choose record id number: '))
             for record in records:
                 if chosen_record == record['id_number']:
                     print('update record:')
-                    id_number, genre, title, author = console.get_record_data()
-                    record['id_number'] = id_number; record['genre'] = genre; record['title'] = title; record['author'] = author
+                    genre, title, author = console.get_record_data()
+                    record['genre'] = genre; record['title'] = title; record['author'] = author
             json_file.write_to_json_file(records_data.records)
 
         elif chosen_action == 'delete':
@@ -170,6 +188,10 @@ if __name__ == '__main__':
 
         elif chosen_action == 'quit' or 'q':
             break
+
+        
+        # elif    # if chosen action not in help
+        #     print('wrong command, try again')
 
 
 

@@ -33,5 +33,12 @@
         "title": "Vinnie the Pooh",
         "author": "A. A. Milne",
         "date_time": "Wed Sep  4 09:42:42 2024"
+    },
+    {
+        "id_number": 6,
+        "genre": "novel",
+        "title": "Hobbit",
+        "author": "J.R.R Tolkien",
+        "date_time": "Wed Sep  4 16:44:57 2024"
     }
 ]

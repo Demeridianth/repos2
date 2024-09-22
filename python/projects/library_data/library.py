@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import locale
+import numpy as np
 
 
 """library database"""
@@ -19,37 +20,29 @@ import locale
 
 
 
-# maybe use dict.setdefault.append on 'add' or 'edit'
-
-# annotations to everything
-
-# user/admin access !!!
-
-
-
 Record = NamedTuple('Record', id_number=int, genre=str, title=str, author=str, date_time=str)
 
 
 class InMemoryLibraryRecords:
-    def __init__(self):
+    def __init__(self) -> None:
         self.records = []
 
-    def get_records(self):
+    def get_records(self) -> list:
         return self.records
 
-    def __getitem__(self, index: int):
+    def __getitem__(self, index: int) -> dict:
         return self.records[index]
     
 
 class InJsonFileLibraryRecords:
-    def __init__(self, records):
+    def __init__(self, records) -> None:
         self.records = records
 
-    def write_to_json_file(self, records):
+    def write_to_json_file(self, records: list) -> None:
         with open(self.records, 'w') as file:
             file.write(json.dumps(records))
 
-    def read_from_json_file(self):
+    def read_from_json_file(self) -> list:
         if not os.path.exists(self.records):
             self.write_to_json_file([])
         with open(self.records, 'r') as file:
@@ -58,22 +51,22 @@ class InJsonFileLibraryRecords:
         
 class ConsoleUI:
     @staticmethod
-    def get_user_input(message, converter=str):
+    def get_user_input(message: str, converter: type = str) -> str:
         return converter(input(message))
     
     @staticmethod
-    def get_record_data():
+    def get_record_data() -> tuple:
         genre = ConsoleUI.get_user_input('enter genre for the record: ')
         title = ConsoleUI.get_user_input('enter title for the record: ')
         author = ConsoleUI.get_user_input('enter author for the record: ')
         return (genre, title, author)
 
     @staticmethod
-    def convert_to_dict(record: Record):
+    def convert_to_dict(record: Record) -> dict:
         return record._asdict()
 
     @staticmethod
-    def list_all_records(records):
+    def list_all_records(records: list) -> None:
     # Print the column headers
         print(f'{"Title":30} {"Author":20} {"Genre":15} {"ID Number":10} {"Date and Time"}')
         print('-' * 90)  
@@ -83,7 +76,7 @@ class ConsoleUI:
 
     # pattern matching | search library record by author name
     @staticmethod
-    def search_library(records, author_name):
+    def search_library(records: list, author_name: str) -> None:
         for record in records:
             match record:
                 case {'author': author, 'title': title, **details} if author == author_name:
@@ -91,7 +84,7 @@ class ConsoleUI:
 
     # auto ID implementation for each record
     @staticmethod
-    def parse_max_id_number(records):
+    def parse_max_id_number(records: list) -> int:
         id_numbers =  [record['id_number'] for record in records]
         if not id_numbers:
             id_numbers.append(0)
@@ -99,7 +92,7 @@ class ConsoleUI:
     
     # read from text file using pathlib module
     @staticmethod
-    def read_text_file(file):
+    def read_text_file(file: str) -> None:
         if not os.path.exists(file):
             with open(file, 'w') as text_file:
                 text_file.write(ConsoleUI._scrape_text())
@@ -108,7 +101,7 @@ class ConsoleUI:
 
     # web scraping text using BeautifulSoup | requests 
     @staticmethod
-    def _scrape_text():
+    def _scrape_text() -> str:
         url = 'https://en.wikipedia.org/wiki/Web_scraping'
         response = requests.get(url)
         if response.status_code != 200:
@@ -118,7 +111,7 @@ class ConsoleUI:
         return paragraphs[1].get_text()
     
     @staticmethod
-    def get_datetime():
+    def get_datetime() -> str:
         user_locale = locale.getlocale()
         try:
             locale.setlocale(locale.LC_TIME, user_locale)
@@ -136,7 +129,7 @@ if __name__ == '__main__':
     json_file = InJsonFileLibraryRecords('library.json')
     records_data = InMemoryLibraryRecords()
 
-    # fill InMemoryLibraryRecords with data from file, while trying to read from empty JSON file:
+    # fill InMemoryLibraryRecords with data from JSON file while it is empty:
     try:
         data = json_file.read_from_json_file()
         for record in data:
@@ -188,6 +181,11 @@ if __name__ == '__main__':
 
         elif chosen_action == 'quit' or 'q':
             break
+
+        elif chosen_action == 'help':
+            print(
+                'list ='
+            )
 
         
         # elif    # if chosen action not in help

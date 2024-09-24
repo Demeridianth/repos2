@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>Hello woorld</h1>
+    <ul>
+        <li>item 1</li>
+        <li>item 1</li>
+        <li>item 1</li>
+        <li>item 1</li>
+        <li>item 1</li>
+    </ul>
+    <div class="content" data-productId = "001">
+        <a href="">Button</a>
+    </div>
+
+
+    <script>
+        //DOM - Document Object Model
+        document.title = "Hello";
+        let elems = document.body.childNodes; 
+        // console.log(elems);
+        let h1 = document.querySelector('h1');
+
+        // elems = h1.nextSibling.nextSibling;
+        elems = h1.nextElementSibling;
+        elems = document.body.previousElementSibling;
+        ul = h1.nextElementSibling;
+        elems = ul.children
+        elems = ul.firstElementChild;
+        elems = ul.lastElementChild;
+        elems.innerText = "Testing input";
+
+        elem_new =  document.createElement('li');
+        elem_new_text = document.createTextNode('Created element');
+        elem_new.append(elem_new_text);
+        ul.prepend(elem_new);
+        ul.lastElementChild.remove();
+
+        // document.body.append(h1);
+        h2 = h1.cloneNode(true);
+        
+        document.body.append(h2);
+        // console.log(elems)
+        div1 = document.querySelector("a").parentElement.parentElement;
+
+        div1.setAttribute('id','one');
+        div1.id = "two";
+        div1.dataset.productId = "003";
+        console.dir(div1);
+
+
+        h1.classList.add('active');
+        h1.onmouseover = function(){
+            console.log();
+            h1.classList.toggle('active');
+            if(h1.classList.contains('active')){
+                 h1.parentElement.style.background="red";
+            }else{
+                h1.parentElement.style.background="";
+            }
+        }
+       
+    </script>
+</body>
+</html>

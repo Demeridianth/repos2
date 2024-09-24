@@ -165,7 +165,7 @@ if __name__ == '__main__':
 
         elif chosen_action == 'delete':
             records = records_data.get_records()
-            chosen_record = int(console.get_user_input('choose record id number: '))
+            chosen_record = console.get_user_input('choose record id number: ', int)
             for record in records:
                 if chosen_record == record['id_number']:
                     records.remove(record)
@@ -179,17 +179,22 @@ if __name__ == '__main__':
         elif chosen_action == 'about':
             console.read_text_file('about.txt')
 
-        elif chosen_action == 'quit' or 'q':
+        elif chosen_action == 'quit' or chosen_action == 'q':
             break
 
         elif chosen_action == 'help':
-            print(
-                'list ='
-            )
+            print('-------')
+            print(' list = view all library records\n', 
+                  'add = add a record\n',
+                  'edit = edit a record\n',
+                  'delete = delete a record\n',
+                  'serch = search the library for a record\n',
+                  'about = see info about library\n',
+                  'quit, q = exit library_data')
+            print('-------')
 
-        
-        # elif    # if chosen action not in help
-        #     print('wrong command, try again')
+        else:
+            print("unknown command, type help for a list of available commands")
 
 
 

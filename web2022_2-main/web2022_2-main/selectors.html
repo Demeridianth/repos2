@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body .nav  p{
+            color:green;
+        }
+        body .nav > p{
+            color:red;
+        }
+        .nav >ul >li{
+            display:inline-block;
+        }
+        h1+div{
+            border: 3px solid blue;
+        }
+
+
+        form input[type="text"],form input[type="submit"]{
+            border:2px dotted red;
+        }
+
+        h1,h2:not(#other),h3{
+                font-size:30pt;
+                background: green;
+        }
+        ul li a[href="https.google.lv"]{
+                text-decoration: none;
+        }
+        /* 
+        :hover
+        :active
+        :disabled
+        :checked
+        :empty 
+        :focus
+        :invalid
+        */
+        a:hover{
+            color:yellow;
+        }
+
+        form input:focus{
+            outline: 2px solid red;
+        }
+
+        form input:checked{
+            width:120%;
+        }
+        table{
+            width:75%;
+            margin: 0 auto;
+            border:none;
+            border-spacing: 0px;
+
+        }
+        table *{
+            padding:10px;
+
+        }
+
+        table tr:first-child{
+            text-align: center;
+            background: lightblue !important;
+        }
+
+        table tr:last-child{
+            text-align: center;
+            font-weight: bold;
+            background: rgb(233, 142, 7) !important;
+        }
+        /* table tr:nth-child(odd){
+            background-color: grey;
+        }
+        table tr:nth-child(even){
+            background-color: rgb(206, 206, 206);
+        } */
+        table tr:nth-child(3n+1){
+            background-color: grey;
+        }
+
+        .nav a:before{
+            content:"";
+            display: block;
+            width:20%;
+            height:5px;
+            background-color: aquamarine;
+            position:relative;
+            bottom: 0px;
+            transition: .5s;
+        }
+        .nav a:hover:before{
+            bottom:-25px;
+            transition: .5s;
+            width:100%;
+        }
+        p::first-line{
+            font-size: 10px;
+            /* ::first-letter,::before,::after */
+        }
+
+        h1::before,h2::before{
+            content:"***";
+            display: block;
+            text-align: center;
+        }
+        h1,h2{
+            /* width:calc(100% - 200px); */
+            /* max(),min(), */
+            max-width: 800px;
+            min-width: 200px;
+            margin:  0px auto;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Selectors</h1>
+    <div class="nav">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, exercitationem possimus aspernatur molestiae
+            dolores iure blanditiis eum illum, soluta consequatur officia. Vero molestiae mollitia ab velit ea aut sint
+            nulla.</p>
+        <ul>
+            <p>lorem</p>
+            <li><a href="">nav</a></li>
+            <li><a href="https://google.lv">nav</a></li>
+            <li><a href="">nav</a></li>
+        </ul>
+        <p></p>
+    </div>
+    <h2 id="other">Other selectors</h2>
+    <h2>must be green</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi laboriosam modi natus a cupiditate illo in
+        expedita ex. Ipsum illo, obcaecati at aut possimus ipsam in enim iure ut autem?</p>
+    <form action="">
+        <input type="text" minlength="3">
+        <input type="date" name="date" id="" disabled>
+        <input type="button" value="ok">
+        <input type="checkbox" name="" id="" checked>
+    </form>
+    <div class="footer">
+        <table>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

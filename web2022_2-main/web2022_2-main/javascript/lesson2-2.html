@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = String("Hello World");
+        let str2 = "imagedfsdfsdfsdfsdfsdf.png";
+        result = typeof(str);
+        result = str.length;
+        result = str.toUpperCase();
+        result = str.toLowerCase();
+        result = str.trim();
+
+        result = str2.slice(-3);
+        result = str.split(' ');
+        // str1.concat
+        let reg1 = /[A-z]{4}/g;  //reg expression
+        let reg2 = /[\w]/g;  //reg expression
+        result = str.match(reg1);
+        result = str.replace(reg2,"*");
+        
+        // charAt()
+
+        result = str.charCodeAt(3);
+        console.log(result)
+        
+        // console.dir(str);
+    </script>
+</body>
+</html>

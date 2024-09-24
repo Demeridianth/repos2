@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+    <script>
+        // AddEventListener
+        document.addEventListener("DOMContentLoaded",()=>{
+            // DOMContentLoaded Загрузка всего DOM
+            
+            let div = document.querySelector(".blue");
+            let marginTop = 0;
+            // div.onmouseover = (event)=>{
+            //     event.target.style.border = "3px solid red";
+            // }
+
+            div.addEventListener("mouseover", (event)=>{
+                event.target.style.border = "3px solid red";
+            })
+
+            div.addEventListener("mouseout", (event)=>{
+                event.target.style.border = "3px solid green";
+            })
+
+            document.addEventListener("keydown", (event)=>{
+                if(event.key == "ArrowDown"){
+                    marginTop += 20;
+                    div.style.marginTop = marginTop + "px";
+                    // console.log(marginTop);
+                }
+                if(event.key == "ArrowUp"){
+                    marginTop -= 20;
+                    div.style.marginTop = marginTop + "px";
+                    // console.log(marginTop);
+                }
+                if(event.key == "Enter"){
+                    div.style.background = "red";
+                    // console.log(marginTop);
+                }
+
+                //BOM
+
+            })
+            // document.addEventListener("keyup", (event)=>{
+            //     console.log(event);
+            // })
+
+                // window.onresize = ()=>{
+                //     console.log(window.innerHeight);
+                //     console.log(window.innerWidth);
+                // }
+                feat = "popup,left=100,top=100,width=320,height=320,location=no";
+                // div.ondblclick = ()=>{
+                //     // window.open('dom1.html','',feat);
+                //     // window.resizeTo('250px','350px');
+
+                // }
+
+
+                // console.log(window.screen); //свойства экрана
+                console.log(window.location); //Адрес окна
+                console.log(window.history); //история
+                console.log(window.navigator);  //Броузер
+
+                     div.ondblclick = ()=>{
+                        // window.location.href="https://ss.com";
+                        // window.location.history.back();
+                        // window.location.history.forward();
+                        // clearInterval(time);
+                    }
+
+                    // let time = setTimeout(()=>{
+                    //     document.body.style.background = "black";
+                    // },5000);
+
+                    // let time = setInterval(()=>{
+                    //     div.classList.toggle("blue");
+                    // },100)
+
+                    // clearTimeout(time);
+
+
+
+
+                    //Cookies
+
+                    // document.cookie = "username=Vitaly Korabelnikov; background=green;Max-Age="+3600*24*7; 
+                    // document.cookie = "background=green";
+                    // document.cookie = "cart=[]";
+                    //     let data = document.cookie.split("=")[1];
+                    //     data = JSON.parse(data)
+                    //     console.log(data);
+                    // div.innerText = document.cookie.split("=")[1];
+                    // div.innerText = document.cookie;
+
+                    localStorage.setItem("background","green");
+                        localStorage.removeItem("background");
+
+                    // alert(localStorage.getItem("background"));
+
+
+
+
+                    //JSON
+                    let cart = [
+                            {item:'HDD',count:4,price:10},
+                            {item:'Monitor',count:3,price:250}
+                    ]
+                    // localStorage.setItem("cart",JSON.stringify(cart));
+
+
+                    let readCart = JSON.parse(localStorage.getItem("cart"));
+                    // console.log(cart);
+                    console.log(readCart);
+
+
+                    // BOM - window.onscroll()
+                    // window.pageYOffset
+                    // При прокрутке страницы изменяется размер шапки, И показывается ссылка наверх
+                    //Parallax 
+                   
+        })
+        
+
+    </script>
+    <style>
+        .blue{
+            width: 250px;   
+            height:250px;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue">
+
+    </div>
+</body>
+</html>

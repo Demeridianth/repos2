@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .circle{
+            width: 50px;
+            height: 50px;
+            border-radius:50%;
+            background:red;
+            margin:30px;
+            animation: animation1 2s infinite;
+        }
+
+        .circle:nth-child(1){
+            animation-delay: 0s;
+        }
+        .circle:nth-child(2){
+            animation-delay: .3s;
+        }
+        .circle:nth-child(3){
+            animation-delay: .6s;
+        }
+        .circle:nth-child(4){
+            animation-delay: .9s;
+        }
+
+        .circle:hover{
+                animation:animation2 .4s;
+                /* animation-iteration-count: ; */
+        }
+        @keyframes animation1{
+            /* from{
+
+            }
+            to{
+                
+            } */
+            0%{
+                transform:translate(0px,0px);
+            }
+            25%{
+                transform:translate(30px,0px);
+                background: green;
+            }
+            50%{
+                transform:translate(30px,-30px);
+            }
+            75%{
+                transform:translate(0px,-30px);
+                background: yellow;
+            }
+            100%{
+                transform:translate(0px,0px);
+            }
+        }
+
+        @keyframes animation2{
+            0%{
+                transform: scale(1);
+                position:relative;
+                top:0px;
+                /* background-color: ; */
+            }
+            50%{
+                transform: scale(2);
+                position:relative;
+                top:-20px;
+                background-color: black;
+            }
+            100%{
+                transform: scale(1);
+                position:relative;
+                top:0px;
+            }
+
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="circle">
+        
+    </div>
+    <div class="circle">
+
+    </div>
+    <div class="circle">
+
+    </div>
+    <div class="circle">
+
+    </div>
+</body>
+</html>

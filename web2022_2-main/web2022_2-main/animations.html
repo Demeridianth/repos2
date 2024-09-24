@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display:flex;
+            justify-content: center;
+            perspective: 500px;
+
+        }
+        .item{
+            width:200px;
+            height: 200px;
+            background-color: aquamarine;
+            margin:10px;
+            transition: all .1s  cubic-bezier(.48,1.22,.59,1.36);
+
+        }
+        /* 2d transform 3d transform */
+
+        .item:hover{
+            /* transition: background 1s  cubic-bezier(.48,1.22,.59,1.36); */
+            transition: all .3s  cubic-bezier(.48,1.22,.59,1.36);
+            background-color: blue;
+            transform: rotate(45deg);
+            box-shadow: 0px 0px 20px black;  
+            /* transform: scale(0.8,2);
+            /* transform: skew(-20deg,20deg); */
+            /* transform: translate(0px,30px); */
+            /* transform: matrix(1,0,0,1,50px,100px);  */
+
+            /* transform: rotateY(45deg); */
+            /* transform: translateX(20px); */
+            /* transform: scaleX(3); */
+
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+        </div>
+        <div class="item">
+        </div>
+        <div class="item">
+        </div>
+        <div class="item">
+        </div>
+        <div class="item">
+        </div>
+        <div class="item">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <input type="text" placeholder="Продукты" class="products">
+    <input type="text" placeholder="Сколько" class="quantity">
+    <input type="text" placeholder="цена" class="price">
+
+
+    <input type="button" value="Купить" class="addTask">
+    <div class="tasks">
+
+    </div>
+    <div class="sum">
+
+    </div>
+
+    <script>
+        //переменные
+        let product = document.querySelector('.products');
+        let quantity = document.querySelector('.quantity');
+        let price = document.querySelector('.price');
+        let addBtn = document.querySelector('.addTask');
+        let tasksDiv = document.querySelector('.tasks');
+        let sumDiv = document.querySelector('div.sum');
+        let tasks = [];
+
+        //Функцилнал
+        function addNewTask(){
+                let task = {
+                    product:product.value,
+                    quantity:quantity.value,
+                    price:price.value
+                }
+               tasks.push(task);
+               renderTasks();
+               console.log(tasks); 
+        }
+
+        function renderTasks(){
+            let sum = 0;
+            if(document.querySelector('table')){
+                document.querySelector('table').remove();
+            }
+            let table = document.createElement('table');
+            sumDiv.before(table);
+            
+            // if(document.body.contains('table')){
+            //     table.remove();
+            // }
+            
+           
+            
+           
+            tasks.forEach(function(item,index){
+                sum+=(item.quantity*item.price);
+                
+                table.innerHTML +=`
+                    <tr class="task">
+                        <td class="product">${item.product}</td>
+                        <td class="product">${item.quantity}</td>
+                        <td class="product">${item.price}</td>
+                        <td> <button data-numer = "${index}" class="removeTask" onclick="removeTask(${index})">Удалить</button>
+                        </td>   
+                        
+                    </tr>    
+                `;
+            })
+            sumDiv.innerHTML = `
+                <h3>Сумма заказа составляет ${sum.toFixed(2)} евро!</h3>
+            `
+        }
+        function removeTask(id){
+            tasks.splice(id,1);
+            renderTasks();
+            console.log(tasks); 
+        }
+
+        // renderTasks();
+
+        // События
+        addBtn.addEventListener("click",addNewTask);
+
+
+        // сделать программу дл похода в магазин (что купить)
+            // Наполение массива Объектами 
+            // цена за покупку и сумма должна высчитываться автоматически
+            // если куплено, перечеркивается
+            // кнопка которая очищает список
+
+
+
+
+            // Сделать форму в которой динамически добавляются/удаляются элементы
+                // Поле выбора количество пассажиров
+                // Добавляются дополнительные поля Имя и фамилия
+                
+    </script>
+
+
+        
+</body>
+</html>

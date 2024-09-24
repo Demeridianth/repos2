@@ -1,0 +1,17 @@
+body{
+    background-color: burlywood;
+}
+header{
+    background-color: black;
+}
+a {
+    color: chocolate;
+}
+img{
+    width: 300px;
+    height: 210px;
+    float: right;
+}
+footer{
+    text-align: center;
+}

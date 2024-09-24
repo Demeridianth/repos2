@@ -1,0 +1,25 @@
+@media screen and (min-width:450px) and (max-width:600px){
+    body{
+        /* background-color: aqua; */
+    }
+    .container{
+        flex-direction: column !important;
+
+    }
+    .item{
+        width: 75% !important;
+        margin: 10px auto !important;
+    }
+    .item:nth-last-child(){
+        display:none;
+    }
+
+
+
+}
+
+@media screen and (min-width:1400px){
+    body{
+        background-color: red !important;
+    }
+}

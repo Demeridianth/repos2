@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+         .gallery{
+             display: grid;
+             grid-template-columns: auto auto auto;
+             grid-gap:10px;
+             /* width:100%; */
+             /* flex-wrap:nowrap; */
+             /* justify-content: center; */
+         }  
+         .gallery img{
+             width:100%;
+             display: block;
+         }
+         .lightbox{
+             display: none;
+             justify-content: center;
+             align-items: center;
+             position:absolute;
+             top:0;
+             width: 100%;
+             height: 100%;
+             background: rgba(0, 0, 0, 0.616);
+         }  
+
+         .lightbox img{
+             width: 70%;
+             border:3px solid white;
+         }
+         
+         
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="">
+        <img src="https://media.istockphoto.com/photos/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-picture-id1093110112?k=20&m=1093110112&s=612x612&w=0&h=3OhKOpvzOSJgwThQmGhshfOnZTvMExZX2R91jNNStBY=" alt="" title="">
+        <img src="https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=" alt="">
+        <img src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" alt="">
+    </div>
+
+    <div class="lightbox">
+        <img src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" alt="">
+    </div>
+
+
+    <script>
+        let imageFiles = [
+            "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80",
+            "image2.jpg"];
+
+        let images = document.querySelectorAll(".gallery img");
+        let lightboxImg = document.querySelector(".lightbox img");
+        let lightboxDiv = document.querySelector(".lightbox");
+        images.forEach(function(image){
+           image.onclick = function(){
+                lightboxImg.setAttribute("src",image.getAttribute("src"));
+                lightboxDiv.style.display="flex";
+            }
+        });
+        lightboxDiv.onclick = function(){
+            lightboxDiv.style.display="none";
+        }
+
+        // 1. сгенерировать картинки из цикла 
+        // 2. Используя дополнительный атрибут Title ввыести названия картинок
+        // 3. Добавить крестики которые будут закрывать картинки
+        // 4* Сделать прокрутку изображений
+
+    </script>
+</body>
+</html>

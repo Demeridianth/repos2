@@ -1,5 +1,10 @@
-import numpy as np
+while True:
+    command = input('test: ')
+    if command == '123':
+        print('ok')
 
+    elif command == 'ok':
+        print('ok')
 
-a = np.array([1, 2, 3, 4, 5, 6])
-print(a.mean())
+    else:
+        print('try again')

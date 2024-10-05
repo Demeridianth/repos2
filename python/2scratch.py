@@ -1,3 +1,4 @@
+import tkinter as tk
 
-letters = ['a', 'b', 'c']
-print(', '.join(letters))
+m = tk.Tk()
+m.mainloop()

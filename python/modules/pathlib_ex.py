@@ -17,9 +17,9 @@ def main() -> None:
     # print(path.exists())
     # print(path1.exists())
 
-    # home_path = Path.cwd() / 'data_file.json'
-    # with home_path.open() as file:
-    #     print(file.read())
+    home_path = Path.cwd() / 'data_file.json'
+    with home_path.open() as file:
+        print(file.read())
     # # # same as
     # print(home_path.read_text())
 

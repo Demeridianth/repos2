@@ -122,9 +122,8 @@ class ConsoleUI:
         return f'{today:%c}'
 
 
-
-
-if __name__ == '__main__':
+# business logic
+def main():
     console = ConsoleUI()
     json_file = InJsonFileLibraryRecords('library.json')
     records_data = InMemoryLibraryRecords()
@@ -138,7 +137,6 @@ if __name__ == '__main__':
         pass
 
 
-    # business logic
     while True:
         chosen_action = console.get_user_input('\nchoose a command: ')
 
@@ -195,6 +193,11 @@ if __name__ == '__main__':
 
         else:
             print("unknown command, type help for a list of available commands")
+
+
+if __name__ == '__main__':
+    main()
+    
 
 
 

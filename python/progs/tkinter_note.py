@@ -1,3 +1,5 @@
+# without Class
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
@@ -13,6 +15,7 @@ def open_file():
     return None
 
 def save_file():
+    global current_file_path
     if current_file_path:  # Only if the file path exists
         with open(current_file_path, 'w') as file:
             file.write(text_area.get(1.0, tk.END))  # Save the current content of the Text widget

@@ -1,38 +1,30 @@
-from time import sleep, perf_counter
+from time import perf_counter, sleep
 
-def run_time(func, *args, **kwargs):
+
+def run_time(function, *args, **kwargs):
     print('Function start...')
     sleep(1)
     start_time = perf_counter()
-    func(*args, **kwargs)
+    function(*args, **kwargs)
     end_time = perf_counter()
-    print(f'It took {end_time - start_time: 0.02f} seconds to complete')
+    print(f'your function took {end_time - start_time: 0.04f} to run')
 
 
-# without args
-# def run_time(func):
-#     print('go...')
-#     sleep(0.5)
-#     start_time = perf_counter()
-#     func()
-#     end_time = perf_counter()
-#     print(f'function took {end_time - start_time:0.2f} to complete')
-
-# test function
+# get all even numbers squared | function with an argument
 def in_cube_even(nums):
     result = [n**2 for n in nums if n % 2 == 0]
-    print(result)
+    return result
 
-# test function
-def switch():
-    letters = ['a', 'b', 'c']
-    letters.reverse()
-    print(letters)
+# simple function without any arguments
+def simple_function():
+    sleep(1)
+    print('Simple function done')
+
+
+def main():
+    run_time(in_cube_even, range(10*1000))
+    run_time(simple_function)
 
 
 if __name__ == '__main__':
-    run_time(in_cube_even, [n for n in range(10000)])
-
-
-# t0 = perf_counter(); in_cube_even([n for n in range(100)]);  t1 = perf_counter()
-# print(f'function took {t0 - t1} to complete')
+    main()

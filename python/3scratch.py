@@ -1,54 +1,62 @@
 import tkinter as tk
 from tkinter import filedialog
-from tkinter import Tk, Text, Frame, Button
+from tkinter import Tk, Text, Frame, Button, Menu, messagebox
 from tkinter import *
 
 
-class SimpleNotepad:
-    def __init__(self, root: Tk) -> None:
-        self.root = root
-        self.root.title('Bob\'s notepad')
-
-        # Text widget
-        self.text_area = Text(self.root, wrap='word')
-        self.text_area.pack(expand=True, fill='both')
+def main():
+    window = Tk()
+    window.title('No\' tepap')
 
 
-        # label widget
-        self.label = Label(self.root, text='geeks')
-        self.label.pack()
+    # WIDGETS
+
+    # label
+    label = tk.Label(text='frame')
+    label.pack()
+
+    # text
+    text = Text(window, wrap='word')
+    text.pack(expand=True, fill='both')
 
 
-        # Frame 
-        self.button_frame = Frame(self.root)
-        self.button_frame.pack()
+    # frame
+    frame = Frame(window)
+    frame.pack()
 
-        # Save button
-        self.save_button = Button(self.button_frame, text='Save', command=self.save_file)
-        self.save_button.pack(side=tk.LEFT)
-
-        # Load button
-        self.load_button = Button(self.button_frame, text='Load', command=self.load_file)
-        self.load_button.pack(side=tk.LEFT)
-
+    #  1 button
+    button1 = Button(frame, text='111')
+    button1.pack(side=tk.LEFT)
+    #  2 button
+    button2 = Button(frame, text='222')
+    button2.pack(side=tk.LEFT)
 
 
-    def save_file(self) -> None:
-        file_path = filedialog.asksaveasfilename(defaultextension='txt',)
+    # menu bar
+    menu_bar = Menu(window)
+    window.config(menu=menu_bar)
+
+    # file menu
+    file_menu = Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label='File', menu=file_menu)
+    
+    # file_menu.add_command(label="Open", command=open_file)
+    file_menu.add_command(label="Save", command=save_file)
+    # file_menu.add_command(label="Save As", command=save_as_file)
+    # file_menu.add_separator()
+    # file_menu.add_command(label="Exit", command=window.quit)
 
 
-    def load_file(self) -> None:
-            pass
+    # commands
+
+    def save_file():
+        global current_file_path
+        if current_file_path
 
 
-    def run(self) -> None:
-        self.root.mainloop()
 
-
-def main() -> None:
-    root = tk.Tk()
-    app = SimpleNotepad(root=root)
-    app.run()
+    current_file_path = None
+    window.mainloop()
 
 
 if __name__ == '__main__':

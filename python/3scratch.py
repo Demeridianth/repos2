@@ -49,9 +49,9 @@ def main():
 
     # commands
 
-    def save_file():
-        global current_file_path
-        if current_file_path
+    # def save_file():
+    #     global current_file_path
+    #     if current_file_path
 
 
 

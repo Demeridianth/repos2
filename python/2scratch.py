@@ -2,8 +2,8 @@ import typing
 
 class City(typing.NamedTuple):
     continent: str
-    country: str
     city: str
+    country: str
 
 cities = [
  City('Asia', 'Tokyo', 'JP'),
@@ -18,7 +18,7 @@ def match_asian_cities():
     for city in cities:
         match city:
             case City(continent='Asia', country=cc):
-                results.append(city)
+                results.append(cc)
     print(results)
     
 match_asian_cities()

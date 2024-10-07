@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 
 def open_file():
+    global current_file_path
     file_path = filedialog.askopenfilename(defaultextension=".txt", 
                                            filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
     if file_path:
@@ -11,8 +12,10 @@ def open_file():
             text_area.delete(1.0, tk.END)  # Clear any existing content
             text_area.insert(tk.END, file.read())  # Insert the file content into the Text widget
         window.title(f"Editing - {file_path}")  # Update window title with file name
+        current_file_path = file_path
         return file_path
     return None
+
 
 def save_file():
     global current_file_path
@@ -22,8 +25,10 @@ def save_file():
         messagebox.showinfo("Save", "File saved successfully!")
     else:
         save_as_file()
+    
 
 def save_as_file():
+    global current_file_path
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", 
                                              filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
     if file_path:
@@ -31,6 +36,7 @@ def save_as_file():
             file.write(text_area.get(1.0, tk.END))  # Save the current content of the Text widget
         messagebox.showinfo("Save As", "File saved successfully!")
         window.title(f"Editing - {file_path}")  # Update window title with file name
+        current_file_path = file_path
         return file_path
     return None
 

@@ -113,8 +113,8 @@ response = requests.get('http://google.com')
 # >>> print(response.status_code)
 
 # returns True if response code < 400
-# >>> if response.ok:
-        # print('Do something...')
+if response.ok:
+    print('Do something...')
 
 # server response in unicode
 # >>> print(response.text)
@@ -195,6 +195,40 @@ with open('image.png', 'wb') as file:
 
 
 
+"""check status programm"""
+
+import requests 
+from requests import Response, RequestException
+from requests.structures import CaseInsensitiveDict
+
+
+def check_status(url: str) -> None:
+    try:
+        response = requests.get(url)
+
+        # Information
+        status_code = response.status_code
+        headers = response.headers
+        content_type = headers.get('Content-Type', 'Unknown')
+        server = headers.get('Server', 'Unknown')
+        response_time = response.elapsed.total_seconds()
+
+        print(f' {url}')
+        print(f'Status Code: {status_code}')
+        print(f'Content Type: {content_type}')
+        print(f'Server: {server}')
+        print(f'Response Time: {response_time:.2f} seconds')
+    except RequestException as e:
+        print(f'Error: {e}')
+              
+
+def main() -> None:
+    url_to_check = 'http://www.apple.com'
+    check_status(url=url_to_check)
+
+
+if __name__ == '__main__':
+    main()
 
 
 

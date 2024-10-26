@@ -1,10 +1,2 @@
-while True:
-    command = input('test: ')
-    if command == '123':
-        print('ok')
+dct = {'a': 1, 'b':2, 'c': 3}
 
-    elif command == 'ok':
-        print('ok')
-
-    else:
-        print('try again')

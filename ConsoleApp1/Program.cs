@@ -29,8 +29,9 @@ string newPet = pet.Replace("porcupine", "blue dot");
 StringBuilder newCrustecean = new StringBuilder();
 newCrustecean.Append("fiddler crab");
 Console.WriteLine(newCrustecean);
+// delete stringbuilder string
 newCrustecean.Remove(0, 8); // (start, end)
 Console.WriteLine(newCrustecean);
 
-Test myClass = new Test();
-myClass.SayHello();
+// Test myClass = new Test();
+// myClass.SayHello();

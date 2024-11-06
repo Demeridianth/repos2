@@ -2,6 +2,18 @@
 import random
 import timeit
 
+# for dict.get
+# return ' '.join(morse_code_dict.get(char.upper(), '') for char in text)
+# result = []
+# for char in text:
+#     result.append(morse_code_dict.get(char.upper(), ''))
+# return ' '.join(result)
+# GET IS USED TO ELIMANATE SYMBOLS
+
+# from a list of tuples to string
+lst  =  [('the', 9), ('and', 7), ('park', 6), ('with', 4), ('would', 4)]
+result = ', '.join(f"{word}: {count}" for word, count in lst)
+
 
 # FORMULA -  new_list = [expression for member in iterable]
 

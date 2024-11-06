@@ -4,14 +4,14 @@ import time
 from threading import Thread
 import schedule
 
-BOT_TOKEN = '6665008311:AAGlv-rXB2b6jWEopn7mTiIegGFP4ERqRsM'
+BOT_TOKEN = '...my_bot_token...'
 
 bot = telebot.TeleBot(BOT_TOKEN)
 bot_test_group_id = '-1001974322497'
 
 
+# answers to these commands
 def command_intake():
-    """ отвечает на команды """
     @bot.message_handler(commands = ['start', 'hello'])
     def send_welcome(message):
         bot.reply_to(message, "Hello there")
@@ -21,13 +21,13 @@ def command_intake():
         bot.reply_to(message, "i'm a bot in the works...")
 
 
-"""" (ECHO) отвечает на всё подряд """
+# answers to everything
 # @bot.message_handler(func = lambda msg: True)
 # def echo_all(message):
 #     bot.reply_to(message, message.text)
 
 
-""" График выполнения функции """
+# time schedule for when to run this
 def schedule_checker():
     while True:
         schedule.run_pending()

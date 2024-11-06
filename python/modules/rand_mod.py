@@ -1,5 +1,10 @@
 from random import shuffle, random, randint, randrange, choice, choices, sample, seed
 
+
+
+
+
+
 people: list[str] = ['Bob', 'Tom', 'James', 'Sandra']
 shuffle(people)
 print(people)

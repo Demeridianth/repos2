@@ -1,3 +1,12 @@
+def get_input(prompt, converter=str):
+    while True:
+        try:
+            return converter(input(prompt))
+        except ValueError:
+            print('enter valid parameter')
+
+
+
 #1
 
 # questions = ["What is your name?", "What is your favorite color?", "What is your quest?"]

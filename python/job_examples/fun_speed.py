@@ -1,5 +1,4 @@
 from time import perf_counter, sleep
-import O_of_one
 
 
 def run_time(function, *args, **kwargs):

@@ -1,6 +1,6 @@
 import time
 import threading
-import keyboard
+
 
 
 done = False
@@ -18,17 +18,17 @@ def countdown(user_time):
       
       
       
-### without the thread
+### with the thread, doesnt work
 
 
 
-if __name__ == '__main__':
-   while not done:
-      done = False
-      thread_countdown = threading.Thread(target=countdown, daemon=True, args=(5,))
-      thread_countdown.start()
-      choice = input('press enter')
-      done = True
+# if __name__ == '__main__':
+#    while not done:
+#       done = False
+#       thread_countdown = threading.Thread(target=countdown, daemon=True, args=(5,))
+#       thread_countdown.start()
+#       choice = input('press enter')
+#       done = True
       
-      
+countdown(10)
       

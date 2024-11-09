@@ -1,5 +1,5 @@
 import unittest
-from shopping_cart import ShoppingCart
+from shopping_cart import ShoppingCart, Item
 
 class TestShoppingCart(unittest.TestCase):
 

@@ -45,12 +45,6 @@ if __name__ == '__main__':
 
 
 
-"""
-Homework:
-1. Create a method in the Password class which checks the passwords strength. 
-- check that the password is more than 16 characters long
-- check that the password both contains uppercase characters and symbols
 
-"""
 
     

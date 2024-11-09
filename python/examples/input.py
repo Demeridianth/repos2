@@ -6,6 +6,11 @@ def get_input(prompt, converter=str):
             print('enter valid parameter')
 
 
+def get_user_input(prompt, converter=str):
+    return converter(prompt)
+
+
+
 
 #1
 

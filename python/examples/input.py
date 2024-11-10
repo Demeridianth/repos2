@@ -7,7 +7,7 @@ def get_input(prompt, converter=str):
 
 
 def get_user_input(prompt, converter=str):
-    return converter(prompt)
+    return converter(input(prompt))
 
 
 

@@ -20,10 +20,11 @@ class ChatBot:
     
 
     def get_best_response(self, user_input: str) -> tuple[str, float]:
-        highest_similarity = 0.0
+        highest_similarity = 0.5
         best_match = 'Sorry, I didn\'t understand that'
         for response in self.responses:
             similarity = self.calculate_similarity(user_input, response)
+            print(similarity)
             if similarity > highest_similarity:
                 highest_similarity = similarity
                 best_match = self.responses[response] 
@@ -45,8 +46,9 @@ class ChatBot:
         temp_max = days[0].get('tempmax')
         temp_min = days[0].get('tempmin')
         date_time = days[0].get('datetime')
+        description = days[0].get('description')
 
-        print(f'On {date_time} in {location} the temperature will vary from {temp_min} to {temp_max}')
+        print(f'On {date_time} in {location} the temperature will vary from {temp_min} to {temp_max}\n{description}')
 
 
     def run(self) -> None:
@@ -87,6 +89,7 @@ def main() -> None:
         'what time is it': 'GET_TIME',
         'what is the time': 'GET_TIME',
         'tell me the time': 'GET_TIME',
+        'what is the weather today': 'GET_WEATHER',
         'what weather is like today': 'GET_WEATHER',
         'weather forecast': 'GET_WEATHER',
         'do you know the weather': 'GET_WEATHER',
@@ -139,7 +142,7 @@ Homework:
 -- add location API -- to weather and to a question (where am i?)
 
 4. Send an email adress !
-5. Make it so that if the accuracy falls below 50%, it returns a default response.
+
 
 
 

@@ -3,7 +3,7 @@ from datetime import datetime
 import requests
 
 
-"""A responsive bot, try asking it some simple questions (it knows the weather)"""
+"""A responsive bot, try asking it some simple questions (it knows the weather, and can send a simple email)"""
 
 
 class ChatBot:

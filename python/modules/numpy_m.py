@@ -1,5 +1,5 @@
 import numpy as np
-from console_logging import console
+
 
 
 nums = np.array([1, 2, 3, 4, 5])

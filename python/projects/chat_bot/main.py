@@ -1,9 +1,14 @@
 from difflib import SequenceMatcher
 from datetime import datetime
 import requests
-
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import readline
+import json
 
 """A responsive bot, try asking it some simple questions (it knows the weather, and can send a simple email)"""
+# for email sending  Make sure 2-Step Verification and App Passwords are enabled for Gmail accounts.
 
 
 class ChatBot:
@@ -19,7 +24,7 @@ class ChatBot:
     
 
     def get_best_response(self, user_input: str) -> tuple[str, float]:
-        highest_similarity = 0.0
+        highest_similarity = 0.5
         best_match = 'Sorry, I didn\'t understand that'
         for response in self.responses:
             similarity = self.calculate_similarity(user_input, response)
@@ -44,8 +49,33 @@ class ChatBot:
         temp_max = days[0].get('tempmax')
         temp_min = days[0].get('tempmin')
         date_time = days[0].get('datetime')
+        description = days[0].get('description')
 
-        print(f'On {date_time} in {location} the temperature will vary from {temp_min} to {temp_max}')
+        print(f'On {date_time} in {location} the temperature will vary from {temp_min} to {temp_max}\n{description}')
+
+
+    def send_email(self) -> None:
+        sender_email = self.get_user_input('Enter your email address: ')
+        sender_password = self.get_user_input('Enter you gmail App password: ')
+        recipient_email = self.get_user_input('Enter recipient email address: ')
+        subject = self.get_user_input('Enter subject: ')
+        message = self.get_user_input('Enter message: ')
+        try:
+            msg = MIMEMultipart()
+            msg['From'] = sender_email
+            msg['To'] = recipient_email
+            msg['Subject'] = subject
+
+            msg.attach(MIMEText(message, 'plain'))
+
+            with smtplib.SMTP('smtp.gmail.com', 587) as server:
+                server.starttls()
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+                print('email sent succesfully')
+            
+        except Exception as e:
+            print(f'Failed to send email: {e}')
 
 
     def run(self) -> None:
@@ -74,56 +104,16 @@ class ChatBot:
             elif response == 'GET_TIME':
                 response = f'The time is: {datetime.now():%H:%M}'
 
+            elif response == 'SEND_EMAIL':
+                self.send_email()
+
             print(f'{self.name}: {response} (Simliraty: {similarity:.2%})')
 
 
 def main() -> None:
-    responses = {
-        'hello': 'Hello! How are you today?',
-        'hi': 'Hi there! How can I assist you today?',
-        'hey': 'Hey! What can I help you with?',
-        'how are you': 'Great, thanks! What about you?',
-        'what time is it': 'GET_TIME',
-        'what is the time': 'GET_TIME',
-        'tell me the time': 'GET_TIME',
-        'what weather is like today': 'GET_WEATHER',
-        'weather forecast': 'GET_WEATHER',
-        'do you know the weather': 'GET_WEATHER',
-        'Goodbye': 'EXIT',
-        'Bye': 'EXIT',
-        'See you later': 'EXIT',
-        'So long': 'EXIT',
-        'who are you': 'I am a Response Bot',
-        'what is your name': 'My name is Responsive Bot!',
-        'what are you': 'I am a chatbot designed to assist you.',
-        'what can you do': 'I can chat with you, answer basic questions, and tell you the date and time.',
-        'what coding language are you written in': 'I am written in Python',
-        'do you know python': 'Yes, I am actually written in Python!',
-        'what year is it': 'GET_YEAR',
-        'what date is it': 'GET_DATE',
-        'what is the date today': 'GET_DATE',
-        'tell me the date': 'GET_DATE',
-        'tell me a joke': 'Why did the programmer quit his job? Because he didn\'t get arrays!',
-        'do you like python': 'Of course! Python is great for building chatbots like me.',
-        'can you help me with programming': 'Sure! I can answer basic programming questions or guide you to resources.',
-        'what is ai': 'AI, or artificial intelligence, is a field of computer science focused on building smart machines capable of performing tasks that typically require human intelligence.',
-        'tell me about yourself': 'I am a chatbot here to help you with various questions and have a friendly chat!',
-        'how does a chatbot work': 'Chatbots analyze user input, then find the best matching response or perform an action based on their programming.',
-        'can you calculate something for me': 'I can answer questions, but for calculations, I suggest a calculator or programming tool.',
-        'what is machine learning': 'Machine learning is a subset of AI that enables systems to learn from data and improve from experience without being explicitly programmed.',
-        'what is deep learning': 'Deep learning is a type of machine learning that uses neural networks to analyze complex data.',
-        'do you have feelings': 'I don\'t have feelings, but I\'m here to chat and hopefully make your day a little brighter!',
-        'can you learn new things': 'I have a set range of responses, but developers can improve me over time.',
-        'what is your purpose': 'My purpose is to assist you with information and make your day a little easier!',
-        'what can you tell me about programming': 'Programming is the process of writing instructions for computers to perform tasks.',
-        'do you know any programming languages': 'I\'m familiar with Python since I\'m written in it, but I can answer basic questions about other languages too!',
-        'what is data science': 'Data science is a field that uses statistical and computational techniques to analyze data and gain insights.',
-        'tell me a fun fact': 'Did you know that the first computer virus was created in 1983? It was called "Elk Cloner."',
-        'how old are you': 'I am as old as my code! I don\'t age in the traditional sense.',
-        'can you answer all questions': 'I try my best, but I may not know everything!',
-    }
-
-
+    with open('responses.json', 'r') as file:
+        responses = json.loads(file.read())
+        
     chat_bot = ChatBot('Responsive Bot', responses)
     chat_bot.run()
 

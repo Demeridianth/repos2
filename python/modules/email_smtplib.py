@@ -45,4 +45,6 @@ def main():
 if __name__ == '__main__':
     main()
 
-# pass =  'nicf zozv rrpu hzzj'
+
+# Make sure 2-Step Verification and App Passwords are enabled for Gmail accounts.
+# pass =  efwh ycrs antb fdnn

@@ -4,8 +4,6 @@ from tkinter import Tk, Text, Frame, Button, Menu, messagebox
 from tkinter import *
 
 
-# to class
-
 def main():
     window = Tk()
     window.title('Notepad')
@@ -58,12 +56,13 @@ def main():
 
     # WIDGETS
 
+
     # label
     label = tk.Label()
     label.pack()
 
     # text
-    text = Text(window, wrap='word')
+    text = Text(window, wrap='word', undo=True)
     text.pack(expand=True, fill='both')
 
 
@@ -71,13 +70,10 @@ def main():
     frame = Frame(window)
     frame.pack()
 
-    #  delete button
-    delete = Button(frame, text='Delete', command=delete_button)
+    #  delete all text button
+    delete = Button(frame, text='Clear', command=delete_button)
     delete.pack(side=tk.LEFT)
-    #  2 button
-    # button2 = Button(frame, text='222')
-    # button2.pack(side=tk.LEFT)
-
+    
 
     # menu bar
     menu_bar = Menu(window)
@@ -86,12 +82,25 @@ def main():
     # file menu
     file_menu = Menu(menu_bar, tearoff=0)
     menu_bar.add_cascade(label='File', menu=file_menu)
-    
-    file_menu.add_command(label="Open", command=open_file)
-    file_menu.add_command(label="Save", command=save_file)
-    file_menu.add_command(label="Save As", command=save_as_file)
+    # commands
+    file_menu.add_command(label='Open', command=open_file)
+    file_menu.add_command(label='Save', command=save_file)
+    file_menu.add_command(label='Save As', command=save_as_file)
     file_menu.add_separator()
-    file_menu.add_command(label="Exit", command=window.quit)
+    file_menu.add_command(label='Exit', command=window.quit)
+
+    # edit menu
+    edit_menu = Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label='Edit', menu=edit_menu)
+    # commands
+    edit_menu.add_command(label='Undo', command=text.edit_undo)
+    edit_menu.add_command(label='Redo', command=text.edit_redo)
+    edit_menu.add_separator()
+    edit_menu.add_command(label='Cut', command=lambda: text.event_generate('<<Cut>>'))
+    edit_menu.add_command(label='Copy', command=lambda: text.event_generate('<<Copy>>'))
+    edit_menu.add_command(label='Paste', command=lambda: text.event_generate('<<Paste>>'))
+    edit_menu.add_command(label='Delete', command=lambda: text.delete('sel.first', 'sel.last'))
+
 
     window.mainloop()
 

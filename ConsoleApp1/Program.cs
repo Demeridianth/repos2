@@ -1,11 +1,12 @@
 ﻿//Create Read Update Delete
 //CRUd
 //Creat
+
+
+
 using System.Text;
-using ConsoleApp1;
 
 string pet = "fish";
-
 
 //COncatenation
 pet = "porcupine " + pet;
@@ -26,12 +27,51 @@ string newPet = pet.Replace("porcupine", "blue dot");
 
 //Delete
 //String BUilder // memory economy, doesnt creates a new object but works with the same
-StringBuilder newCrustecean = new StringBuilder();
-newCrustecean.Append("fiddler crab");
-Console.WriteLine(newCrustecean);
-// delete stringbuilder string
-newCrustecean.Remove(0, 8); // (start, end)
-Console.WriteLine(newCrustecean);
 
-// Test myClass = new Test();
-// myClass.SayHello();
+StringBuilder morePet = new StringBuilder();
+morePet.Append("a new pet");
+// Console.WriteLine(morePet.ToString());
+
+// REMOVE
+morePet.Remove(0, 6);
+// Console.WriteLine(morePet);
+
+
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         StringBuilder newPet = new StringBuilder();
+//         newPet.Append("This is a test.");
+//         Console.WriteLine(newPet.ToString());
+//     }
+// }
+
+
+
+// ARRAY
+
+// Create
+string[] favoriteRats = ["fancy rat", "brown rat", "radioactive rat", "wolf rat"];
+
+
+// Read
+// foreach(var rat in favoriteRats)
+// {
+//     Console.WriteLine(rat);
+// }
+
+
+// Update
+// favoriteRats[0] = "Fancy Rat";
+
+// LINQ "Update array linq"
+// filter array for everything that starts with a 'B'
+var newFavoriteRats = favoriteRats.Where((e) => e.StartsWith("b"));
+
+foreach(var rat in newFavoriteRats)
+{
+    Console.WriteLine(rat);
+}
+
+

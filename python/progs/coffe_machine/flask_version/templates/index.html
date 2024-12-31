@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop_name }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to {{ shop_name }}</h1>
+        </header>
+        <main>
+            <form method="POST" action="/order">
+                <div class="form-group">
+                    <label for="type">Choose Coffee Type:</label>
+                    <select name="type_number" id="type">
+                        {% for key, value in types.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="size">Choose Size:</label>
+                    <select name="size_number" id="size">
+                        {% for key, value in sizes.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="extras">Choose Extra Component:</label>
+                    <select name="component_number" id="extras">
+                        {% for key, value in extras.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+            {% if message %}
+                <p class="message">{{ message }}</p>
+            {% endif %}
+        </main>
+        <footer>
+            <p>Enjoy your coffee journey at {{ shop_name }}!</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -10,6 +10,15 @@ def get_user_input(prompt, converter=str):
     return converter(input(prompt))
 
 
+def get_choice(prompt, choices):
+    while True:
+        user_input = input(f'{prompt}' )
+        if user_input in choices:
+            return user_input
+        else:
+            print('enter valid choice')
+
+
 
 
 #1

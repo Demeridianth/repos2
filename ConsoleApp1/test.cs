@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 using Microsoft.VisualBasic;
 
-namespace ConsoleApp1
-{
-    public class Test
-    {
-        public void SayHello()
-        {
-            Console.WriteLine("Hello from Test");
-        }
+public class Beginning
 
-    }
+{
+    public static void Testing() => Console.WriteLine("hello");
+
 }

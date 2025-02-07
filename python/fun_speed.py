@@ -29,3 +29,15 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# as a wrapper
+def time_logger(func):
+    def wrapper(*args, **kwargs):
+        start = perf_counter()
+        # sleep(1)
+        result = func(*args, **kwargs)
+        end = perf_counter()
+        print(f'it took {end - start: 0.04f} to compute your function')
+        return result
+    return wrapper

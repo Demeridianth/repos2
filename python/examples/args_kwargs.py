@@ -25,6 +25,19 @@ def unpacked(lst, *args):
 
 """kwargs"""
 
+person = {'name': 'Bob', 'age': 30, 'position': 'manager'}
+
+def iterate(**kwargs):
+    for key, value in kwargs.items():
+        print(f'{key} = {value}\n')
+
+iterate(**person)
+
+
+
+
+
+
 def details(**kwargs):
     print('Details of the order are:')
     for key, value in kwargs.items():

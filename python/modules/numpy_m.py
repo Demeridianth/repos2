@@ -366,7 +366,13 @@ print(np.median(arr))
 
 # RANDOM #
 
-numbers = np.random.randint(100, size=(2, 3, 4))
+
+
+numbers = np.random.random(6)
+# will generate random floats from 0 to 1
+
+
+numbers = np.random.randint(100, size=(2, 3, 4))    # or  low, high, size IF 1 dimention
 print(numbers)
 # [[[98 57 71 75]
 #   [20 64 30 84]

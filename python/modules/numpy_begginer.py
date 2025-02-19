@@ -192,3 +192,6 @@ arr.sort(0)     # will sort by 0 axis (rows)
 
 np.sort(arr)       # wont change array
 arr.sort()         # will change array
+
+
+

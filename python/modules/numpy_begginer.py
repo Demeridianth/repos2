@@ -40,6 +40,11 @@ rng.normal(5, 1, 10) # middle number, deviation, n  and will return float
 # integers
 rand_int = rng.integers(0, 10, 100)  # start, end, n   random int
 
+# choice
+a = np.array([1, 2, 3, 4, 5, 6])
+half = rng.choice(a, size=len(a)//2, replace=False)  # Randomly select half the elements
+
+
 
 numbers = np.random.random(6)
 # will generate random floats from 0 to 1
@@ -134,6 +139,12 @@ np.where(arr % 2 == 0, 'even', np.where(arr == 9, arr, 'odd'))    # does a doubl
 # array(['even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even',
 #        '9', 'even', 'odd', 'even', 'odd', 'even', 'odd', 'even', 'odd',
 #        'even', 'odd'], dtype='<U11')
+
+
+a = np.array(['dog', 'dog', 'cat', 'dog', 'cat'])
+b = np.where(a == 'cat')
+# [2, 4]
+# WHERE WILL RETURN INDEX OF MATCHED STRINGS
 
 
 """ sum, mean, max"""

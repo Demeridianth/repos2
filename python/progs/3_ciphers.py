@@ -135,7 +135,7 @@ class Ciphers:
         characters = self.upper_lower_digits
         encryptor = {characters[char]: secret_key[char] for char in range(len(characters))}
         result = [encryptor.get(char, char) for char in text]
-        
+
         return ''.join(result)
     
 
@@ -144,15 +144,13 @@ class Ciphers:
         secret_key = ''.join(random.sample(self.upper_lower_digits, len(self.upper_lower_digits)))
         characters = self.upper_lower_digits
         decryptor = {secret_key[char]: characters[char] for char in range(len(secret_key))}
-        result = [decryptor.get(char, char) for char in text]
+        result = [decryptor.get(char, char) for char in encrypted_text]
 
         return ''.join(result)
     
 
-ciphers = Ciphers()
-
-if __name__ == '__main__':
-    
+def main():
+    ciphers = Ciphers()
     print('Welcome to "choose your Cipher program"')
     while True:
         print('1. Vigenere Cipher'); print('2. Ceaser Cipher'); print('3. Secret Key Cipher'); print('4. Quit the programm')
@@ -194,6 +192,11 @@ if __name__ == '__main__':
 
         else:
             break
+
+
+if __name__ == '__main__':
+    main()
+    
             
             
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Cipher Tool</h1>
+
+    <form action="/" method="POST">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text" required>
+
+        <label for="cipher_type">Cipher Type:</label>
+        <select name="cipher_type" id="cipher_type" required onchange="toggleKeywordField()">
+            <option value="vigenere" {% if request.form.get('cipher_type') == 'vigenere' %}selected{% endif %}>Vigenère Cipher</option>
+            <option value="ceaser" {% if request.form.get('cipher_type') == 'ceaser' %}selected{% endif %}>Ceaser Cipher</option>
+            <option value="secret" {% if request.form.get('cipher_type') == 'secret' %}selected{% endif %}>Secret Key Cipher</option>
+        </select>
+
+        <label for="action_type">Action:</label>
+        <select name="action_type" id="action_type" required>
+            <option value="encrypt" {% if request.form.get('action_type') == 'encrypt' %}selected{% endif %}>Encrypt</option>
+            <option value="decrypt" {% if request.form.get('action_type') == 'decrypt' %}selected{% endif %}>Decrypt</option>
+        </select>
+
+        <!-- Keyword field for Vigenère Cipher -->
+        <div id="keyword_field" style="display: none;">
+            <label for="keyword">Keyword (only for Vigenère Cipher):</label>
+            <input type="text" id="keyword" name="keyword" {% if request.form.get('cipher_type') == 'vigenere' %}required{% endif %}>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result %}
+        <h2>Result:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+
+    <script>
+        // Function to show or hide the keyword field based on selected cipher type
+        function toggleKeywordField() {
+            const cipherType = document.getElementById("cipher_type").value;
+            const keywordField = document.getElementById("keyword_field");
+
+            // Show keyword field only for Vigenère Cipher
+            if (cipherType === "vigenere") {
+                keywordField.style.display = "block";
+                document.getElementById("keyword").setAttribute("required", "true");
+            } else {
+                keywordField.style.display = "none";
+                document.getElementById("keyword").removeAttribute("required");
+            }
+        }
+
+        // Ensure the correct state when the page loads or reloads
+        window.onload = function() {
+            toggleKeywordField();
+        };
+    </script>
+
+</body>
+</html>

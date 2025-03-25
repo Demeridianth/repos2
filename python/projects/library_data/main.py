@@ -16,7 +16,7 @@ import numpy as np
 # try/except usage
 # auto ID implementation for each record
 # implementation of different python libraries and modules
-# web sraping
+# web scraping
 
 
 

@@ -217,6 +217,7 @@ def index():
         # Retrieve data from the form submission (POST)
         name = request.form.get('name')
         age = request.form.get('age')
+        optional = request.form.get('optional_value', '')  # if in some case you would need to get it, OR dont need it, so the program wont brake
 
     return render_template('form.html', name=name, age=age)
 

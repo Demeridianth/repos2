@@ -8,11 +8,19 @@ COPY static/styles.css /app/static/styles.css
 EXPOSE 5000
 CMD ["python3", "app.py"]
 
-# docker build -t username/appname .   TO build in docker APP
-# docker push username/appname    TO PUSH to DockerHub repository
 
 # docker build -t appname .   TO build in docker APP
-# docker tag image_name username/appname (repository name)
-
+# docker tag image_name username/appname 
 # docker push username/appname    TO PUSH to DockerHub repository
 
+# wsl --shutdown        to kill the process
+
+
+
+
+
+# docker build -t appname .   TO build in docker APP
+# docker push username/appname    TO PUSH to DockerHub repository
+
+# docker tag local-image:tagname new-repo:tagname
+# docker push new-repo:tagname

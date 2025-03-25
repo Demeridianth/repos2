@@ -1,6 +1,9 @@
 import string
 import random
 from itertools import cycle
+from flask import Flask, request, render_template
+
+app = Flask(__name__)
 
 
 """ Program that let's the user choose a cipher out of 3 different ones (Vigenere Cipher, Ceaser Cipher, Secret Key cipher) 
@@ -30,20 +33,26 @@ class Ciphers:
         encoded_text = []
         
         for char in text:
+            try:
+                shift = next(iterated_shift_number)
+            except StopIteration:
+                break
+                
+
             # check for lower letters
             if char in self.lower_letters:
                 new_index = self.lower_letters.index(char)
-                encoded_text.append(self.lower_letters[(new_index + next(iterated_shift_number)) % len(self.lower_letters)])
+                encoded_text.append(self.lower_letters[(new_index + shift) % len(self.lower_letters)])
 
             # check for upper letters
             elif char in self.upper_letters:
                 new_index = self.upper_letters.index(char)
-                encoded_text.append(self.upper_letters[(new_index + next(iterated_shift_number)) % len(self.upper_letters)])
+                encoded_text.append(self.upper_letters[(new_index + shift) % len(self.upper_letters)])
 
             # check for digits
             elif char in self.digits:
                 new_index = self.digits.index(char)
-                encoded_text.append(self.digits[(new_index + next(iterated_shift_number)) % len(self.digits)])
+                encoded_text.append(self.digits[(new_index + shift) % len(self.digits)])
             
             # keep spaces and punctuation as they were
             else:
@@ -57,20 +66,25 @@ class Ciphers:
         decyrpted_text = []
 
         for char in encrypted_text:
+            try:
+                shift = next(iterated_shift_number)
+            except StopIteration:
+                break
+
             # check for lower letters
             if char in self.lower_letters:
                 new_index = self.lower_letters.index(char)
-                decyrpted_text.append(self.lower_letters[(new_index - next(iterated_shift_number)) % len(self.lower_letters)])
+                decyrpted_text.append(self.lower_letters[(new_index - shift) % len(self.lower_letters)])
 
             # check for upper letters
             elif char in self.upper_letters:
                 new_index = self.upper_letters.index(char)
-                decyrpted_text.append(self.upper_letters[(new_index - next(iterated_shift_number)) % len(self.upper_letters)])
+                decyrpted_text.append(self.upper_letters[(new_index - shift) % len(self.upper_letters)])
 
             # check for digits
             elif char in self.digits:
                 new_index = self.digits.index(char)
-                decyrpted_text.append(self.digits[(new_index - next(iterated_shift_number)) % len(self.digits)])
+                decyrpted_text.append(self.digits[(new_index - shift) % len(self.digits)])
 
             # keep spaces and punctuation as they were
             else:
@@ -135,7 +149,7 @@ class Ciphers:
         characters = self.upper_lower_digits
         encryptor = {characters[char]: secret_key[char] for char in range(len(characters))}
         result = [encryptor.get(char, char) for char in text]
-        
+
         return ''.join(result)
     
 
@@ -144,56 +158,46 @@ class Ciphers:
         secret_key = ''.join(random.sample(self.upper_lower_digits, len(self.upper_lower_digits)))
         characters = self.upper_lower_digits
         decryptor = {secret_key[char]: characters[char] for char in range(len(secret_key))}
-        result = [decryptor.get(char, char) for char in text]
+        result = [decryptor.get(char, char) for char in encrypted_text]
 
         return ''.join(result)
     
 
 ciphers = Ciphers()
 
-if __name__ == '__main__':
-    
-    print('Welcome to "choose your Cipher program"')
-    while True:
-        print('1. Vigenere Cipher'); print('2. Ceaser Cipher'); print('3. Secret Key Cipher'); print('4. Quit the programm')
-        user_cipher_choice = ciphers.get_user_input('Select the number of your cipher: ', int)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    result = ''
+    if request.method == 'POST':
+        text = request.form['text']
+        keyword = request.form.get('keyword', '')
+        cipher_type = request.form['cipher_type']
+        action_type = request.form.get('action_type', '')
+
+        if cipher_type == 'vigenere':
+            if action_type == 'encrypt':
+                result = ciphers.encrypt_vigenere_cipher(text, keyword)
+            elif action_type == 'decrypt':
+                result = ciphers.decrypt_vigenere_cipher(text, keyword)
+        if cipher_type == 'ceaser':
+            if action_type == 'encrypt':
+                result = ciphers.encrypt_ceaser_cipher(text)
+            elif action_type == 'decrypt':
+                result = ciphers.decrypt_ceaser_cipher(text)   
+        if cipher_type == 'secret':
+            if action_type == 'encrypt':
+                result = ciphers.encrypt_secret_key(text)
+            elif action_type == 'decrypt':
+                result = ciphers.decrypt_secret_key(text)
+
+    return render_template('index.html', result=result)
         
-        if user_cipher_choice == 1:
-            text = ciphers.get_user_input('Enter the text for the cipher to encode: ')
-            keyword = ciphers.get_user_input('Enter the keyword for the cipher to use: ')
-            encoded_result = ciphers.encrypt_vigenere_cipher(text, keyword)
-            print(f'Your text have been encrypted to: "{encoded_result}"')
-            decoding_user_choice = ciphers.get_user_input('Do you wish to decode the result back? (y/n): \n')
-            if decoding_user_choice == 'y':
-                decoded_result = ciphers.decrypt_vigenere_cipher(encoded_result, keyword)
-                print(f'Your text have been decoded back to: "{decoded_result}"\n')
-            else:
-                continue
-            
-        elif user_cipher_choice == 2:
-            text = ciphers.get_user_input('Enter the text for the cipher to encode: ')
-            encoded_result = ciphers.encrypt_ceaser_cipher(text)
-            print(f'Your text have been encrypted to: "{encoded_result}"')
-            decoding_user_choice = ciphers.get_user_input('Do you wish to decode the result back? (y/n): \n')
-            if decoding_user_choice == 'y':
-                decoded_result = ciphers.decrypt_ceaser_cipher(encoded_result)
-                print(f'Your text have been decoded back to: "{decoded_result}"\n')
-            else:
-                continue
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", debug=True)
 
-        elif user_cipher_choice == 3:
-            text = ciphers.get_user_input('Enter the text for the cipher to encode: ')
-            encoded_result = ciphers.encrypt_secret_key(text)
-            print(f'Your text have been encrypted to: "{encoded_result}"')
-            decoding_user_choice = ciphers.get_user_input('Do you wish to decode the result back? (y/n): \n')
-            if decoding_user_choice == 'y':
-                decoded_result = ciphers.decrypt_secret_key(encoded_result)
-                print(f'Your text have been decoded back to: "{decoded_result}"\n')
-            else:
-                continue
 
-        else:
-            break
+# http://127.0.0.1:5000/
+    
             
             
 

@@ -81,6 +81,15 @@ sales_series['bananas':'sugar']         # when slicing using string labels as in
 # coconut      0
 # sugar      518
 
+sales_series[1:5]       # slicing
+# bananas      5
+# tea        155
+# coconut      0
+# sugar      518
+
+
+""" iloc | handles actual indexes"""
+
 # iloc
 sales_series.iloc[2]        # grabs by index even if index is text based
 # 155
@@ -89,8 +98,45 @@ sales_series.iloc[[1, 3]]       #  by passing a list - grabs indexes and values
 # bananas    5
 # coconut    0
 
-sales_series[1:5]       # slicing
+
+""" loc | handles index values """
+
+sales_series.index = ['coffee', 'bananas', 'tea', 'coconut', 'sugar']
+# coffee       0
 # bananas      5
 # tea        155
 # coconut      0
 # sugar      518
+
+sales_series.loc['tea']         # preffered way to grab values by their CUSTOM index
+# 155
+
+sales_series.loc['coffee': 'coconut']       # .loc slice WILL INCLUDE last 'index'
+# coffee       0
+# bananas      5
+# tea        155
+# coconut      0
+
+sales_series[0:3]           # simple slice WILL NOT INCLUDE last 'index'
+# coffee       0
+# bananas      5
+# tea        155
+
+
+""" reset index"""
+
+reseted_series =  sales_series.reset_index()          # returns default indexes with index values BUT doesnt change the series
+reseted_series
+# 0	    0	0
+# 1	    2	1
+# 2	    3	2
+# 3	    100	3
+# 4	    5	4
+
+
+sales_series.reset_index(drop=True)         # resets indexes to default numbers
+# 0      0
+# 1      5
+# 2    155
+# 3      0
+# 4    518

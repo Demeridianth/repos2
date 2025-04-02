@@ -140,3 +140,33 @@ sales_series.reset_index(drop=True)         # resets indexes to default numbers
 # 2    155
 # 3      0
 # 4    518
+
+
+""" .isin()  ~.isin()  (in, not in) """
+
+sales_series.index.isin(['coffee'])
+# array([ True, False, False, False, False])
+
+~sales_series.index.isin(['coffee'])
+# array([False,  True,  True,  True,  True])        # tilde inverts
+
+
+""" sorting """
+
+sales_series.sort_values()
+# coffee       0
+# coconut      0
+# bananas      5
+# tea        155
+# sugar      518
+# Name: Sales, dtype: int64
+
+sales_series.sort_values(ascending=False)
+# sugar      518
+# tea        155
+# bananas      5
+# coffee       0
+# coconut      0
+# Name: Sales, dtype: int64
+
+

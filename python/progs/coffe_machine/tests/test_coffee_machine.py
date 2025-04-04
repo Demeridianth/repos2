@@ -29,3 +29,14 @@ def test_invalid_coffee():
     output = f.getvalue().strip()
     
     assert output == "your order is None None with None"
+
+
+def test_no_extra():
+    shop = CoffeShop('Python Coffee')
+
+    string = StringIO()
+    with redirect_stdout(string):
+        shop.make_cofee(1, 2, 0)
+    output = string.getvalue().strip()
+
+    assert output == 'your order is medium black with None'

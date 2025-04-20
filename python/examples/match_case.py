@@ -1,6 +1,25 @@
+from enum import Enum
+
+""" LAMP """
+
+class State(Enum):
+    OFF: int = 0
+    ON: int = 1
+
+switch: State = State.OFF
+
+match switch:
+    case State.ON:
+        print('The lamp is ON')
+    case State.OFF:
+        print('The lamp is turned OFF')
+    case _:
+        print('Your lamp is possesed')
+
+
+
+
 """Dictionaries and sets"""
-
-
 
 """dict comprehension"""
 
@@ -30,13 +49,6 @@ dial_sorted = {code: country.upper() for country, code in sorted(country_dial.it
 #     if code < 70:
 #         dial_sorted[code] = country.upper()
 # {55: 'BRAZIL', 62: 'INDONESIA', 7: 'RUSSIA', 1: 'UNITED STATES'}
-
-
-
-
-
-
-
 
 
 

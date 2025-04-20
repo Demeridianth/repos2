@@ -1,5 +1,6 @@
 {
     "python.defaultInterpreterPath": "C:/Users/sergi/anaconda3/python.exe",
     "terminal.integrated.cwd": "",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "terminal.integrated.defaultProfile.linux": "WSL"
 }

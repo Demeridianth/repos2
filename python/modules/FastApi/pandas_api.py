@@ -17,7 +17,7 @@ except Exception as error:
     df = pd.DataFrame()
 
 # Check the first few rows to confirm how the columns look
-print("First few rows of data:", df.head())
+print(df.head())
 
 
 # # Convert DataFrame to list of dicts (like JSON records)

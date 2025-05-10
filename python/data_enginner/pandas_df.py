@@ -44,8 +44,8 @@ dt.loc[:, 'id': 'name']     # get slice
 dt.loc[:, ['id', 'name']]   # get all data from columns
 
 oil = pd.read_csv('oil.csv')
-oil.columns = ['data', 'price']
-oil['euro price'] = oil['price'] * 1.1
+oil.columns = ['data', 'price']     # rename columns
+oil['euro price'] = oil['price'] * 1.1      # create new column
 print(oil.head())
 
 
@@ -89,3 +89,10 @@ oil = pd.read_csv('oil.csv', parse_dates=['date'])      # parse_dates will make 
 oil.query('dcoilwtico > benchmark and date.dt.year == 2013')
 smokers_southeast = dt.query('smoker == "yes" and region == "southeast"')       # column names dont have "", values DO
 # transactions.query("store_nbr in [25, 31] and date.str[6] in ['5', '6'] and transactions < 2000").sum().iloc[2]
+
+
+# sorting
+oil.sort_index(ascending=False)         #from highest to lowest
+oil.sort_index(axis=1)         # axis 1 will sort column name
+
+oil.sort_values(['month', 'dcoilwtico'], ascending=[True, False])       # date by 2 columns, and giving them different ascending values
